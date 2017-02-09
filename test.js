@@ -284,18 +284,18 @@ javascript:(function(e,a,g,h,f,c,b,d){
 	/*Calling function to check HTML with lang*/
 	/*findMissinAttr("html", "lang");*/
 	/*Calling function to check IMG with alt*/
-	findMissinAttr("img", "alt", "src", "title");
+	//findMissinAttr("img", "alt", "src", "title");
 	/*Calling function to check TABLE with summary*/
-	findMissinAttr("table", "summary");
-	findMissinAttr("select", "id");
+	//findMissinAttr("table", "summary");
+	//findMissinAttr("select", "id");
 	/*Calling function to count number TABLE on page*/
-	countTag("table");
+	//countTag("table");
 	/*Calling function to check for select without label*/
-	findLinkedTag("select", "id", "label", "for");
+	//findLinkedTag("select", "id", "label", "for");
 	/*Calling function to check for duplicated IDs*/
-	findDuplicatedIDs();
+	//findDuplicatedIDs();
 	/*Calling function to write HTML*/
-	writeHTML();
+	//writeHTML();
 
 	
 	
