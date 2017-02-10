@@ -11,6 +11,12 @@ javascript:(function(e,a,g,h,f,c,b,d){
 	}
 })
 
+javascript:(function (callback) {
+  var script = document.createElement("script");
+  script.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js");
+  document.body.appendChild(script);
+})
+
 (window,document,"1.3.2",function($,L){
 
 	/*Function to find the closes tag parent with ID*/
