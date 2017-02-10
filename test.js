@@ -301,6 +301,6 @@ javascript:(function(e,a,g,h,f,c,b,d){
 	
 	
 	/*Opening report on a new window*/
-	var w = window.open();
-	$(w.document.body).html(newPage);
+	//var w = window.open();
+	//$(w.document.body).html(newPage);
 });
