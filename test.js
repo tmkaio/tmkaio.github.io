@@ -316,7 +316,7 @@ javascript:(function (callback) {
 			$("body").append(txt2);     
 			$("#coco").css({bottom: "0px", right: "20px", position:'fixed', width:"20%", height:"40%", zIndex: 1000, background: "grey"});	
 			$("#coco").addClass("text-danger");
-			//$( "#coco" ).draggable();
+			$( "#coco" ).draggable();
 			$("#sair").click(function(){
 				$("#coco").hide();	
 			});
