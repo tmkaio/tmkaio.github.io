@@ -282,7 +282,7 @@ javascript:(function(e,a,g,h,f,c,b,d){
 	
 	
 	/*Calling function to check HTML with lang*/
-	/*findMissinAttr("html", "lang");*/
+	//findMissinAttr("html", "lang");
 	/*Calling function to check IMG with alt*/
 	//findMissinAttr("img", "alt", "src", "title");
 	/*Calling function to check TABLE with summary*/
@@ -297,10 +297,34 @@ javascript:(function(e,a,g,h,f,c,b,d){
 	/*Calling function to write HTML*/
 	//writeHTML();
 
-	
-	
+		/*var txt3 = $("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>"); 
+		$("html").append(txt3);     // Append new elements
+
+		var txt4 = $("<link rel='stylesheet' href='<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>"); 
+		$("html").append(txt4);     // Append new elements*/
+		
+		
+		if(!$("#coco").length){
+
+			var txt2 = $("<div id='coco' class='well'><a href='#' id='sair'>X</a></div>"); 
+			$("body").append(txt2);     
+			$("#coco").css({bottom: "0px", right: "20px", position:'fixed', width:"20%", height:"40%", zIndex: 1000, background: "grey"});	
+			$("#coco").addClass("text-danger");
+			$("#sair").click(function(){
+				$("#coco").hide();	
+			});
+		}
+		else{
+			$("#coco").show();
+		}
+
+
+
+
+		
 	
 	/*Opening report on a new window*/
+	
 	//var w = window.open();
 	//$(w.document.body).html(newPage);
 });
