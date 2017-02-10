@@ -11,6 +11,19 @@ javascript:(function(e,a,g,h,f,c,b,d){
 	}
 })
 
+javascript:(function(e,a,g,h,f,c,b,d){
+	if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){
+		c=a.createElement("script");
+		c.type="text/javascript";
+		c.src="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/"+g+"/jquery-ui.min.js";
+		c.onload=c.onreadystatechange=function(){
+			if(!b&&(!(d=this.readyState)||d=="loaded"||d=="complete")){
+				h((f=e.jQuery).noConflict(1),b=1);f(c).remove()
+			}
+		};a.documentElement.childNodes[0].appendChild(c)
+	}
+})
+
 (window,document,"1.3.2",function($,L){
 
 	/*Function to find the closes tag parent with ID*/
