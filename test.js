@@ -226,11 +226,11 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 			if(ids.length>1 && ids[0]==this){
 				if(count == 0){
 					duplicatedIDs += this.id;
-					$(this).css("cssText", "border: 5px solid red");
+					//$(this).css("cssText", "border: 5px solid red");
 				} 
 				else{
 					duplicatedIDs += ", " + this.id;
-					$(this).css("cssText", "border: 5px solid red");
+					//$(this).css("cssText", "border: 5px solid red");
 				}
 				count++;
 			}
@@ -298,7 +298,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 				findFirstParentwithID(this);
 				reportBody += "First parent with id found: " + address;
 				
-				$(this).css("cssText", "border: 5px solid red");
+				//$(this).css("cssText", "border: 5px solid red");
 
 				reportBody += "<br>ID: " + $(this).attr(attr1);
 				itemsCounter++;
