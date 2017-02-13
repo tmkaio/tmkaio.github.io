@@ -372,7 +372,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 		reportBody = reportBody.replace(/\</g,"%3C");
 		counters = counters.replace(/\>/g,"%3E");
 		counters = counters.replace(/\</g,"%3C");
-		alert(reportBody);
+		//alert(reportBody);
 				
 	//document.getElementById("img1").style.border = "2px solid red";		
 
@@ -388,7 +388,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
         sidenav +=             '<a href="javascript: cagando(\'' + tablelink + '\')"><i class="fa fa-fw fa-home"></i>table without summary</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="javascript: writeHTML(\'' +  + '\', \'' + counters + '\', \'' + duplicatedIDs + '\')"><i class="fa fa-fw fa-home"></i>Report</a>';
+        sidenav +=             '<a href="javascript: writeHTML(\'' +  + '\', \'' +  + '\', \'' +  + '\')"><i class="fa fa-fw fa-home"></i>Report</a>';
         sidenav +=        '</li>';
         sidenav +=        '<li>';
         sidenav +=             '<a href="#"><i class="fa fa-fw fa-cog"></i> Third page</a>';
