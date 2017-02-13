@@ -76,7 +76,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 
 	/*Function to find missing attr on tags*/
 	function findMissinAttr(tag, missingAttr, obligAttr = false, optAttr = false){
-		elementsIDs = "";
+		imglink = "";
 		totalItemsCounter = 0;
 		itemsCounter = 0;
 
@@ -136,18 +136,18 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 					$(this).attr("id", tag+itemsCounter);
 					
 					if(itemsCounter == 0){
-						elementsIDs += $(this).attr("id");
+						imglink += $(this).attr("id");
 					}
 					else{
-						elementsIDs += "," + $(this).attr("id");
+						imglink += "," + $(this).attr("id");
 					}
 				}
 				else{
 					if(itemsCounter == 0){
-						elementsIDs += $(this).attr("id");
+						imglink += $(this).attr("id");
 					}
 					else{
-						elementsIDs += "," + $(this).attr("id");
+						imglink += "," + $(this).attr("id");
 					}
 				}
 				
@@ -205,7 +205,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 		reportBody += "<br>Number of " + tag + " missing " + missingAttr + " <span class='text-danger'>" + itemsCounter + "</span></b>";
 		
 		return reportBody;
-	}
+	}*/
 
 	/*Function to count the total number of tag*/
 	function countTag(tag){
@@ -319,25 +319,22 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 	var reportBody = "";
 	var counters = "";
 	var duplicatedIDs = "";
-	var elementsIDs;
+	var imglink;
 	
 	
 	/*Calling function to check HTML with lang*/
-	findMissinAttr("html", "lang");
-	htmllink = elementsIDs;
+	//findMissinAttr("html", "lang");
 	/*Calling function to check IMG with alt*/
 	findMissinAttr("img", "alt", "src", "title");
-	imglink = elementsIDs;
 	/*Calling function to check TABLE with summary*/
-	findMissinAttr("table", "summary");
-	tablelink = elementsIDs;
+	//findMissinAttr("table", "summary");
 	//findMissinAttr("select", "id");
 	/*Calling function to count number TABLE on page*/
-	countTag("table");
+	//countTag("table");
 	/*Calling function to check for select without label*/
 	//findLinkedTag("select", "id", "label", "for");
 	/*Calling function to check for duplicated IDs*/
-	findDuplicatedIDs();
+	//findDuplicatedIDs();
 	/*Calling function to write HTML*/
 	//writeHTML();
 
@@ -367,12 +364,6 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 			$("#coco").show();
 		}
 				
-		reportBody = reportBody.replace(/\"/g,"%22");
-		reportBody = reportBody.replace(/\>/g,"%3E");
-		reportBody = reportBody.replace(/\</g,"%3C");
-		counters = counters.replace(/\>/g,"%3E");
-		counters = counters.replace(/\</g,"%3C");
-		alert(reportBody);
 				
 	//document.getElementById("img1").style.border = "2px solid red";		
 
@@ -382,13 +373,13 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
         sidenav +=          	'<a href="javascript: cagando(\'' + imglink + '\')"><i class="fa fa-fw fa-home"></i>IMG without alt</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="javascript: cagando(\'' + htmllink + '\')"><i class="fa fa-fw fa-home"></i>HTML without lang</a>';
+        sidenav +=             '<a href="#"><i class="fa fa-fw fa-home"></i> Home</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="javascript: cagando(\'' + tablelink + '\')"><i class="fa fa-fw fa-home"></i>table without summary</a>';
+        sidenav +=             '<a href="#"><i class="fa fa-fw fa-folder"></i> Page one</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="javascript: writeHTML(\'' +  + '\', \'' + counters + '\', \'' + duplicatedIDs + '\')"><i class="fa fa-fw fa-home"></i>Report</a>';
+        sidenav +=             '<a href="#"><i class="fa fa-fw fa-file-o"></i> Second page</a>';
         sidenav +=        '</li>';
         sidenav +=        '<li>';
         sidenav +=             '<a href="#"><i class="fa fa-fw fa-cog"></i> Third page</a>';
