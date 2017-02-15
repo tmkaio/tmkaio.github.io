@@ -1,51 +1,51 @@
 javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
-	
+	debugger;
 	if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){
-		
+
 		c=a.createElement("script");
 		c.type="text/javascript";
 		c.src="http://ajax.googleapis.com/ajax/libs/jquery/"+g+"/jquery.min.js";
-		
+
 		novo=a.createElement("script");
 		novo.type="text/javascript";
 		novo.src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
-		
+
 		c.onload=c.onreadystatechange=function(){
-			
+
 			if(!b&&(!(d=this.readyState)||d=="loaded"||d=="complete")){
-				
+
 				novo.onload=novo.onreadystatechange=function(){
-					
+
 					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
-						
-						h((f=e.jQuery).noConflict(1),b=1);f(c).remove();
-						h((f=e.jQuery).noConflict(1),k=1);f(novo).remove();
+
+						h((f=e.jQuery).noConflict(1), b=1, k=1);
+						f(c).remove();
+						f(novo).remove();
 					}
 				}
 			}
 		};
-		
-		a.documentElement.childNodes[0].appendChild(c);
-		
-		a.documentElement.childNodes[0].appendChild(novo);
-		
+
+		a.getElementsByTagName('head')[0].appendChild(c);
+		a.getElementsByTagName('head')[0].appendChild(novo);
+
 	}
 })
 
 
 (window,document,"3.1.1",function($,D){
-	
+
 	/*Function to find the closes tag parent with ID*/
 	function findFirstParentwithID(item){
 		var firsParent = "";
 		var numberOfParents = $(item).parents().length;
-		
+
 		for (i=0; i<numberOfParents; i++){
-			
+
 			firsParent += ".parent()";
 			levelParent = "$( item )"+ firsParent +".attr('id')";
 			address = eval(levelParent);
-						
+
 			if(address){
 				break;
 			}
@@ -76,42 +76,42 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 
 	/*Function to find missing attr on tags*/
 	function findMissinAttr(tag, missingAttr, obligAttr = false, optAttr = false){
-		imglink = "";
+		elementsIDs = "";
 		totalItemsCounter = 0;
 		itemsCounter = 0;
 
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'> ";
 		$(tag).each(function (){
-			
+
 			if(!$(this).attr(missingAttr)){
 				if(itemsCounter != 0){
 					reportBody += "<br><br>";
 				}
-				
 
 
 
-				$.fn.outerHTML = function (arg) {
+
+				/*$.fn.outerHTML = function (arg) {
 					var ret;
 
-					/* If no items in the collection, return */ 
-					if (!this.length)
+					/* If no items in the collection, return */
+				/*	if (!this.length)
 						return typeof val == "undefined" ? this : null;
 					/* Getter overload (no argument passed) */
-					if (!arg) {
-						return this[0].outerHTML || 
+				/*	if (!arg) {
+						return this[0].outerHTML ||
 							(ret = this.wrap('<div>').parent().html(), this.unwrap(), ret);
 					}
-					/* Setter overload */ 
-					$.each(this, function (i, el) {
-						var fnRet, 
+					/* Setter overload */
+					/*$.each(this, function (i, el) {
+						var fnRet,
 							pass = el,
 							inOrOut = el.outerHTML ? "outerHTML" : "innerHTML";
 
 						if (!el.outerHTML)
 							el = $(el).wrap('<div>').parent()[0];
 
-						if (jQuery.isFunction(arg)) { 
+						if (jQuery.isFunction(arg)) {
 							if ((fnRet = arg.call(pass, i, el[inOrOut])) !== false)
 								el[inOrOut] = fnRet;
 						}
@@ -127,34 +127,34 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 
 
 				var teste = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-				
-				reportBody += "<br>" + teste;
+
+				reportBody += "<br>" + teste;*/
 
 				//$(this).css("cssText", "border: 5px solid red");
-				
+
 				if(!$(this).attr("id")){
 					$(this).attr("id", tag+itemsCounter);
-					
+
 					if(itemsCounter == 0){
-						imglink += $(this).attr("id");
+						elementsIDs += $(this).attr("id");
 					}
 					else{
-						imglink += "," + $(this).attr("id");
+						elementsIDs += "," + $(this).attr("id");
 					}
 				}
 				else{
 					if(itemsCounter == 0){
-						imglink += $(this).attr("id");
+						elementsIDs += $(this).attr("id");
 					}
 					else{
-						imglink += "," + $(this).attr("id");
+						elementsIDs += "," + $(this).attr("id");
 					}
 				}
-				
+
 				/*Calling function to get the first parent with id*/
 				findFirstParentwithID(this);
 				reportBody += "<br>First parent with id found: " + address;
-				
+
 				/*Check if parameter optAttr was sent*/
 				if(optAttr != false || optAttr != ""){
 					if($(this).attr(optAttr)){
@@ -165,30 +165,30 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 					}
 					reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
 				}
-				
+
 				/*Check if parameter obligAttr was sent*/
 				if(obligAttr != false || obligAttr != ""){
 					reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
 				}
-				
+
 				/*Check if current element has id*/
 				if($(this).attr("id")){
 					reportBody += "<br>ID: " + $(this).attr("id");
 				}
 
 				itemsCounter++;
-				counterAll++; 
+				counterAll++;
 
 				message = tag + " missing " + missingAttr;
-				
+
 
 				/*document.write("<div id='error" + counterAll + "' style='position: absolute; background: #ffffcc; border: 1px solid black'>" + message + "</div>");
-				
+
 				$(this).on('mousemove', function(e){
-					
+
 					$("#error" + counterAll).show();
 					$("#error" + counterAll).css({
-						
+
 						left:  e.pageX,
 						top:   e.pageY,
 					});
@@ -203,21 +203,21 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 
 		reportBody += "<br><br><b>Total of " + tag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 		reportBody += "<br>Number of " + tag + " missing " + missingAttr + " <span class='text-danger'>" + itemsCounter + "</span></b>";
-		
+
 		return reportBody;
-	}*/
+	}
 
 	/*Function to count the total number of tag*/
 	function countTag(tag){
 		itemsCounter = 0;
-		
+
 		$(tag).each(function(){
 			itemsCounter++;
 		});
 		counters += "<br>Number of " + tag + ": " + itemsCounter;
 		return counters;
 	}
-	
+
 	/*Function to find duplicated IDs*/
 	function findDuplicatedIDs(){
 		var count = 0;
@@ -227,7 +227,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 				if(count == 0){
 					duplicatedIDs += this.id;
 					$(this).css("cssText", "border: 5px solid red");
-				} 
+				}
 				else{
 					duplicatedIDs += ", " + this.id;
 					$(this).css("cssText", "border: 5px solid red");
@@ -247,7 +247,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 		$(firstTag).each(function (){
 			if($(this).prev().prop("tagName") != secondTag){
 				reportBody += "ID: " + $(this).attr("id");
-				
+
 				/*Calling function to get the first parent with id*/
 				findFirstParentwithID(this);
 				reportBody += "First parent with id found: " + address;
@@ -262,7 +262,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 					}
 					reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
 				}
-				
+
 				/*Check if parameter obligAttr was sent*/
 				if(obligAttr != false || obligAttr != ""){
 					reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
@@ -275,7 +275,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 
 		reportBody += "<br><br><b>Total of " + firstTag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 		reportBody += "<br>Number of " + firstTag + " missing " + secondTag + " <span class='text-danger'>" + itemsCounter + "</span></b>";
-		
+
 	}
 
 	function findLinkedTag(tag1, attr1, tag2, attr2){
@@ -286,10 +286,10 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag1 + " missing " + tag2 + ":</b><hr style='background:grey; height: 2px;'> ";
 
 		$(tag1).each(function(){
-			
+
 			labelString = "$('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 			exlabelString = eval(labelString);
-			
+
 			if(exlabelString.attr(attr2) != $(this).attr(attr1)){
 				if(itemsCounter != 0){
 					reportBody += "<br><br>";
@@ -297,7 +297,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 				/*Calling function to get the first parent with id*/
 				findFirstParentwithID(this);
 				reportBody += "First parent with id found: " + address;
-				
+
 				$(this).css("cssText", "border: 5px solid red");
 
 				reportBody += "<br>ID: " + $(this).attr(attr1);
@@ -308,7 +308,7 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 
 		reportBody += "<br><br><b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 		reportBody += "<br>Number of " + tag1 + " missing " + tag2 + " <span class='text-danger'>" + itemsCounter + "</span></b>";
-		
+
 	}
 
 	var testt;
@@ -319,72 +319,69 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 	var reportBody = "";
 	var counters = "";
 	var duplicatedIDs = "";
-	var imglink;
-	
-	
+	var elementsIDs;
+
+
 	/*Calling function to check HTML with lang*/
-	//findMissinAttr("html", "lang");
+	findMissinAttr("html", "lang");
+	htmllink = elementsIDs;
 	/*Calling function to check IMG with alt*/
 	findMissinAttr("img", "alt", "src", "title");
+	imglink = elementsIDs;
 	/*Calling function to check TABLE with summary*/
-	//findMissinAttr("table", "summary");
+	findMissinAttr("table", "summary");
+	tablelink = elementsIDs;
 	//findMissinAttr("select", "id");
 	/*Calling function to count number TABLE on page*/
-	//countTag("table");
+	countTag("table");
 	/*Calling function to check for select without label*/
 	//findLinkedTag("select", "id", "label", "for");
 	/*Calling function to check for duplicated IDs*/
-	//findDuplicatedIDs();
+	findDuplicatedIDs();
 	/*Calling function to write HTML*/
 	//writeHTML();
 
-		/*var txt3 = $("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>"); 
+		/*var txt3 = $("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
 		$("html").append(txt3);     // Append new elements
 
-		var txt4 = $("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>"); 
+		var txt4 = $("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>");
 		$("html").append(txt4);     // Append new elements*/
-		
-		var txt4 = $("<script src='http://localhost/test2.js' type='text/javascript'></script>'>"); 
+
+		var txt4 = $("<script src='http://tmkaio.co.nf/test2.js' type='text/javascript'></script>'>");
 		$("html").append(txt4);
-		
+
 		if(!$("#coco").length){
 
-			var txt2 = $("<div id='coco' class='well'><a href='#' id='sair'>X</a></div>"); 
-			$("html").append(txt2);     
-			$("#coco").css({bottom: "0px", right: "20px", position:'fixed', width:"20%", height:"40%", background: "grey"});	
+			var txt2 = $("<div id='coco' class='well'></div>");
+			$("html").append(txt2);
+			$("#coco").css({bottom: "0px", right: "20px", position:'fixed', width:"20%", height:"40%", background: "grey"});
 			$("#coco").addClass("text-danger");
 			$("#coco").draggable();
 			$('#coco').css('z-index', 9999);
-			$("#sair").click(function(){
-				$("#coco").hide();	
-			});
 		}
 		else{
 			$('#coco').css('z-index', 9999);
 			$("#coco").show();
 		}
-				
-				
-	//document.getElementById("img1").style.border = "2px solid red";		
 
-		sidenav = '<nav class="navbar navbar-inverse">';
+		reportBody = reportBody.replace(/\"/g,"%22");
+		reportBody = reportBody.replace(/\>/g,"%3E");
+		reportBody = reportBody.replace(/\</g,"%3C");
+		counters = counters.replace(/\>/g,"%3E");
+		counters = counters.replace(/\</g,"%3C");
+
+		sidenav = '<a href="#" id="sair" style="font-size:13px;">X</a><br><br><nav class="navbar navbar-inverse">';
         sidenav +=     '<ul class="nav sidebar-nav">';
         sidenav +=         '<li>';
         sidenav +=          	'<a href="javascript: cagando(\'' + imglink + '\')"><i class="fa fa-fw fa-home"></i>IMG without alt</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="#"><i class="fa fa-fw fa-home"></i> Home</a>';
+        sidenav +=             '<a href="javascript: cagando(\'' + htmllink + '\')"><i class="fa fa-fw fa-home"></i>HTML without lang</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="#"><i class="fa fa-fw fa-folder"></i> Page one</a>';
+        sidenav +=             '<a href="javascript: cagando(\'' + tablelink + '\')"><i class="fa fa-fw fa-home"></i>table without summary</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="#"><i class="fa fa-fw fa-file-o"></i> Second page</a>';
-        sidenav +=        '</li>';
-        sidenav +=        '<li>';
-        sidenav +=             '<a href="#"><i class="fa fa-fw fa-cog"></i> Third page</a>';
-        sidenav +=         '</li>';
-        sidenav +=         '<li class="dropdown">';
         sidenav +=           '<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Dropdown <span class="caret"></span></a>';
         sidenav +=           '<ul class="dropdown-menu" role="menu">';
         sidenav +=             '<li class="dropdown-header">Dropdown heading</li>';
@@ -394,16 +391,14 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
         sidenav +=             '<li><a href="#">Separated link</a></li>';
         sidenav +=             '<li><a href="#">One more separated link</a></li>';
         sidenav +=           '</ul>';
+		sidenav +=         '<li>';
+        sidenav +=          	'<a href="javascript: cagando(\'' + imglink + '\')"><i class="fa fa-fw fa-home"></i>IMG without alt</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="#"><i class="fa fa-fw fa-bank"></i> Page four</a>';
-        sidenav +=         '</li>';
-        sidenav +=        '<li>';
-        sidenav +=             '<a href="#"><i class="fa fa-fw fa-dropbox"></i> Page 5</a>';
+        sidenav +=             '<a href="javascript: cagando(\'' + htmllink + '\')"><i class="fa fa-fw fa-home"></i>HTML without lang</a>';
         sidenav +=         '</li>';
         sidenav +=         '<li>';
-        sidenav +=             '<a href="#"><i class="fa fa-fw fa-twitter"></i> Last page</a>';
-        sidenav +=         '</li>';
+        sidenav +=             '<a href="javascript: cagando(\'' + tablelink + '\')"><i class="fa fa-fw fa-home"></i>table without summary</a>';
         sidenav +=     '</ul>';
         sidenav += '</nav>';
 
@@ -413,10 +408,10 @@ javascript:(function(e,a,g,h,f,c,b,d,novo,k,l){
 
 
 
-		
-	
+
+
 	/*Opening report on a new window*/
-	
+
 	//var w = window.open();
 	//$(w.document.body).html(newPage);
 });
