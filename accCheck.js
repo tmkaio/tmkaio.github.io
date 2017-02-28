@@ -244,10 +244,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		reportBody += "<br><br><b>Total of DuplicatedIds found: <span class='text-danger'>" + itemsCounter + "</span>";
 	}
 
-	function criaAlerta(){
-		alert('alerta criado');
-	}
-
 /*Function to count the total number of tag*/
 	function countTag(tag){
 		itemsCounter = 0;
@@ -301,7 +297,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + selectcounter + '</span> Select without Label <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + selectlink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
-			sidenav +=             '<a href="javascript: criaAlerta();"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
+			sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
 			sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> General Report</a>';
@@ -320,7 +316,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 
 	if(!$("#accCheckDiv").length){
-		alert();
+
 		$.fn.outerHTML = function (arg) {
 			var ret;
 			/* If no items in the collection, return */
