@@ -352,7 +352,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
 				sidenav +=         '</li>';
 				sidenav +=         '<li>';
-				sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> Report of the selected items<input id="htmllang" type="radio" class="pull-right" name="htmllang" value="' + elementsIDs + '"></a>';
+				sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> General Report</a>';
 				sidenav +=         '</li>';
 				sidenav +=     '</ul>';
 				sidenav += '</nav></div>';
