@@ -330,6 +330,14 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				$("#sair").click(function(){
 					$("#accCheckDiv").hide();
 				});
+				$("#refresh").click(function(){
+					unmarkElements(imglink);
+					unmarkElements(htmllink);
+					unmarkElements(tablelink);
+					unmarkElements(duplciatedlink);
+					unmarkElements(selectlink);
+					$('#accNav').html(sidenav);
+				});
 
 				sidenav = '<nav class="navbar navbar-inverse accCheckNav" style="height: 100%;">';
 				sidenav +=     '<ul class="nav sidebar-nav" style="background-color: #292929; margin-left: 0px;">';
