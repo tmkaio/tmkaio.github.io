@@ -79,15 +79,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 	}
 
-
-
-
-	var toggle1 = $("<link href='https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css' rel='stylesheet'>");
-	$("html").append(toggle1);
-
-	var toggle2 = $("<script src='https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js'></script>");
-	$("html").append(toggle2);
-
 	var afterFunctions = $("<script src='http://tmkaio.co.nf/afterFunctions.js' type='text/javascript'></script>'>");
 	$("html").append(afterFunctions);
 
