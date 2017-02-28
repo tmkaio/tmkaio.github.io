@@ -190,7 +190,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			exlabelString = eval(labelString);
 
 			if(exlabelString.attr(attr2) != $(this).attr(attr1)){
-				checkExistingID(this,tag,itemsCounter);
+				checkExistingID(this,tag1,itemsCounter);
 
 				if(itemsCounter != 0){
 					reportBody += "<br><br>";
