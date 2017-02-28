@@ -1,0 +1,50 @@
+.accCheckNav{
+  font-size:12px;
+  font-weight:bold;
+  border: 2px solid #303030;
+  outline:2px solid #505050;
+  background-color:#292929;
+}
+
+.accCheckNav li{
+  border-bottom:2px solid #252525;
+  border-top: 2px solid #303030;
+}
+
+.accCheckNav li:first-child{
+  border-top:none;
+}
+
+.accCheckNav li:last-child{
+
+}
+
+.accCheckNav a{
+  color:white !important;
+}
+
+.badge{
+  background-color:#D9534F;
+  height: 18px;
+  font-size: 12px;
+}
+
+.accCheckNav a:focus{
+  background-color:#292929 !important;
+}
+
+.accCheckNav a:hover{
+  background-color:#ff9d00 !important;
+}
+
+#accCheckDiv .ui-resizable-se {
+    background-image: url("");
+}
+
+.accCheckNav li {
+    height: 42px;
+}
+
+#accCheckDiv{
+    padding: 10px;
+}
