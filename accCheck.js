@@ -118,6 +118,29 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		}
 		return address;
 	}
+
+	function checkExistingID(checkID, checkTag, checkCounter){
+		if(!$(checkID).attr("id")){
+			$(checkID).attr("id", "accCheck_"+checkTag+checkCounter);
+
+			if(checkCounter == 0){
+				elementsIDs += $(checkID).attr("id");
+			}
+			else{
+				elementsIDs += "," + $(checkID).attr("id");
+			}
+		}
+		else{
+			if(checkCounter == 0){
+				elementsIDs += $(checkID).attr("id");
+			}
+			else{
+				elementsIDs += "," + $(checkID).attr("id");
+			}
+		}
+		return elementsIDs;
+	}
+
 	/*Function to find missing attr on tags*/
 	function findMissinAttr(tag, missingAttr, obligAttr = false, optAttr = false){
 
@@ -134,31 +157,12 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 				}
 
-
-
 				if(tag != "html"){
 					fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 					var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 					reportBody += "<br>" + fullTagReport;
 				}
-				if(!$(this).attr("id")){
-					$(this).attr("id", tag+itemsCounter);
-
-					if(itemsCounter == 0){
-						elementsIDs += $(this).attr("id");
-					}
-					else{
-						elementsIDs += "," + $(this).attr("id");
-					}
-				}
-				else{
-					if(itemsCounter == 0){
-						elementsIDs += $(this).attr("id");
-					}
-					else{
-						elementsIDs += "," + $(this).attr("id");
-					}
-				}
+				checkExistingID(this, tag, itemsCounter);
 
 				/*Calling function to get the first parent with id*/
 				findFirstParentwithID(this);
@@ -254,24 +258,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			exlabelString = eval(labelString);
 
 			if(exlabelString.attr(attr2) != $(this).attr(attr1)){
-				if(!$(this).attr("id")){
-					$(this).attr("id", tag+itemsCounter);
-
-					if(itemsCounter == 0){
-						elementsIDs += $(this).attr("id");
-					}
-					else{
-						elementsIDs += "," + $(this).attr("id");
-					}
-				}
-				else{
-					if(itemsCounter == 0){
-						elementsIDs += $(this).attr("id");
-					}
-					else{
-						elementsIDs += "," + $(this).attr("id");
-					}
-				}
+				checkExistingID(this,tag,itemsCounter);
 
 				if(itemsCounter != 0){
 					reportBody += "<br><br>";
@@ -280,9 +267,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				findFirstParentwithID(this);
 				reportBody += "First parent with id found: " + address;
 
-				//$(this).css("cssText", "border: 5px solid red");
-
 				reportBody += "<br>ID: " + $(this).attr(attr1);
+				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 				fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 				reportBody += "<br>" + fullTagReport;
 				itemsCounter++;
@@ -306,17 +292,18 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			var ids = $('[id="'+this.id+'"]');
 			if(ids.length>1 && ids[0]==this){
 
-					if(itemsCounter == 0){
-						elementsIDs += this.id;
-						reportBody += "<br><br>";
-					}
-					else{
-						elementsIDs += "," + this.id;
-					}
+				if(itemsCounter == 0){
+					elementsIDs += this.id;
+					reportBody += "<br><br>";
+				}
+				else{
+					elementsIDs += "," + this.id;
+				}
 
 				findFirstParentwithID(this);
 				reportBody += "First parent with id found: " + address;
 				reportBody += "<br>ID: " + $(this).attr("id");
+				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 				fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 				reportBody += "<br>" + fullTagReport;
 				itemsCounter++;
@@ -324,48 +311,18 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		});
 		reportBody += "<br><br><b>Total of DuplicatedIds found: <span class='text-danger'>" + itemsCounter + "</span>";
 	}
-	/*Function to count the total number of tag*/
 
 
+/*Function to count the total number of tag*/
 	function countTag(tag){
 		itemsCounter = 0;
 
 		$(tag).each(function(){
-			if(!$(this).attr("id")){
-				$(this).attr("id", tag+itemsCounter);
-
-				if(itemsCounter == 0){
-					elementsIDs += $(this).attr("id");
-				}
-				else{
-					elementsIDs += "," + $(this).attr("id");
-				}
-			}
-			else{
-				if(itemsCounter == 0){
-					elementsIDs += $(this).attr("id");
-				}
-				else{
-					elementsIDs += "," + $(this).attr("id");
-				}
-			}
+			checkExistingID(this,tag,itemsCounter);
 			itemsCounter++;
 		});
 		counters += "<br>Number of " + tag + ": " + itemsCounter;
 		return counters;
-	}
-
-	function countMissAttr(tag, missingAttr){
-
-		itemsCounter = 0;
-
-		$(tag).each(function (){
-
-			if(!$(this).attr(missingAttr)){
-
-					itemsCounter++;
-			}
-		});
 	}
 
 	function accCheck(){
@@ -417,57 +374,57 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			}
 		}
 
-var itemsCounter;
-var testt;
-var address;
-var totalCounter;
-var counter;
-var counterAll = 0;
-var reportBody = "";
-var counters = "";
-var duplicatedIDs = "";
-var elementsIDs;
-var fullTag;
-var elementsIDs;
+	var itemsCounter;
+	var testt;
+	var address;
+	var totalCounter;
+	var counter;
+	var counterAll = 0;
+	var reportBody = "";
+	var counters = "";
+	var duplicatedIDs = "";
+	var elementsIDs;
+	var fullTag;
+	var elementsIDs;
 
 
 	/*Calling function to check HTML with lang*/
 	findMissinAttr("html", "lang");
 	htmllink = elementsIDs;
 	htmlcounter = itemsCounter;
-	//htmlTag = teste;
+	htmlTag = fullTag;
+
 	/*Calling function to check IMG with alt*/
 	findMissinAttr("img", "alt", "src", "title");
 	imglink = elementsIDs;
 	imgcounter = itemsCounter;
-	//imgTag = teste;
+	imgTag = fullTag;
+
 	/*Calling function to check TABLE with summary*/
 	findMissinAttr("table", "summary");
 	tablelink = elementsIDs;
 	tablecounter = itemsCounter;
-	//tableTag = teste;
+	tableTag = fullTag;
+
 	/*Calling function to count number TABLE on page*/
 	countTag("table");
 	tablecountlink = elementsIDs;
 	tablecountcounter = itemsCounter;
+
 	/*Calling function to check for select without label*/
 	findLinkedTag("select", "id", "label", "for");
 	selectlink = elementsIDs;
 	selectcounter = itemsCounter;
+
 		/*Calling function to check for duplicated IDs*/
 	findDuplicatedIDs();
 	duplicatedcounter = itemsCounter;
 	duplciatedlink = elementsIDs;
+
 	/*Calling function to write HTML*/
 	finalReportBody = reportBody;
 	finalCounters = counters;
 	finalDuplicatedIDs = duplicatedcounter;
 	accCheck();
 
-
-	/*Opening report on a new window*/
-
-	//var w = window.open();
-	//$(w.document.body).html(newPage);
-	//window.focus();
 });
