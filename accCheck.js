@@ -283,6 +283,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				//$(this).css("cssText", "border: 5px solid red");
 
 				reportBody += "<br>ID: " + $(this).attr(attr1);
+				fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+				reportBody += "<br>" + fullTagReport;
 				itemsCounter++;
 			}
 			totalItemsCounter++;
