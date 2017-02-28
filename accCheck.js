@@ -349,7 +349,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + selectcounter + '</span> Select without Label <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + selectlink + '"></a>';
 				sidenav +=         '</li>';
 				sidenav +=         '<li>';
-				sidenav +=             '<a href="javascript: changechkbox(\'tabcount\')"><span class="badge">' + tablecountcounter + '</span> Number of tables <input id="tabcount" type="radio" class="pull-right" name="tabcount" value="' + tablecountlink + '"></a>';
+				sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
 				sidenav +=         '</li>';
 				sidenav +=         '<li>';
 				sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> Report of the selected items<input id="htmllang" type="radio" class="pull-right" name="htmllang" value="' + elementsIDs + '"></a>';
