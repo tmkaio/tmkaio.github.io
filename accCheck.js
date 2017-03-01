@@ -84,10 +84,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		$(tag).each(function (){
 
 			if(!$(this).attr(missingAttr)){
-				if(itemsCounter != 0){
-					reportBody += "<br><br>";
-
-				}
 
 				if(tag != "html"){
 					fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
@@ -121,7 +117,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				if($(this).attr("id")){
 					reportBody += "<br>ID: " + $(this).attr("id");
 				}
-
+				reportBody += "<br><br>";
 				itemsCounter++;
 				counterAll++;
 
@@ -129,7 +125,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			totalItemsCounter++;
 		});
 
-		reportBody += "<br><br><b>Total of " + tag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+		reportBody += "<b>Total of " + tag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 		reportBody += "<br>Number of " + tag + " missing " + missingAttr + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 
 		return reportBody;
@@ -165,13 +161,13 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				if(obligAttr != false || obligAttr != ""){
 					reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
 				}
-
+				reportBody += "<br><br>";
 				itemsCounter++;
 			}
 			totalItemsCounter++;
 		});
 
-		reportBody += "<br><br><b>Total of " + firstTag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+		reportBody += "<b>Total of " + firstTag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 		reportBody += "<br>Number of " + firstTag + " missing " + secondTag + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 
 	}
@@ -191,10 +187,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			if(exlabelString.attr(attr2) != $(this).attr(attr1)){
 				checkExistingID(this,tag1,itemsCounter);
 
-				if(itemsCounter != 0){
-					reportBody += "<br><br>";
-				}
-
 				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 				fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 				reportBody += "<br>" + fullTagReport;
@@ -204,13 +196,13 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				/*Calling function to get the first parent with id*/
 				findFirstParentwithID(this);
 				reportBody += "<br>First parent with id found: " + address;
-
+				reportBody += "<br><br>";
 				itemsCounter++;
 			}
 			totalItemsCounter++;
 		});
 
-		reportBody += "<br><br><b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+		reportBody += "<b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 		reportBody += "<br>Number of " + tag1 + " missing " + tag2 + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 
 	}
@@ -228,7 +220,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 				if(itemsCounter == 0){
 					elementsIDs += this.id;
-					reportBody += "<br><br>";
 				}
 				else{
 					elementsIDs += "," + this.id;
@@ -241,11 +232,11 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				reportBody += "ID: " + $(this).attr("id");
 				findFirstParentwithID(this);
 				reportBody += "<br>First parent with id found: " + address;
-
+				reportBody += "<br><br>";
 				itemsCounter++;
 			}
 		});
-		reportBody += "<br><br><b>Total of DuplicatedIds found: <span class='text-danger'>" + itemsCounter + "</span></pre>";
+		reportBody += "<b>Total of DuplicatedIds found: <span class='text-danger'>" + itemsCounter + "</span></pre>";
 	}
 
 /*Function to count the total number of tag*/
