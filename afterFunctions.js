@@ -55,6 +55,7 @@ function writeHTML(){
 
 
 	function changechkbox(chkbox){
+		alert("you got here");
 		if($('#'+chkbox).prop('checked') == false){
 			$('#'+chkbox).prop('checked', true);
 			markElements($('#'+chkbox).val());
