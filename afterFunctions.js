@@ -2,12 +2,6 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < 3.1.1) {
 	var done = false;
 	var script = document.createElement("script");
 	script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js";
-	script.onload = script.onreadystatechange = function(){
-		if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
-			done = true;
-
-		}
-	};
 	document.getElementsByTagName("head")[0].appendChild(script);
 }
 
