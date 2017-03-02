@@ -354,10 +354,10 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		}
 
-		var afterFunctions = $("<script src='/afterFunctions.js' type='text/javascript'></script>'>");
+		var afterFunctions = $("<script src='//tmkaio.github.io/afterFunctions.js' type='text/javascript'></script>'>");
 		$("head").append(afterFunctions);
 
-		var bordas = $('<link rel="stylesheet" type="text/css" href="/css/style.css">');
+		var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
 		$("head").append(bordas);
 
 		var font_aw = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
