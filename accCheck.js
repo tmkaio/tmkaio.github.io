@@ -346,11 +346,11 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		if(!$("link[href*='bootstrap']").length){
 
-			//var bootlink = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
-			//$("head").append(bootlink);     // Append new elements
+			var bootlink = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
+			$("head").append(bootlink);     // Append new elements
 
-			//var bootscript = $("<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>");
-			//$("head").append(bootscript);     // Append new elements
+			var bootscript = $("<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>");
+			$("head").append(bootscript);     // Append new elements
 
 		}
 
