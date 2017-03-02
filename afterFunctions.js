@@ -41,7 +41,7 @@ function writeHTML(){
 	});*/
 
 
-	function changechkbox(chkbox){
+	function changechkbox(chkbox,$){
 		if($('#'+chkbox).prop('checked') == false){
 			$('#'+chkbox).prop('checked', true);
 			markElements($('#'+chkbox).val());

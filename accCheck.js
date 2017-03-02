@@ -277,7 +277,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			sidenav = '<nav class="navbar navbar-inverse accCheckNav" style="height: 100%;">';
 			sidenav +=     '<ul class="nav sidebar-nav" style="background-color: #292929; margin-left: 0px;">';
 			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'imgtag\')"><span class="badge">' + imgcounter + '</span> &ltimg&gt without alt <input id="imgtag" type="radio" class="pull-right" name="imgtag" value="' + imglink + '"></a>';
+			sidenav +=          	'<a href="javascript: changechkbox(\'imgtag\',\'' + $ + '\')"><span class="badge">' + imgcounter + '</span> &ltimg&gt without alt <input id="imgtag" type="radio" class="pull-right" name="imgtag" value="' + imglink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
 			sidenav +=             '<a href="javascript: changechkbox(\'htmllang\')"><span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang <input id="htmllang" type="radio" class="pull-right" name="htmllang" value="' + htmllink + '"></a>';
