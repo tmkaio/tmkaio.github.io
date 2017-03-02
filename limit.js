@@ -37,4 +37,4 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
   $("img").each(function(){
     alert($(this).attr("src"));
   });
-}
+})
