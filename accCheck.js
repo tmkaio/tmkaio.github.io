@@ -4,14 +4,14 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		c=a.createElement("script");
 		c.type="text/javascript";
-		c.src="http://ajax.googleapis.com/ajax/libs/jquery/"+g+"/jquery.min.js";
+		c.src="//ajax.googleapis.com/ajax/libs/jquery/"+g+"/jquery.min.js";
 		c.onload=c.onreadystatechange=function(){
 
 			if(!b&&(!(d=this.readyState)||d=="loaded"||d=="complete")){
 
 				p=a.createElement("script");
 				p.type="text/javascript";
-				p.src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+				p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
 				p.onload=p.onreadystatechange=function(){
 
 					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
@@ -346,21 +346,21 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		if(!$("link[href*='bootstrap']").length){
 
-			var bootlink = $("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
+			var bootlink = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
 			$("head").append(bootlink);     // Append new elements
 
-			var bootscript = $("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>");
+			var bootscript = $("<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>");
 			$("head").append(bootscript);     // Append new elements
 
 		}
 
-		var afterFunctions = $("<script src='http://tmkaio.co.nf/afterFunctions.js' type='text/javascript'></script>'>");
+		var afterFunctions = $("<script src='//tmkaio.co.nf/afterFunctions.js' type='text/javascript'></script>'>");
 		$("head").append(afterFunctions);
 
 		var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.co.nf/css/style.css">');
 		$("head").append(bordas);
 
-		var font_aw = $("<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
+		var font_aw = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
 		$("head").append(font_aw);     // Append new elements
 
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
