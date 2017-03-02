@@ -1,3 +1,5 @@
+
+
 function writeHTML(){
 	/*Creating HTML*/
 	newPage = "<html lang='en'>";
@@ -8,7 +10,7 @@ function writeHTML(){
 	newPage += "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
 	newPage += "</head>";
 	newPage += "<div class='container well'>";
-	newPage += "<b>Tested page: " + $(location).attr('href') + "</b>";
+	newPage += "<b>Tested page: " + window.jQuery(location).attr('href') + "</b>";
 	newPage += finalReportBody;
 	newPage += "<br><br><br>";
 	newPage += "Counters:";
@@ -21,34 +23,34 @@ function writeHTML(){
 	newPage += "</html>";
 
 	var w = window.open();
-	$(w.document.body).html(newPage);
+	window.jQuery(w.document.body).html(newPage);
 
 }
 
 
 
 
-	/*$('input[name=markThis]').change(function(){
-		if($(this).prop('checked') == true){
-			 //eval($(this).val() + '();');
+	/*window.jQuery('input[name=markThis]').change(function(){
+		if(window.jQuery(this).prop('checked') == true){
+			 //eval(window.jQuery(this).val() + '();');
 			 //if(elementsIDs != ""){
 			 //}
-			 markElements($(this).val());
+			 markElements(window.jQuery(this).val());
 		}
 		else{
-			unmarkElements($(this).val());
+			unmarkElements(window.jQuery(this).val());
 		}
 	});*/
 
 
 	function changechkbox(chkbox){
-		if($('#'+chkbox).prop('checked') == false){
-			$('#'+chkbox).prop('checked', true);
-			markElements($('#'+chkbox).val());
+		if(window.jQuery('#'+chkbox).prop('checked') == false){
+			window.jQuery('#'+chkbox).prop('checked', true);
+			markElements(window.jQuery('#'+chkbox).val());
 		}
 		else{
-			$('#'+chkbox).prop('checked', false);
-			unmarkElements($('#'+chkbox).val());
+			window.jQuery('#'+chkbox).prop('checked', false);
+			unmarkElements(window.jQuery('#'+chkbox).val());
 		}
 	}
 
@@ -56,9 +58,9 @@ function writeHTML(){
 		parsedimg = variaveis.split(',');
 
 		for(var i = 0; i < parsedimg.length; i++) {
-			$("#" + parsedimg[i]).each(function(){
-				$(this).css({border: "5px solid red"});
-				$(this).show();
+			window.jQuery("#" + parsedimg[i]).each(function(){
+				window.jQuery(this).css({border: "5px solid red"});
+				window.jQuery(this).show();
 			});
 		}
 	}
@@ -67,8 +69,8 @@ function writeHTML(){
 		parsedimg = variaveis.split(',');
 
 		for(var i = 0; i < parsedimg.length; i++) {
-			$("#" + parsedimg[i]).each(function(){
-				$(this).css({border: "none"});
+			window.jQuery("#" + parsedimg[i]).each(function(){
+				window.jQuery(this).css({border: "none"});
 			});
 		}
 	}
