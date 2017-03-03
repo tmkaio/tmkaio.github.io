@@ -62,16 +62,16 @@ function writeHTML(){
 
 	function markElements(variaveis){
 
-		parsedimg = variaveis.split(',');
-		alert(variaveis);
-		for(var i = 0; i < parsedimg.length; i++) {
-			$("#" + parsedimg[i]).each(function(){
-				alert("you got here 2");
-				$(this).css({border: "5px solid red"});
-				$(this).show();
-			});
+		if(variaveis != ""){
+			parsedimg = variaveis.split(',');
+
+			for(var i = 0; i < parsedimg.length; i++) {
+				$("#" + parsedimg[i]).each(function(){
+					$(this).css({border: "5px solid red"});
+					$(this).show();
+				});
+			}
 		}
-		alert("you got here");
 	}
 
 	function unmarkElements(variaveis){
