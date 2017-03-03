@@ -2,7 +2,7 @@ v = "3.1.1";
 if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 	var done = false;
 	var script = document.createElement("script");
-	script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js";
+	script.src = "https://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
 	document.getElementsByTagName("head")[0].appendChild(script);
 }
 
@@ -50,9 +50,9 @@ function writeHTML(){
 
 
 	function changechkbox(chkbox){
-		alert("you got here");
 		if($('#'+chkbox).prop('checked') == false){
 			$('#'+chkbox).prop('checked', true);
+			alert("you got here");
 			markElements($('#'+chkbox).val());
 		}
 		else{
