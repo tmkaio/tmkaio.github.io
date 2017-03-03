@@ -61,9 +61,9 @@ function writeHTML(){
 	}
 
 	function markElements(variaveis){
-		debugger;
+		
 		parsedimg = variaveis.split(',');
-		alert("you got here1");
+		alert(parsedimg.length);
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
 				alert("you got here 2");
