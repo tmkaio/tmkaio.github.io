@@ -3,17 +3,17 @@ v = "3.1.1";
 versao = 0;
 if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
-		c=a.createElement("script");
+		c=document.createElement("script");
 		c.type="text/javascript";
 		c.src="//ajax.googleapis.com/ajax/libs/jquery/"+v+"/jquery.min.js";
 
-				p=a.createElement("script");
+				p=document.createElement("script");
 				p.type="text/javascript";
 				p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
 				p.onload=p.onreadystatechange=function(){versao++;};
 
-					a.documentElement.childNodes[0].appendChild(c);
-				a.documentElement.childNodes[0].appendChild(p);
+					document.documentElement.childNodes[0].appendChild(c);
+				document.documentElement.childNodes[0].appendChild(p);
 
 
 		}
