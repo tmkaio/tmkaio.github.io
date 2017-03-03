@@ -1,20 +1,21 @@
 
 v = "3.1.1";
+versao = 0;
 if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
-		c=document.createElement("script");
+		c=a.createElement("script");
 		c.type="text/javascript";
 		c.src="//ajax.googleapis.com/ajax/libs/jquery/"+v+"/jquery.min.js";
 
-		p=document.createElement("script");
-		p.type="text/javascript";
-		p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+				p=a.createElement("script");
+				p.type="text/javascript";
+				p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+				p.onload=p.onreadystatechange=function(){versao++;}
+
+					a.documentElement.childNodes[0].appendChild(c);
+				a.documentElement.childNodes[0].appendChild(p);
 
 
-		document.documentElement.childNodes[0].appendChild(c);
-		document.documentElement.childNodes[0].appendChild(p);
-
-		
 		}
 
 
@@ -239,7 +240,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
 	function accCheck(){
 
-		if(!$("#accCheckDiv").length){
+		if(!$("#accCheckDiv").length && versao == 1){
 
 			var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
 			$("html").append(accCheckAppend);
@@ -415,3 +416,5 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
 	}
 	accCheck();
+
+});
