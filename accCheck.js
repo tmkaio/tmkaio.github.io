@@ -6,15 +6,15 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 		c.type="text/javascript";
 		c.src="//ajax.googleapis.com/ajax/libs/jquery/"+v+"/jquery.min.js";
 
-				p=document.createElement("script");
-				p.type="text/javascript";
-				p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+		p=document.createElement("script");
+		p.type="text/javascript";
+		p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
 
-
-
-				document.documentElement.childNodes[0].appendChild(p);
 
 		document.documentElement.childNodes[0].appendChild(c);
+		document.documentElement.childNodes[0].appendChild(p);
+
+		
 		}
 
 
