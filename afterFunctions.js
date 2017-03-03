@@ -50,28 +50,28 @@ function writeHTML(){
 
 
 	function changechkbox(chkbox){
-		if($('#'+chkbox).prop('checked') == false){
+		if($('#'+chkbox).prop('checked') == false && $('#'+chkbox).val() != ""){
 			$('#'+chkbox).prop('checked', true);
 			markElements($('#'+chkbox).val());
 		}
 		else{
-			$('#'+chkbox).prop('checked', false);
+			$('#'+chkbox).prop('checked', false && $('#'+chkbox).val() != "");
 			unmarkElements($('#'+chkbox).val());
 		}
 	}
 
 	function markElements(variaveis){
 
-		if(variaveis != ""){
-			parsedimg = variaveis.split(',');
+		parsedimg = variaveis.split(',');
 
-			for(var i = 0; i < parsedimg.length; i++) {
-				$("#" + parsedimg[i]).each(function(){
-					$(this).css({border: "5px solid red"});
-					$(this).show();
-				});
-			}
+		for(var i = 0; i < parsedimg.length; i++) {
+			$("#" + parsedimg[i]).each(function(){
+				alert("you got here 2");
+				$(this).css({border: "5px solid red"});
+				$(this).show();
+			});
 		}
+		alert("you got here");
 	}
 
 	function unmarkElements(variaveis){
