@@ -1,4 +1,4 @@
-v = 3.1.1;
+v = "3.1.1";
 if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 	var done = false;
 	var script = document.createElement("script");
