@@ -2,6 +2,7 @@ v = "3.1.1";
 if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 	var done = false;
 	var script = document.createElement("script");
+	script.type="text/javascript";
 	script.src = "https://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
 	document.getElementsByTagName("head")[0].appendChild(script);
 }
@@ -11,6 +12,7 @@ function writeHTML(){
 	newPage = "<html lang='en'>";
 	newPage += "<head>";
 	newPage += "<body onload='window.opener.focus();'>";
+	//newPage += "<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>";
 	newPage += "<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
 	newPage += "<script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>";
 	newPage += "<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
