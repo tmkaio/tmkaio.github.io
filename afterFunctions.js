@@ -61,6 +61,7 @@ function writeHTML(){
 	}
 
 	function markElements(variaveis){
+		debugger;
 		parsedimg = variaveis.split(',');
 		alert("you got here1");
 		for(var i = 0; i < parsedimg.length; i++) {
@@ -70,6 +71,7 @@ function writeHTML(){
 				$(this).show();
 			});
 		}
+		alert("you got here");
 	}
 
 	function unmarkElements(variaveis){
