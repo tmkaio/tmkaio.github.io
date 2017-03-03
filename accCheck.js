@@ -4,14 +4,14 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		c=a.createElement("script");
 		c.type="text/javascript";
-		c.src="http://ajax.googleapis.com/ajax/libs/jquery/"+g+"/jquery.min.js";
+		c.src="//ajax.googleapis.com/ajax/libs/jquery/"+g+"/jquery.min.js";
 		c.onload=c.onreadystatechange=function(){
 
 			if(!b&&(!(d=this.readyState)||d=="loaded"||d=="complete")){
 
 				p=a.createElement("script");
 				p.type="text/javascript";
-				p.src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+				p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
 				p.onload=p.onreadystatechange=function(){
 
 					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
