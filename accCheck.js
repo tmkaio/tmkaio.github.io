@@ -416,5 +416,3 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
 	}
 	accCheck();
-
-});
