@@ -1,25 +1,38 @@
+javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
-v = "3.1.1";
-versao = 0;
-if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
+	if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){
 
-		c=document.createElement("script");
+		c=a.createElement("script");
 		c.type="text/javascript";
-		c.src="//ajax.googleapis.com/ajax/libs/jquery/"+v+"/jquery.min.js";
+		c.src="http://ajax.googleapis.com/ajax/libs/jquery/"+g+"/jquery.min.js";
+		c.onload=c.onreadystatechange=function(){
 
-				p=document.createElement("script");
+			if(!b&&(!(d=this.readyState)||d=="loaded"||d=="complete")){
+
+				p=a.createElement("script");
 				p.type="text/javascript";
-				p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
-				p.onload=p.onreadystatechange=function(){versao++;};
+				p.src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+				p.onload=p.onreadystatechange=function(){
 
-					document.documentElement.childNodes[0].appendChild(c);
-				document.documentElement.childNodes[0].appendChild(p);
+					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
 
 
+						h((f=e.jQuery).noConflict(1), b=1, k = 1);
+						a.documentElement.childNodes[0].removeChild(c);
+						a.documentElement.childNodes[0].removeChild(p);
+						p.onload=p.onreadystatechange=null;
+						c.onload=c.onreadystatechange=null;
+
+					}
+				}
+				a.documentElement.childNodes[0].appendChild(p);
+			}
+		};
+		a.documentElement.childNodes[0].appendChild(c);
 		}
+})
 
-
-
+(window,document,"3.1.1",function($, N, O){
 
 	/*Function to find the closes tag parent with ID*/
 	function findFirstParentwithID(item){
@@ -416,3 +429,4 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
 	}
 	accCheck();
+});
