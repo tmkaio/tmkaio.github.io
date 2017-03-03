@@ -10,7 +10,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 				p=a.createElement("script");
 				p.type="text/javascript";
 				p.src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
-				p.onload=p.onreadystatechange=function(){versao++;}
+				p.onload=p.onreadystatechange=function(){versao++;};
 
 					a.documentElement.childNodes[0].appendChild(c);
 				a.documentElement.childNodes[0].appendChild(p);
