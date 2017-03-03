@@ -253,7 +253,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 	function accCheck(){
 
-		if(!$("#accCheckDiv").length && versao == 1){
+		if(!$("#accCheckDiv").length){
 
 			var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
 			$("html").append(accCheckAppend);
