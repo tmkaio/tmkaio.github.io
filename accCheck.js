@@ -13,7 +13,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
 
 				a.documentElement.childNodes[0].appendChild(p);
-			
+
 		a.documentElement.childNodes[0].appendChild(c);
 		}
 
@@ -415,5 +415,3 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 
 	}
 	accCheck();
-
-});
