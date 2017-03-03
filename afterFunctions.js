@@ -11,12 +11,12 @@ function writeHTML(){
 	/*Creating HTML*/
 	newPage = "<html lang='en'>";
 	newPage += "<head>";
-	newPage += "<body onload='window.opener.focus();'>";
 	newPage += "<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>";
 	newPage += "<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
 	newPage += "<script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>";
 	newPage += "<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
 	newPage += "</head>";
+	newPage += "<body>";
 	newPage += "<div class='container well'>";
 	newPage += "<b>Tested page: " + $(location).attr('href') + "</b>";
 	newPage += finalReportBody;
