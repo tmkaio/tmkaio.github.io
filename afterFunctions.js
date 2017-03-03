@@ -50,13 +50,17 @@ function writeHTML(){
 
 
 	function changechkbox(chkbox){
-		if($('#'+chkbox).prop('checked') == false && $('#'+chkbox).val() != ""){
+		if($('#'+chkbox).prop('checked') == false){
 			$('#'+chkbox).prop('checked', true);
-			markElements($('#'+chkbox).val());
+			if($('#'+chkbox).val() != ""){
+				markElements($('#'+chkbox).val());
+			}
 		}
 		else{
-			$('#'+chkbox).prop('checked', false && $('#'+chkbox).val() != "");
-			unmarkElements($('#'+chkbox).val());
+			$('#'+chkbox).prop('checked', false);
+			if($('#'+chkbox).val() != ""){
+				unmarkElements($('#'+chkbox).val());
+			}
 		}
 	}
 
@@ -66,12 +70,10 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
-				alert("you got here 2");
 				$(this).css({border: "5px solid red"});
 				$(this).show();
 			});
 		}
-		alert("you got here");
 	}
 
 	function unmarkElements(variaveis){
