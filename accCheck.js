@@ -24,7 +24,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 						c.onload=c.onreadystatechange=null;
 
 					}
-				}
+				};
 				a.documentElement.childNodes[0].appendChild(p);
 			}
 		};
