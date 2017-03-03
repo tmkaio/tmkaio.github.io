@@ -52,7 +52,6 @@ function writeHTML(){
 	function changechkbox(chkbox){
 		if($('#'+chkbox).prop('checked') == false){
 			$('#'+chkbox).prop('checked', true);
-			alert("you got here");
 			markElements($('#'+chkbox).val());
 		}
 		else{
@@ -63,9 +62,10 @@ function writeHTML(){
 
 	function markElements(variaveis){
 		parsedimg = variaveis.split(',');
-
+		alert("you got here1");
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
+				alert("you got here 2");
 				$(this).css({border: "5px solid red"});
 				$(this).show();
 			});
