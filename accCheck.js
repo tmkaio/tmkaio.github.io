@@ -76,6 +76,12 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 	/*Function to find missing attr on tags*/
 	function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
 		alert(obligAttr);
+		if(obligAttr == undefined) {
+		 obligAttr = false;
+		}
+		if(optAttr == undefined) {
+		 optAttr = false;
+		}
 		elementsIDs = "";
 		totalItemsCounter = 0;
 		itemsCounter = 0;
