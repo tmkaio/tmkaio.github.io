@@ -75,13 +75,14 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 	/*Function to find missing attr on tags*/
 	function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
-		alert(obligAttr);
+
 		if(obligAttr == undefined) {
 		 obligAttr = false;
 		}
 		if(optAttr == undefined) {
 		 optAttr = false;
 		}
+
 		elementsIDs = "";
 		totalItemsCounter = 0;
 		itemsCounter = 0;
@@ -137,8 +138,13 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		return reportBody;
 	}
 
-	function findPrevTag(firstTag, secondTag, obligAttr = false, optAttr = false){
-
+	function findPrevTag(firstTag, secondTag, obligAttr, optAttr){
+		if(obligAttr == undefined) {
+		 obligAttr = false;
+		}
+		if(optAttr == undefined) {
+		 optAttr = false;
+		}
 		totalItemsCounter = 0;
 		itemsCounter = 0;
 
