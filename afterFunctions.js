@@ -31,7 +31,7 @@ function writeHTML(){
 	newPage += "</html>";
 
 	var w = window.open();
-	$(w.document.body).html(newPage);
+	w.document.write(newPage);
 
 }
 
