@@ -138,7 +138,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				counterAll++;
 			}
 			else{
-				tagPosition = $(this).position();
+				tagPosition = $(this).offset();
 				leftside = Math.round(tagPosition.left)+"px";
 				topside = Math.round(tagPosition.top)+"px";
 
