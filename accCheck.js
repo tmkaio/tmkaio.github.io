@@ -134,7 +134,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				alert(leftside);
 				test = $("<div id='coco'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
 				$("html").append(test);
-				$("#coco").css({top: topside, left: leftside, position:'fixed', background: "yellow"});
+				$("#coco").css({top: topside, left: leftside, position:'absolute', background: "yellow"});
 				$('#accCheckDiv').css('z-index', 9999);
 			}
 			else{
