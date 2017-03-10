@@ -72,6 +72,13 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
+
+				tagPosition = $(this).offset();
+				leftside = Math.round(tagPosition.left)+"px";
+				topside = Math.round(tagPosition.top)+"px";
+				appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + tag + " missing " + missingAttr + "</div>");
+				$("html").append(appendWarning);
+
 				$(this).css({border: "5px solid red"});
 				$(this).show();
 			});
@@ -83,6 +90,7 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
+				$("#" + parsedimg[i] + "_warning").hide();
 				$(this).css({border: "none"});
 			});
 		}
