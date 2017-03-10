@@ -133,9 +133,13 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			else{
 				checkExistingID(this, tag, totalItemsCounter);
 				tagPosition = $(this).position();
+				leftside = tagPosition.left+"px";
+				topside = tagPosition.top+"px";
 
-				test = $("<div style='background-color: yellow; top: "+tagPosition.top+"px; left: "+tagPosition.left+"px; position:'fixed''>top: "+tagPosition.top+"px; left: "+tagPosition.left+"px; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
+				test = $("<div id='coco'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
 				$("html").append(test);
+
+				$("#coco").css({top: topside, left: leftside, position:'fixed', background: "yellow"});
 				attrFound = idList;
 			}
 			totalItemsCounter++;
