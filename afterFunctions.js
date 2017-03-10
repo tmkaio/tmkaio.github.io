@@ -78,6 +78,7 @@ function writeHTML(){
 					topside = Math.round(tagPosition.top)+"px";
 					appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>");
 					$("html").append(appendWarning);
+					$("#"+parsedimg[i]+"_warning").css({position: "absolute"});
 				}
 				else{
 					$("#"+parsedimg[i]+"_warning").show();
