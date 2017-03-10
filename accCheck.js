@@ -128,25 +128,14 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				reportBody += "<br><br>";
 				itemsCounter++;
 				counterAll++;
+			}
+			else{
 				tagPosition = $(this).position();
 				leftside = Math.round(tagPosition.left)+"px";
 				topside = Math.round(tagPosition.top)+"px";
-				alert(leftside);
-				test = $("<div id='coco"+itemsCounter+"'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
-				$("html").append(test);
-				$("#coco"+itemsCounter).css({top: topside, left: leftside, position:'absolute', background: "yellow"});
-				$("#coco"+itemsCounter).css('z-index', 9999);
-			}
-			else{
-				checkExistingID(this, tag, totalItemsCounter);
-				tagPosition = $(this).position();
-				leftside = tagPosition.left+"px";
-				topside = tagPosition.top+"px";
 
-				test = $("<div id='coco'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
+				test = $("<div style='position: absolute; top: "+topside+"; left: "+leftside+" background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
 				$("html").append(test);
-
-				$("#coco").css({top: "100px", left: leftside, position:'fixed', background: "yellow"});
 				attrFound = idList;
 			}
 			totalItemsCounter++;
