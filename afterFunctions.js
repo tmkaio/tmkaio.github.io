@@ -90,7 +90,6 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
-				alert("#"+parsedimg[i]+"_warning");
 				$("#"+parsedimg[i]+"_warning").hide();
 				$(this).css({border: "none"});
 			});
