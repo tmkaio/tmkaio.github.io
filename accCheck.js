@@ -132,8 +132,9 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			}
 			else{
 				checkExistingID(this, tag, totalItemsCounter);
-				test = $("<div style='background-color: yellow'>hahah</div>");
-				$("html").append(test);
+				tagPosition = $(this).position();
+				test = $("<div style='background-color: yellow'>" missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
+				$("html").append(test).position(tagPosition);
 				attrFound = idList;
 			}
 			totalItemsCounter++;
