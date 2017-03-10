@@ -131,7 +131,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				leftside = Math.round(tagPosition.left)+"px";
 				topside = Math.round(tagPosition.top)+"px";
 
-				test = $("<div style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + tab + " missing " + missingAttr + "</div>");
+				test = $("<div style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + tag + " missing " + missingAttr + "</div>");
 				$("html").append(test);
 				attrFound = idList;
 				itemsCounter++;
