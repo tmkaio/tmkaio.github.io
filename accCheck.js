@@ -126,6 +126,14 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					reportBody += "<br>ID: " + $(this).attr("id");
 				}
 				reportBody += "<br><br>";
+
+				tagPosition = $(this).position();
+				leftside = Math.round(tagPosition.left)+"px";
+				topside = Math.round(tagPosition.top)+"px";
+
+				test = $("<div style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + tab + " missing " + missingAttr + "</div>");
+				$("html").append(test);
+				attrFound = idList;
 				itemsCounter++;
 				counterAll++;
 			}
@@ -134,7 +142,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				leftside = Math.round(tagPosition.left)+"px";
 				topside = Math.round(tagPosition.top)+"px";
 
-				test = $("<div style='position: absolute; top: "+topside+"; left: "+leftside+" background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
+				test = $("<div style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
 				$("html").append(test);
 				attrFound = idList;
 			}
