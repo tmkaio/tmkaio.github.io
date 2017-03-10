@@ -132,7 +132,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			}
 			else{
 				checkExistingID(this, tag, totalItemsCounter);
-				test = $("<div style='background-color: yellow'>" + $(this).attr(missingAttr) + "</div>");
+				test = $("<div style='background-color: yellow'>hahah</div>");
 				$("html").append(test);
 				attrFound = idList;
 			}
