@@ -76,9 +76,8 @@ function writeHTML(){
 					tagPosition = $(this).offset();
 					leftside = Math.round(tagPosition.left)+"px";
 					topside = Math.round(tagPosition.top)+"px";
-					appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>");
+					appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute !important; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>");
 					$("body").append(appendWarning);
-					$("#"+parsedimg[i]+"_warning").css({position: "absolute"});
 				}
 				else{
 					$("#"+parsedimg[i]+"_warning").show();
