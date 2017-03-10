@@ -76,7 +76,7 @@ function writeHTML(){
 				tagPosition = $(this).offset();
 				leftside = Math.round(tagPosition.left)+"px";
 				topside = Math.round(tagPosition.top)+"px";
-				appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + tag + " missing " + missingAttr + "</div>");
+				appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";"</div>");
 				$("html").append(appendWarning);
 
 				$(this).css({border: "5px solid red"});
