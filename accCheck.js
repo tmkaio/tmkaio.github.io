@@ -132,6 +132,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			}
 			else{
 				checkExistingID(this, tag, totalItemsCounter);
+				$("html").append("<div style='background-color: yellow'>" + $(this).attr(missingAttr) + "</div>");
 				attrFound = idList;
 			}
 			totalItemsCounter++;
@@ -411,19 +412,22 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		htmllink = elementsIDs;
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
-		alert(attrFound);
+		htmlFound = attrFound;
+
 		/*Calling function to check IMG with alt*/
 		findMissinAttr("img", "alt", "src", "title");
 		imglink = elementsIDs;
 		imgcounter = itemsCounter;
 		imgTag = fullTag;
-		alert(attrFound);
+		imgFound = attrFound;
+
 		/*Calling function to check TABLE with summary*/
 		findMissinAttr("table", "summary");
 		tablelink = elementsIDs;
 		tablecounter = itemsCounter;
 		tableTag = fullTag;
-		alert(attrFound);
+		tableFound = attrFound;
+
 		/*Calling function to count number TABLE on page*/
 		countTag("table");
 		tablecountlink = elementsIDs;
