@@ -133,8 +133,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			else{
 				checkExistingID(this, tag, totalItemsCounter);
 				tagPosition = $(this).position();
-				alert(tagPosition.left);
-				alert(tagPosition.top);
+				
 				test = $("<div style='background-color: yellow; top: "+tagPosition.top+"px; left: "+tagPosition.left+"px; position:'fixed''>top: "+tagPosition.top+"px; left: "+tagPosition.left+"px; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
 				$("body").append(test);
 				attrFound = idList;
