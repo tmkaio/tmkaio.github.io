@@ -128,7 +128,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				reportBody += "<br><br>";
 				itemsCounter++;
 				counterAll++;
-
+				tagPosition = $(this).position();
+				alert(tagPosition.left);
 			}
 			else{
 				checkExistingID(this, tag, totalItemsCounter);
