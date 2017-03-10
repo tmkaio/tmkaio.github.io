@@ -56,21 +56,21 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			$(checkID).attr("id", "accCheck_"+checkTag+checkCounter);
 
 			if(checkCounter == 0){
-				elementsIDs += $(checkID).attr("id");
+				idList += $(checkID).attr("id");
 			}
 			else{
-				elementsIDs += "," + $(checkID).attr("id");
+				idList += "," + $(checkID).attr("id");
 			}
 		}
 		else{
 			if(checkCounter == 0){
-				elementsIDs += $(checkID).attr("id");
+				idList += $(checkID).attr("id");
 			}
 			else{
-				elementsIDs += "," + $(checkID).attr("id");
+				idList += "," + $(checkID).attr("id");
 			}
 		}
-		return elementsIDs;
+		return idList;
 	}
 
 	/*Function to find missing attr on tags*/
@@ -84,6 +84,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		}
 
 		elementsIDs = "";
+		idList = "";
 		totalItemsCounter = 0;
 		itemsCounter = 0;
 		fullTag = "";
@@ -101,7 +102,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					reportBody += "First parent with id found: " + address;
 				}
 				checkExistingID(this, tag, itemsCounter);
-
+				elementsIDs = idList;
 
 
 				/*Check if parameter optAttr was sent*/
@@ -128,6 +129,10 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				itemsCounter++;
 				counterAll++;
 
+			}
+			else{
+				checkExistingID(this, tag, itemsCounter);
+				attrFound = idList;
 			}
 			totalItemsCounter++;
 		});
@@ -397,6 +402,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		var tablecountcounter = 0;
 		var selectcounter = 0;
 		var duplicatedcounter = 0
+		var attrFound = "";
+		var idList = "";
 
 
 		/*Calling function to check HTML with lang*/
@@ -404,19 +411,19 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		htmllink = elementsIDs;
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
-
+		alert(attrFound);
 		/*Calling function to check IMG with alt*/
 		findMissinAttr("img", "alt", "src", "title");
 		imglink = elementsIDs;
 		imgcounter = itemsCounter;
 		imgTag = fullTag;
-
+		alert(attrFound);
 		/*Calling function to check TABLE with summary*/
 		findMissinAttr("table", "summary");
 		tablelink = elementsIDs;
 		tablecounter = itemsCounter;
 		tableTag = fullTag;
-
+		alert(attrFound);
 		/*Calling function to count number TABLE on page*/
 		countTag("table");
 		tablecountlink = elementsIDs;
