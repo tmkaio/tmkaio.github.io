@@ -72,13 +72,16 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
-
-				tagPosition = $(this).offset();
-				leftside = Math.round(tagPosition.left)+"px";
-				topside = Math.round(tagPosition.top)+"px";
-				appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>");
-				$("html").append(appendWarning);
-
+				if(!$("#"+parsedimg[i]+"_warning").length){
+					tagPosition = $(this).offset();
+					leftside = Math.round(tagPosition.left)+"px";
+					topside = Math.round(tagPosition.top)+"px";
+					appendWarning = $("<div id='"+parsedimg[i]+"_warning' style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>");
+					$("html").append(appendWarning);
+				}
+				else{
+					$("#"+parsedimg[i]+"_warning").show();
+				}
 				$(this).css({border: "5px solid red"});
 				$(this).show();
 			});
