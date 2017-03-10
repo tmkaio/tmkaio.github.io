@@ -101,7 +101,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					findFirstParentwithID(this);
 					reportBody += "First parent with id found: " + address;
 				}
-				checkExistingID(this, tag, itemsCounter);
+				checkExistingID(this, tag, totalItemsCounter);
 				elementsIDs = idList;
 
 
@@ -131,7 +131,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 			}
 			else{
-				checkExistingID(this, tag, itemsCounter);
+				checkExistingID(this, tag, totalItemsCounter);
 				attrFound = idList;
 			}
 			totalItemsCounter++;
