@@ -91,7 +91,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		fullTag = "";
 
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
-		
+
 		$(tag).each(function (){
 
 			if(!$(this).attr(missingAttr)){
@@ -138,11 +138,13 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				counterAll++;
 			}
 			else{
-				tagPosition = $(this).offset();
-				leftside = Math.round(tagPosition.left)+"px";
-				topside = Math.round(tagPosition.top)+"px";
+				if(tag != "html"){
+					$("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
+				}
+				else{
+					$("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>").prepend(this);
+				}
 
-				$("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
 				attrFound = idList;
 			}
 			totalItemsCounter++;
