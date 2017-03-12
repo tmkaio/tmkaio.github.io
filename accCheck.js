@@ -421,7 +421,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
-		alert()
+	
 		/*Calling function to check IMG with alt*/
 		findMissinAttr("img", "alt", "src", "title");
 		imglink = elementsIDs;
