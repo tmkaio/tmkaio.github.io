@@ -142,7 +142,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					$("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
 				}
 				else{
-					$("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>").prepend(this);
+					$(this).prepend("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>");
 				}
 
 				attrFound = idList;
