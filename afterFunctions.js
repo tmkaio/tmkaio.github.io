@@ -84,7 +84,7 @@ function writeHTML(){
 					$("#"+parsedimg[i]+"_warning").show();
 				}
 
-				$(this).css({outline: "5px solid red"});
+				$(this).css({outline: "green dotted thick"});
 				$(this).show();
 			});
 		}
