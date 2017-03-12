@@ -84,6 +84,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		 optAttr = false;
 		}
 		debugger;
+		totalItemsCounter = 0;
 		elementsIDs = "";
 		idList = "";
 		totalItemsCounter = 0;
