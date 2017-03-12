@@ -74,7 +74,7 @@ function writeHTML(){
 			$("#" + parsedimg[i]).each(function(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length){
-					$("<div id='#"+parsedimg[i]+"_warning' class='warningTag'>test</div>").insertBefore(this);
+					$("<div id='"+parsedimg[i]+"_warning' class='warningTag'>test</div>").insertBefore(this);
 				}
 				else{
 					$("#"+parsedimg[i]+"_warning").show();
