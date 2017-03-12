@@ -97,14 +97,14 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			if(!$(this).attr(missingAttr)){
 
 				alert(totalItemsCounter);
-				if(tag != "html"){
+			/*	if(tag != "html"){
 					fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 					var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 					reportBody += "<br>" + fullTagReport;
 					/*Calling function to get the first parent with id*/
-					findFirstParentwithID(this);
+					/*findFirstParentwithID(this);
 					reportBody += "First parent with id found: " + address;
-				}
+				}*/
 				alert(totalItemsCounter);
 				checkExistingID(this, tag, totalItemsCounter);
 				elementsIDs = idList;
