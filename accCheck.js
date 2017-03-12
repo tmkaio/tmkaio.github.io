@@ -52,7 +52,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 	}
 
 	function checkExistingID(checkID, checkTag, checkCounter){
-		alert(checkCounter);
+		alert(checkID.checkTag.checkCounter);
 		if(!$(checkID).attr("id")){
 			$(checkID).attr("id", "accCheck_"+checkTag+checkCounter);
 
