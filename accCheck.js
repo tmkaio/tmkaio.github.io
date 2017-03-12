@@ -93,10 +93,10 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
 		alert(totalItemsCounter);
 		$(tag).each(function (){
-			alert(tag+$(this).attr("src")+totalItemsCounter);
+			alert(tag+$(this).attr("src")+totalItemsCounter+"_1");
 			if(!$(this).attr(missingAttr)){
 
-				alert(tag+$(this).attr("src")+totalItemsCounter);
+				alert(tag+$(this).attr("src")+totalItemsCounter+"_2");
 			/*	if(tag != "html"){
 					fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 					var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
@@ -105,7 +105,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					/*findFirstParentwithID(this);
 					reportBody += "First parent with id found: " + address;
 				}*/
-				alert(tag+$(this).attr("src")+totalItemsCounter);
+				alert(tag+$(this).attr("src")+totalItemsCounter+"_3");
 				checkExistingID(this, tag, totalItemsCounter);
 				elementsIDs = idList;
 
