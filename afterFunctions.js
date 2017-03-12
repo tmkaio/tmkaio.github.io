@@ -72,7 +72,7 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
-				$("<div class='testing'>test</div>")insertBefore(this);
+				$("<div class='testing'>test</div>").insertBefore(this);
 				/*if(!$("#"+parsedimg[i]+"_warning").length){
 					tagPosition = $(this).offset();
 					leftside = "-"+Math.round($(this).height())+"px";
