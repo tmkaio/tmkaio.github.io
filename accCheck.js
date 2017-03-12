@@ -93,7 +93,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		$(tag).each(function (){
 
 			if(!$(this).attr(missingAttr)){
-
+				alert($(this).attr("src")+$(this).prop("tagName"));
 				if(tag != "html"){
 					fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 					var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
