@@ -75,7 +75,7 @@ function writeHTML(){
 			$("#" + parsedimg[i]).each(function(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
-					
+
 					$("<div id='"+parsedimg[i]+"_warning' class='warningTag'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
 
 				}
@@ -84,7 +84,7 @@ function writeHTML(){
 					$("#"+parsedimg[i]+"_warning").show();
 				}
 
-				$(this).css({border: "5px solid red"});
+				$(this).css({outline: "5px solid red"});
 				$(this).show();
 			});
 		}
@@ -96,7 +96,7 @@ function writeHTML(){
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
 				$("#"+parsedimg[i]+"_warning").hide();
-				$(this).css({border: "none"});
+				$(this).css({outline: "none"});
 			});
 		}
 	}
