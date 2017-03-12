@@ -69,16 +69,20 @@ function writeHTML(){
 	function markElements(variaveis){
 
 		parsedimg = variaveis.split(',');
-
+		alert('1');
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
-
+				alert('2');
 				if(!$("#"+parsedimg[i]+"_warning").length){
+					alert('3');
 					$("<div id='"+parsedimg[i]+"_warning' class='warningTag'>test</div>").insertBefore(this);
+					alert('4');
 				}
 				else{
+					alert('5');
 					$("#"+parsedimg[i]+"_warning").show();
 				}
+				alert('6');
 				$(this).css({border: "5px solid red"});
 				$(this).show();
 			});
