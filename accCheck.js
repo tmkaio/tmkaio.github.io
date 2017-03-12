@@ -392,7 +392,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
 		$("head").append(UITheme);     // Append new elements
 
-
+		var totalItemsCounter= "";
 		var itemsCounter = "";
 		var testt = "";
 		var address = "";
