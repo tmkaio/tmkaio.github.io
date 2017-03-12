@@ -50,27 +50,5 @@
 }
 
 .testing {
-  z-index: 99999;
+  z-index: 0;
 }
-
-.new {
-  display: inline-block;
-  position: relative;
-}
-
-.new img {
-  display: block;
-}
-
-.new::after {
-  content: attr(data-alt);
-  position: absolute;
-  bottom:0;
-  left: 0;
-  height: 1.5em;
-  width: 100%;
-  background: rgba(0,0,0,0.75);
-  z-index: 9999;
-  color:white;
-  text-align: center;
-  line-height: 1.5em}
