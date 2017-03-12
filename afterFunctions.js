@@ -84,7 +84,7 @@ function writeHTML(){
 					$("#"+parsedimg[i]+"_warning").show();
 				}
 
-				$(this).css({outline: "green dotted thick"});
+				$(this).css({border: "5px solid red"});
 				$(this).show();
 			});
 		}
@@ -96,7 +96,7 @@ function writeHTML(){
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
 				$("#"+parsedimg[i]+"_warning").hide();
-				$(this).css({outline: "none"});
+				$(this).css({border: "none"});
 			});
 		}
 	}
