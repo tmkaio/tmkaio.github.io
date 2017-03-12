@@ -102,7 +102,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					findFirstParentwithID(this);
 					reportBody += "First parent with id found: " + address;
 				}
-				alert($(this).attr("src"));
+				alert($(this).attr("src")+$(this).prop("tagName"));
 				checkExistingID(this, tag, totalItemsCounter);
 				elementsIDs = idList;
 
