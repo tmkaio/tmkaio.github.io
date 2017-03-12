@@ -216,6 +216,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 			if(exlabelString.attr(attr2) != $(this).attr(attr1)){
 				checkExistingID(this,tag1,itemsCounter);
+				elementsIDs = idList;
 
 				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 				fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
@@ -275,6 +276,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		$(tag).each(function(){
 			checkExistingID(this,tag,itemsCounter);
+			elementsIDs = idList;
 			itemsCounter++;
 		});
 		counters += "<br>Number of " + tag + ": " + itemsCounter;
