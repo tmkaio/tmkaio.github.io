@@ -71,6 +71,7 @@ function writeHTML(){
 		parsedimg = variaveis.split(',');
 		alert('1');
 		for(var i = 0; i < parsedimg.length; i++) {
+			alert('1.2');
 			$("#" + parsedimg[i]).each(function(){
 				alert('2');
 				if(!$("#"+parsedimg[i]+"_warning").length){
