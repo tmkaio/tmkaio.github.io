@@ -77,7 +77,7 @@ function writeHTML(){
 					leftside = "-"+Math.round($(this).height())+"px";
 					topside = "-"+Math.round($(this).width())+"px";
 					appendWarning = $("<div class='testing' id='"+parsedimg[i]+"_warning' style='top: "+topside+"; left: "+leftside+"; position: relative; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>");
-					$("<div class='testing' id='"+parsedimg[i]+"_warning' style='background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>").insertAfter(this);
+					$("<div class='testing' id='"+parsedimg[i]+"_warning' style='position: relative; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>").insertAfter(this);
 				}
 				else{
 					$("#"+parsedimg[i]+"_warning").show();
