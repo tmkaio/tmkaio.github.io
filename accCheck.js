@@ -103,7 +103,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					findFirstParentwithID(this);
 					reportBody += "First parent with id found: " + address;
 				}
-				alert($(this).attr("src")+$(this).prop("tagName"));
+				alert($(this).attr("src")+$(this).prop("tagName")+totalItemsCounter);
 				checkExistingID(this, tag, totalItemsCounter);
 				elementsIDs = idList;
 
@@ -421,7 +421,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
-	
+
 		/*Calling function to check IMG with alt*/
 		findMissinAttr("img", "alt", "src", "title");
 		imglink = elementsIDs;
