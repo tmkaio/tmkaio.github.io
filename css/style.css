@@ -49,7 +49,7 @@
     padding: 10px;
 }
 
-.testing {
+.warningTag {
   z-index: 9999;
   position: absolute;
   background-color: yellow;
