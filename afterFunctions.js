@@ -72,7 +72,7 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
-				var data = $(this).attr('alt');
+				var data = "to cagando pra isso";
 				$(this).wrap("<div class='new'></div>").parent('.new').attr('data-alt', data);
 				/*if(!$("#"+parsedimg[i]+"_warning").length){
 					tagPosition = $(this).offset();
