@@ -323,7 +323,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			sidenav +=          	'<a href="javascript: changechkbox(\'dupid\')"><span class="badge">' + duplicatedcounter + '</span> Duplicated IDs <input id="dupid" type="radio" class="pull-right" name="dupid" value="' + duplciatedlink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + selectcounter + '</span> &ltselect&gt without related &ltlabel&gt <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + selectlink + '"></a>';
+			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> &ltselect&gt without related &ltlabel&gt <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + labellink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
 			sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
@@ -417,11 +417,11 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		var imgcounter = 0;
 		var tablecounter = 0;
 		var tablecountcounter = 0;
-		var selectcounter = 0;
+		var labelcounter = 0;
 		var duplicatedcounter = 0
 		var attrFound = "";
 		var idList = "";
-
+		var labellink = "";
 
 		/*Calling function to check HTML with lang*/
 		findMissinAttr("html", "lang");
@@ -451,8 +451,17 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		/*Calling function to check for select without label*/
 		findLinkedTag("select", "id", "label", "for");
-		selectlink = elementsIDs;
-		selectcounter = itemsCounter;
+		labellink = elementsIDs;
+		labelcounter = itemsCounter;
+
+		findLinkedTag("input", "id", "label", "for");
+		if(labellink != "" && elementsIDs != ""){
+			labellink += ",",elementsIDs;
+		}
+		else{
+			labellink = elementsIDs;
+		}
+		labelcounter = labelcounter+itemsCounter;
 
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
