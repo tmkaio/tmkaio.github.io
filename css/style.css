@@ -52,3 +52,25 @@
 .testing {
   z-index: 99999;
 }
+
+.new {
+  display: inline-block;
+  position: relative;
+}
+
+.new img {
+  display: block;
+}
+
+.new::after {
+  content: attr(data-alt);
+  position: absolute;
+  bottom:0;
+  left: 0;
+  height: 1.5em;
+  width: 100%;
+  background: rgba(0,0,0,0.75);
+  z-index: 2;
+  color:white;
+  text-align: center;
+  line-height: 1.5em}
