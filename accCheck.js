@@ -83,16 +83,17 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		if(optAttr == undefined) {
 		 optAttr = false;
 		}
-		debugger;
+
 		totalItemsCounter = 0;
 		elementsIDs = "";
 		idList = "";
-		totalItemsCounter = 0;
 		itemsCounter = 0;
 		fullTag = "";
+		alert(totalItemsCounter);
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
+		alert(totalItemsCounter);
 		$(tag).each(function (){
-
+			alert(totalItemsCounter);
 			if(!$(this).attr(missingAttr)){
 
 				alert(totalItemsCounter);
