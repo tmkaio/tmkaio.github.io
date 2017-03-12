@@ -72,16 +72,16 @@ function writeHTML(){
 
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
-				if(!$("#"+parsedimg[i]+"_warning").length){
+				//if(!$("#"+parsedimg[i]+"_warning").length){
 					tagPosition = $(this).offset();
 					leftside = "-"+Math.round($(this).height())+"px";
 					topside = "-"+Math.round($(this).width())+"px";
 					appendWarning = $("<div class='testing' id='"+parsedimg[i]+"_warning' style='top: "+topside+"; left: "+leftside+"; position: relative; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+";</div>");
-					$("<div style='background-color: red; z-index: 9999;'>testing </div>").insertAfter(this);
-				}
-				else{
-					$("#"+parsedimg[i]+"_warning").show();
-				}
+					$("<div style='background-color: red; z-index: 9999 !important;'>testing </div>").insertAfter(this);
+				//}
+				//else{
+				//	$("#"+parsedimg[i]+"_warning").show();
+				//}
 				$(this).css({border: "5px solid red"});
 				$(this).show();
 			});
