@@ -83,7 +83,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		if(optAttr == undefined) {
 		 optAttr = false;
 		}
-
+		debugger;
 		totalItemsCounter = 0;
 		elementsIDs = "";
 		idList = "";
