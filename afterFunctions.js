@@ -71,12 +71,12 @@ function writeHTML(){
 		parsedimg = variaveis.split(',');
 
 		for(var i = 0; i < parsedimg.length; i++) {
-			
+
 			$("#" + parsedimg[i]).each(function(){
 
-				if(!$("#"+parsedimg[i]+"_warning").length){
+				if(!$("#"+parsedimg[i]+"_warning").length && $("#"+parsedimg[i]+"_warning").prop("tagName") != "html"){
 
-					//$("<div id='"+parsedimg[i]+"_warning' class='warningTag'>test</div>").insertBefore(this);
+					$("<div id='"+parsedimg[i]+"_warning' class='warningTag'>"+$("#"+parsedimg[i]+"_warning").prop("tagName")+"</div>").insertBefore(this);
 
 				}
 				else{
