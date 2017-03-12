@@ -83,7 +83,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		if(optAttr == undefined) {
 		 optAttr = false;
 		}
-
+		debugger;
 		elementsIDs = "";
 		idList = "";
 		totalItemsCounter = 0;
@@ -93,8 +93,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		$(tag).each(function (){
 
 			if(!$(this).attr(missingAttr)){
-				debugger;
-				alert($(this).attr("src")+$(this).prop("tagName"));
+
+				alert(totalItemsCounter);
 				if(tag != "html"){
 					fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 					var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
@@ -103,7 +103,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					findFirstParentwithID(this);
 					reportBody += "First parent with id found: " + address;
 				}
-				alert($(this).attr("src")+$(this).prop("tagName")+totalItemsCounter);
+				alert(totalItemsCounter);
 				checkExistingID(this, tag, totalItemsCounter);
 				elementsIDs = idList;
 
