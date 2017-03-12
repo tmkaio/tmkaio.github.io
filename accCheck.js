@@ -455,9 +455,9 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		labelcounter = itemsCounter;
 
 		findLinkedTag("input", "id", "label", "for");
-		alert(labellink+"__"+elementsIDs)
+	
 		if(labellink != "" && elementsIDs != ""){
-			labellink += ","elementsIDs;
+			labellink += ","+elementsIDs;
 		}
 		else{
 			labellink = elementsIDs;
