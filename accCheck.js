@@ -127,7 +127,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				}
 				reportBody += "<br><br>";
 
-				
+
 				attrFound = idList;
 				itemsCounter++;
 				counterAll++;
@@ -136,10 +136,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				tagPosition = $(this).offset();
 				leftside = Math.round(tagPosition.left)+"px";
 				topside = Math.round(tagPosition.top)+"px";
-				alert("wrong "+ leftside);
-				alert("wrong "+ topside);
-				test = $("<div style='position: absolute; top: "+topside+"; left: "+leftside+"; background-color: yellow; z-index: 9999;'>top: "+leftside+"; left: "+topside+"; " + missingAttr + " = " + $(this).attr(missingAttr) + "</div>");
-				$("html").append(test);
+
+				$("<div class='testing'>" + $(this).attr(tag) + "</div>"$(this).attr(tag)).insertBefore(this);
 				attrFound = idList;
 			}
 			totalItemsCounter++;
