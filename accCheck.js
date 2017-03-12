@@ -206,6 +206,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		totalItemsCounter = 0;
 		itemsCounter = 0;
 		elementsIDs = "";
+		idList = "";
 
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag1 + " missing " + tag2 + ":</b><hr style='background:grey; height: 2px;'><pre> ";
 
@@ -273,6 +274,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 /*Function to count the total number of tag*/
 	function countTag(tag){
 		itemsCounter = 0;
+		idList = "";
 
 		$(tag).each(function(){
 			checkExistingID(this,tag,itemsCounter);
