@@ -77,7 +77,7 @@ function writeHTML(){
 				if(!$("#"+parsedimg[i]+"_warning").length){
 					if($(this).prop("tagName") != "html"){
 						elemRect = $(this).position();
-						$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='position:absolute !important; top:"+elemRect.top+"px !important; left:"+elemRect.left+"px !important;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
+						$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
 					}
 				}
 				else{
