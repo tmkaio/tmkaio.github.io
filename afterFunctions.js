@@ -82,7 +82,7 @@ function writeHTML(){
 					var top = document.getElementById(parsedimg[i]).offsetTop;
 					elemRect = document.getElementById(parsedimg[i]).getBoundingClientRect();
 					alert(elemRect.top+"____"+elemRect.left);
-					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+top+" !important; left:"+left+" !important;'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
+					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+elemRect.top+" !important; left:"+elemRect.left+" !important;'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
 
 				}
 				else{
