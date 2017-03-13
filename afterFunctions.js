@@ -75,9 +75,8 @@ function writeHTML(){
 			$("#" + parsedimg[i]).each(function(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
-					position = $(this).offset();
-					var left = document.getElementById(parsedimg[i]+"_warning").offsetLeft;
-					var top = document.getElementById(parsedimg[i]+"_warning").offsetTop;
+					var left = document.getElementById(parsedimg[i]).offsetLeft;
+					var top = document.getElementById(parsedimg[i]).offsetTop;
 					alert(top+"____"+left);
 					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+top+"; left:"+left+";'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
 
