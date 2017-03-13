@@ -323,7 +323,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			sidenav +=          	'<a href="javascript: changechkbox(\'dupid\')"><span class="badge">' + duplicatedcounter + '</span> Duplicated IDs <input id="dupid" type="radio" class="pull-right" name="dupid" value="' + duplciatedlink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> &ltselect&gt without related &ltlabel&gt <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + labellink + '"></a>';
+			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> Labels <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + labellink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
 			sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
@@ -455,7 +455,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		labelcounter = itemsCounter;
 
 		findLinkedTag("input", "id", "label", "for");
-	
+
 		if(labellink != "" && elementsIDs != ""){
 			labellink += ","+elementsIDs;
 		}

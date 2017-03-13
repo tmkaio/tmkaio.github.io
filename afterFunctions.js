@@ -74,22 +74,18 @@ function writeHTML(){
 
 			$("#" + parsedimg[i]).each(function(){
 
-				$(this).css({border: "5px solid red"});
-				$(this).show();
-
-				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
-
-					elemRect = $(this).position(); //document.getElementById(parsedimg[i]).getBoundingClientRect();
-					alert(elemRect.top+"____"+elemRect.left);
-					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='position:absolute !important; top:"+elemRect.top+"px !important; left:"+elemRect.left+"px !important;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
-
+				if(!$("#"+parsedimg[i]+"_warning").length){
+					if($(this).prop("tagName") != "html"){
+						elemRect = $(this).position();
+						$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='position:absolute !important; top:"+elemRect.top+"px !important; left:"+elemRect.left+"px !important;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
+					}
 				}
 				else{
 
 					$("#"+parsedimg[i]+"_warning").show();
 				}
-
-
+				$(this).css({border: "5px solid red"});
+				$(this).show();
 			});
 		}
 	}
