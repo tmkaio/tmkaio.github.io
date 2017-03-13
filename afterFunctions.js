@@ -77,7 +77,7 @@ function writeHTML(){
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
 					position = $(this).position();
 					alert(position.top+"____"+position.left);
-					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+position.top+"; left:"+position.left+";'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
+					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+position.top+"; left:"+position.left+";'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
 
 				}
 				else{
