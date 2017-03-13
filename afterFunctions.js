@@ -76,8 +76,10 @@ function writeHTML(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
 					position = $(this).offset();
-					alert(position.top+"____"+position.left);
-					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+position.top+"; left:"+position.left+";'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
+					var div = document.getElementById(parsedimg[i]+"_warning");
+					var rect = div.getBoundingClientRect();
+					alert(rect.top+"____"+rect.left);
+					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+rect.top+"; left:"+rect.left+";'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
 
 				}
 				else{
