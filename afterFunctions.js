@@ -74,20 +74,23 @@ function writeHTML(){
 
 			$("#" + parsedimg[i]).each(function(){
 
-				/*if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
+				$(this).css({border: "5px solid red"});
+				$(this).show();
+
+				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
 					var left = document.getElementById(parsedimg[i]).offsetLeft;
 					var top = document.getElementById(parsedimg[i]).offsetTop;
-					alert(top+"____"+left);
+					elemRect = document.getElementById(parsedimg[i]).getBoundingClientRect();
+					alert(elemRect.top+"____"+elemRect.left);
 					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+top+" !important; left:"+left+" !important;'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
 
 				}
 				else{
 
 					$("#"+parsedimg[i]+"_warning").show();
-				}*/
+				}
 
-				$(this).css({border: "5px solid red"});
-				$(this).show();
+
 			});
 		}
 	}
