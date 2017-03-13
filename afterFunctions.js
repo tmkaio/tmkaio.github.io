@@ -76,7 +76,8 @@ function writeHTML(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
 
-					$("<div id='"+parsedimg[i]+"_warning' class='warningTag'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
+					$(this).wrap("<div id='"+parsedimg[i]+"_warning' class='warningTag'></div>");
+					$("#"+parsedimg[i]+"_warning").prepend(+$(this).prop("tagName")+)
 
 				}
 				else{
