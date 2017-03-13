@@ -139,7 +139,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			}
 			else{
 				if(tag != "html"){
-					$("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
+					elemRect = $(this).position();
+					$("<div class='warningTag' style='position:top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
 				}
 				else{
 					$(this).prepend("<div class='warningTag'>" + $(this).attr(missingAttr) + "</div>");
