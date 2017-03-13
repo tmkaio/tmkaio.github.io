@@ -74,7 +74,7 @@ function writeHTML(){
 
 			$("#" + parsedimg[i]).each(function(){
 
-				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
+				/*if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
 					var left = document.getElementById(parsedimg[i]).offsetLeft;
 					var top = document.getElementById(parsedimg[i]).offsetTop;
 					alert(top+"____"+left);
@@ -84,7 +84,7 @@ function writeHTML(){
 				else{
 
 					$("#"+parsedimg[i]+"_warning").show();
-				}
+				}*/
 
 				$(this).css({border: "5px solid red"});
 				$(this).show();
