@@ -78,11 +78,10 @@ function writeHTML(){
 				$(this).show();
 
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
-					var left = document.getElementById(parsedimg[i]).offsetLeft;
-					var top = document.getElementById(parsedimg[i]).offsetTop;
-					elemRect = document.getElementById(parsedimg[i]).getBoundingClientRect();
+
+					elemRect = $(this).position(); //document.getElementById(parsedimg[i]).getBoundingClientRect();
 					alert(elemRect.top+"____"+elemRect.left);
-					$("html").append("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='position:absolute !important; top:"+elemRect.top+"px !important; left:"+elemRect.left+"px !important;'>"+$(this).prop("tagName")+"</div>");
+					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='position:absolute !important; top:"+elemRect.top+"px !important; left:"+elemRect.left+"px !important;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
 
 				}
 				else{
