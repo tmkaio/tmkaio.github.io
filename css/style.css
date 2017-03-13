@@ -56,3 +56,10 @@
   color: black;
   font-size:12px;
 }
+.warningTag {
+  z-index: 9999;
+  position: absolute !important;
+  background-color: green;
+  color: black;
+  font-size:12px;
+}
