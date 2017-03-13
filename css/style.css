@@ -51,6 +51,6 @@
 
 .warningTag {
   z-index: 9999;
-  position: absolute;
+  position: absolute !important;
   background-color: yellow;
 }
