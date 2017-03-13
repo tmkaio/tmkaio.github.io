@@ -76,10 +76,10 @@ function writeHTML(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
 					position = $(this).offset();
-					var div = document.getElementById(parsedimg[i]+"_warning");
-					var rect = div.getBoundingClientRect();
-					alert(rect.top+"____"+rect.left);
-					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+rect.top+"; left:"+rect.left+";'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
+					var left = document.getElementById(parsedimg[i]+"_warning").offsetLeft;
+					var top = document.getElementById(parsedimg[i]+"_warning").offsetTop;
+					alert(top+"____"+left);
+					$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top;"+top+"; left:"+left+";'>"+$(this).prop("tagName")+"</div>").insertAfter(this);
 
 				}
 				else{
