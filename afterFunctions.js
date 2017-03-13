@@ -77,7 +77,7 @@ function writeHTML(){
 				if(!$("#"+parsedimg[i]+"_warning").length && $(this).prop("tagName") != "html"){
 
 					$(this).wrap("<div id='"+parsedimg[i]+"_warning' style='max-width:"+$(this).width()+"px; max-height:"+$(this).height()+"px;' class='warningTag'></div>");
-					$("#"+parsedimg[i]+"_warning").prepend($(this).prop("tagName"));
+					$("#"+parsedimg[i]+"_warning").prepend("<div style='z-index:9999'>"+$(this).prop("tagName")+"</div>");
 
 				}
 				else{
