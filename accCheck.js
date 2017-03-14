@@ -437,6 +437,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		imgcounter = itemsCounter;
 		imgTag = fullTag;
 		imgFound = attrFound;
+		alert(imglink);
 		findMissinAttr("i", "alt", "src", "title");
 		if(imglink != "" && elementsIDs != ""){
 			imglink += ","+elementsIDs;
