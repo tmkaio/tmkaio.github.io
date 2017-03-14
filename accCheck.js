@@ -437,6 +437,13 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		imgcounter = itemsCounter;
 		imgTag = fullTag;
 		imgFound = attrFound;
+		findMissinAttr("i", "alt", "src", "title");
+		if(imglink != "" && elementsIDs != ""){
+			imglink += ","+elementsIDs;
+		}
+		else{
+			imglink = elementsIDs;
+		}
 
 		/*Calling function to check TABLE with summary*/
 		findMissinAttr("table", "summary");
@@ -474,8 +481,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		finalReportBody = reportBody;
 		finalCounters = counters;
 		finalDuplicatedIDs = duplicatedcounter;
-
-		jqt = window.jQuery;
 
 	}
 	accCheck();
