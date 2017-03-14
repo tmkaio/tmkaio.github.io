@@ -75,13 +75,13 @@ function writeHTML(){
 			$("#" + parsedimg[i]).each(function(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length){
+					alert($(this).prop("tagName"));
 					if($(this).prop("tagName") != "html"){
 						elemRect = $(this).position();
 						$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
 					}
 				}
 				else{
-
 					$("#"+parsedimg[i]+"_warning").show();
 				}
 				$(this).css({border: "5px solid red"});
