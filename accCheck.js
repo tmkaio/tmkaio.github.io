@@ -238,7 +238,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 				if(tag1 != "html"){
 					elemRect = $(this).position();
-					//$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + exlabelString.text() + "</div>").insertBefore(this);
+					$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + exlabelString.text() + "</div>").insertBefore(this);
 				}
 				else{
 					$(this).prepend("<div class='successTag'>" + exlabelString.text() + "</div>");
@@ -496,5 +496,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		finalDuplicatedIDs = duplicatedcounter;
 
 	}
+	alert($("[id=tabela]").attr("border"));
 	accCheck();
 });
