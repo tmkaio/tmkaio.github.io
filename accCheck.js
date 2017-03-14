@@ -233,9 +233,13 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				itemsCounter++;
 			}
 			else{
-				if(tag != "html"){
+				labelString = "$('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
+				exlabelString = eval(labelString);
+
+				if(tag1 != "html"){
+					alert(exlabelString.text);
 					elemRect = $(this).position();
-					$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
+					$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + exlabelString.text + "</div>").insertBefore(this);
 				}
 				else{
 					$(this).prepend("<div class='successTag'>" + $(this).attr(missingAttr) + "</div>");
