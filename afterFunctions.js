@@ -75,8 +75,7 @@ function writeHTML(){
 			$("#" + parsedimg[i]).each(function(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length){
-					alert($(this).prop("tagName"));
-					if($(this).prop("tagName") != "html"){
+					if($(this).prop("tagName") != "HTML"){
 						elemRect = $(this).position();
 						$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
 					}
