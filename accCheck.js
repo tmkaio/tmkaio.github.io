@@ -496,6 +496,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		finalDuplicatedIDs = duplicatedcounter;
 
 	}
-	alert($("div:hidden").attr("id"));
+	$("div:hidden").show();
 	accCheck();
 });
