@@ -79,6 +79,9 @@ function writeHTML(){
 						elemRect = $(this).position();
 						$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
 					}
+					else{
+						$(this).prepend("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>"+$(this).prop("tagName")+"</div>");
+					}
 				}
 				else{
 					$("#"+parsedimg[i]+"_warning").show();
