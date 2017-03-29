@@ -1,6 +1,9 @@
 <html>
-  <head>
-  </head>
+  <style>
+    b{
+      color: red;
+    }
+  </style>
   <body>
 
     <cfset  key="AIzaSyAznbvDurexM07W9IAG88NvOnL86w3d4GE">
@@ -11,7 +14,6 @@
       <cfset cfData=DeserializeJSON(httpResp.filecontent)>
 
       <cfoutput>
-
         <cfform action="index.cfm" method="POST">
           <cfinput type="Text" name="txt_Search" value="#txt_Search#">
           <cfinput type="Submit" name="SubmitForm" value="Submit">
@@ -22,7 +24,6 @@
           #cfData.items[i].link#<br>
           #cfData.items[i].htmlSnippet#<br><br>
         </cfloop>
-
       </cfoutput>
 
       <cfelse>
@@ -33,6 +34,5 @@
           </cfform>
         </cfoutput>
     </cfif>
-
   </body>
 </html>
