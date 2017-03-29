@@ -8,6 +8,8 @@
 
     <cfif IsDefined("txt_Search")>
       <cfhttp url="https://www.googleapis.com/customsearch/v1?cx=#cx#&key=#key#&q=#txt_Search#" method="get" result="httpResp" timeout="120">
+      <cfset cfData=DeserializeJSON(httpResp.filecontent)>
+
       <cfoutput>
 
         <cfform action="index.cfm" method="POST">
@@ -15,11 +17,9 @@
           <cfinput type="Submit" name="SubmitForm" value="Submit">
         </cfform>
 
-        <cfset cfData=DeserializeJSON(httpResp.filecontent)>
-
         <cfloop from="1" to="10" index="i">
           <a href="#cfData.items[i].link#">#cfData.items[i].htmlTitle#</a><br>
-          #cfData.items[i].link#<br />
+          #cfData.items[i].link#<br>
           #cfData.items[i].htmlSnippet#<br><br>
         </cfloop>
 
