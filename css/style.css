@@ -45,7 +45,7 @@
     height: 42px;
 }
 
-#accCheckDiv a:visited{
+#accCheckDiv a:link, a:visited {
     font-size:10px;
     color:white;
     font-weight:bold;
