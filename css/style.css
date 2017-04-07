@@ -45,7 +45,7 @@
     height: 42px;
 }
 
-#accCheckDiv a:{  
+#accCheckDiv a:visited{
     font-size:10px;
     color:white;
     font-weight:bold;
@@ -53,6 +53,7 @@
 
 #accCheckDiv{
     padding: 10px;
+    color: white;
 }
 
 .warningTag {
