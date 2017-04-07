@@ -302,7 +302,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		if(!$("#accCheckDiv").length){
 
-			var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll</a> | <span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
+			var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll</a> | <span class='badge'>" + htmlcounter + "</span> &lthtml&gt without lang <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
 			$("html").append(accCheckAppend);
 			$("#accCheckDiv").css({bottom: "0px", right: "20px", position:'fixed', width:"350px", height:"360px", background: "#909090"});
 			$("#accCheckDiv").addClass("text-danger");
