@@ -301,7 +301,11 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 	function accCheck(){
 
 		if(!$("#accCheckDiv").length){
-
+			function enableSrolling(){
+				//alert("overflow: auto !important; height: " + $(window).height() + "px !important;");
+				//style="overflow: auto !important; height: 100px !important"
+				$(body).css({overflow:"auto !important", height:"900px !important"});
+			}
 			var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'><i class='fa fa-bar-chart-o fa-lg'></i></a><a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
 			$("html").append(accCheckAppend);
 			$("#accCheckDiv").css({bottom: "0px", right: "20px", position:'fixed', width:"350px", height:"360px", background: "#909090"});
