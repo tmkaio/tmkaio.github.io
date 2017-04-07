@@ -37,7 +37,8 @@ function writeHTML(){
 
 function enableSrolling(){
 	//alert("overflow: auto !important; height: " + $(window).height() + "px !important;");
-	$(body).css({overflow: "auto !important", height: "900px !important"});
+	//style="overflow: auto !important; height: 100px !important"
+	$(body).css({overflow:"auto !important", height:"900px !important"});
 }
 
 
