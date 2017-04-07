@@ -339,7 +339,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> Labels <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + labellink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
-			sidenav +=             '<a href="javascript: enableSrolling(\'sellabel\')"> Enable scolling </a>';
+			sidenav +=             '<a href="javascript: enableSrolling()"> Enable scolling </a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
 			sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> General Report</a>';
