@@ -35,7 +35,9 @@ function writeHTML(){
 
 }
 
-
+function enableSrolling(){
+	$(body).attr("style", "overflow: auto !important; height: " + $(window).height() + "px !important;"):
+}
 
 
 	/*$('input[name=markThis]').change(function(){
