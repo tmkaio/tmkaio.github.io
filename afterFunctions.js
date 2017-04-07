@@ -36,9 +36,9 @@ function writeHTML(){
 }
 
 function enableSrolling(){
-	alert("5 overflow: auto !important; height: " + $(window).height() + "px !important;");
+	alert("6 overflow: auto !important; height: " + $(window).height() + "px !important;");
 	//style="overflow: auto !important; height: 100px !important"
-	$("body").css({height:"900px"});
+	$("body").css({height:"900px", overflow:"auto"});
 }
 
 
