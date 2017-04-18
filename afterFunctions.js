@@ -117,7 +117,7 @@ function selectIFrame(){
 		unmarkElements(htmllink);
 		unmarkElements(tablelink);
 		unmarkElements(duplciatedlink);
-		unmarkElements(selectlink);
+		unmarkElements(labellink);
 		$("#accCheckDiv").remove();
 	});
 }
