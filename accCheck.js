@@ -316,7 +316,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 				unmarkElements(imglink);
 				unmarkElements(htmllink);
 				unmarkElements(tablelink);
-				unmarkElements(duplciatedlink);
+				unmarkElements(duplicatedlink);
 				unmarkElements(selectlink);
 				$('#accNav').html(sidenav);
 			});
@@ -333,7 +333,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			sidenav +=             '<a href="javascript: changechkbox(\'tablesum\')"><span class="badge">' + tablecounter + '</span> &lttable&gt without summary <input id="tablesum" type="radio" class="pull-right" name="tablesum" value="' + tablelink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'dupid\')"><span class="badge">' + duplicatedcounter + '</span> Duplicated IDs <input id="dupid" type="radio" class="pull-right" name="dupid" value="' + duplciatedlink + '"></a>';
+			sidenav +=          	'<a href="javascript: changechkbox(\'dupid\')"><span class="badge">' + duplicatedcounter + '</span> Duplicated IDs <input id="dupid" type="radio" class="pull-right" name="dupid" value="' + duplicatedlink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
 			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> Labels <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + labellink + '"></a>';
@@ -488,7 +488,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
 		duplicatedcounter = itemsCounter;
-		duplciatedlink = elementsIDs;
+		duplicatedlink = elementsIDs;
 
 		/*Calling function to write HTML*/
 		finalReportBody = reportBody;

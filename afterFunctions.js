@@ -116,7 +116,9 @@ function selectIFrame(){
 		unmarkElements(imglink);
 		unmarkElements(htmllink);
 		unmarkElements(tablelink);
-
+		alert(imglink);
+		alert(duplicatedlink);
+		alert(labellink);
 		unmarkElements(duplicatedlink);
 
 		unmarkElements(labellink);
