@@ -108,19 +108,19 @@ function enableSrolling(){
 function selectIFrame(){
 	$('iframe').hover(function(){
 		$(this).css({border: "5px solid red"});
-		$('iframe').contents().css( 'cursor', 'pointer' );
+
 	},function(){
 			$(this).css({border: "none"});
 	});
 
 	$('iframe').contents().click(function(){
 		alert("Exiting accCheck");
-		unmarkElements(labellink);
+		alert(labellink);
 		unmarkElements(imglink);
 		unmarkElements(htmllink);
 		unmarkElements(tablelink);
 
-		alert(labellink);
+
 		unmarkElements(duplicatedlink);
 
 
