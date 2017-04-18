@@ -111,7 +111,7 @@ function selectIFrame(){
 	},function(){
 			$(this).css({border: "none"});
 	});
-	$('iframe').click(function(){
+	$('iframe').contents().click(function(){
 		alert("Exiting accCheck");
 		unmarkElements(imglink);
 		unmarkElements(htmllink);
