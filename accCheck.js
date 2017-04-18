@@ -483,6 +483,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		else{
 			labellink = elementsIDs;
 		}
+		alert(labellink);
 		labelcounter = labelcounter+itemsCounter;
 
 			/*Calling function to check for duplicated IDs*/
