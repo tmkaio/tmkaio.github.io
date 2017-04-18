@@ -115,14 +115,14 @@ function selectIFrame(){
 
 	$('iframe').contents().click(function(){
 		alert("Exiting accCheck");
-		alert(labellink);
+
 		unmarkElements(imglink);
 		unmarkElements(htmllink);
 		unmarkElements(tablelink);
 
 
 		unmarkElements(duplicatedlink);
-
+		alert(labellinks);
 
 		$("#accCheckDiv").remove();
 	});

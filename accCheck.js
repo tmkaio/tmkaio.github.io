@@ -336,7 +336,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 			sidenav +=          	'<a href="javascript: changechkbox(\'dupid\')"><span class="badge">' + duplicatedcounter + '</span> Duplicated IDs <input id="dupid" type="radio" class="pull-right" name="dupid" value="' + duplicatedlink + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> Labels <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + labellink + '"></a>';
+			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> Labels <input id="sellabel" type="radio" class="pull-right" id="caca" name="sellabel" value="' + labellinks + '"></a>';
 			sidenav +=         '</li>';
 			sidenav +=         '<li>';
 			sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
@@ -434,7 +434,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		var duplicatedcounter = 0
 		var attrFound = "";
 		var idList = "";
-		var labellink = "";
+		var labellinks = "";
 
 		/*Calling function to check HTML with lang*/
 		findMissinAttr("html", "lang");
@@ -472,18 +472,18 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		/*Calling function to check for select without label*/
 		findLinkedTag("select", "id", "label", "for");
-		labellink = elementsIDs;
+		labellinks = elementsIDs;
 		labelcounter = itemsCounter;
 
 		findLinkedTag("input", "id", "label", "for");
 
-		if(labellink != "" && elementsIDs != ""){
-			labellink += ","+elementsIDs;
+		if(labellinks != "" && elementsIDs != ""){
+			labellinks += ","+elementsIDs;
 		}
 		else{
-			labellink = elementsIDs;
+			labellinks = elementsIDs;
 		}
-		alert(labellink);
+
 		labelcounter = labelcounter+itemsCounter;
 
 			/*Calling function to check for duplicated IDs*/
