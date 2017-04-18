@@ -108,16 +108,16 @@ function enableSrolling(){
 function selectIFrame(){
 	$('iframe').hover(function(){
 		$(this).css({border: "5px solid red"});
-		$(this).click(function(){
-			alert("Exiting accCheck");
-			unmarkElements(imglink);
-			unmarkElements(htmllink);
-			unmarkElements(tablelink);
-			unmarkElements(duplciatedlink);
-			unmarkElements(selectlink);
-			$("#accCheckDiv").remove();
-		});
 	},function(){
 			$(this).css({border: "none"});
+	});
+	$('iframe').click(function(){
+		alert("Exiting accCheck");
+		unmarkElements(imglink);
+		unmarkElements(htmllink);
+		unmarkElements(tablelink);
+		unmarkElements(duplciatedlink);
+		unmarkElements(selectlink);
+		$("#accCheckDiv").remove();
 	});
 }
