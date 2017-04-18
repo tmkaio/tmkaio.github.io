@@ -104,3 +104,11 @@ function enableSrolling(){
 			});
 		}
 	}
+
+function selectIFrame(){
+	$('iframe').hover(function(){
+		$(this).css({border: "5px solid red"})
+	},function(){
+			$(this).css({border: "none"});
+	});
+}
