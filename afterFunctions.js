@@ -108,6 +108,9 @@ function enableSrolling(){
 function selectIFrame(){
 	$('iframe').hover(function(){
 		$(this).css({border: "5px solid red"})
+		$(this).click(function(){
+			$("#accCheckDiv").remove();
+		});
 	},function(){
 			$(this).css({border: "none"});
 	});
