@@ -396,10 +396,10 @@ function application(part){
 		if(!$("link[href*='bootstrap']").length){
 
 			var bootlink = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
-			$("head").append(bootlink);     // Append new elements
+			$(place).append(bootlink);     // Append new elements
 
 			var bootscript = $("<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>'>");
-			$("head").append(bootscript);     // Append new elements
+			$(place).append(bootscript);     // Append new elements
 
 		}
 
@@ -407,13 +407,13 @@ function application(part){
 		//$("head").append(afterFunctions);
 
 		var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
-		$("head").append(bordas);
+		$(place).append(bordas);
 
 		var font_aw = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
-		$("head").append(font_aw);     // Append new elements
+		$(place).append(font_aw);     // Append new elements
 
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
-		$("head").append(UITheme);     // Append new elements
+		$(place).append(UITheme);     // Append new elements
 
 		totalItemsCounter= "";
 		itemsCounter = "";
@@ -498,7 +498,7 @@ function application(part){
 		finalDuplicatedIDs = duplicatedcounter;
 
 	}
-	$("div:hidden").show();
+	$(place).find("div:hidden").show();
 	accCheck();
 
 }
