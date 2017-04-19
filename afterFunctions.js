@@ -114,16 +114,14 @@ function selectIFrame(){
 	});
 
 	$('iframe').contents().click(function(){
-		alert("Exiting accCheck");
 
-		alert($("#sellabel").attr("value"));
 		changechkbox("imgtag");
 		changechkbox("htmllang");
 		changechkbox("tablesum");
 		changechkbox("dupid");
 		changechkbox("sellabel");
 
-
 		$("#accCheckDiv").remove();
+		$(this).append(accCheckAppend);
 	});
 }
