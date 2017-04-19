@@ -16,8 +16,8 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 
 					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
 
-
-						application((f=e.jQuery).noConflict(1), b=1, k = 1);
+						$ = e.jQuery;
+						application((f=e.jQuery).noConflict(1), b=1, k = 1, "html");
 						a.documentElement.childNodes[0].removeChild(c);
 						a.documentElement.childNodes[0].removeChild(p);
 						p.onload=p.onreadystatechange=null;
@@ -354,7 +354,7 @@ function accCheck(){
 }
 
 function application(jq, N, O, part){
-	$ = jq;
+
 	if(!$("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
@@ -435,19 +435,19 @@ function application(jq, N, O, part){
 		labellink = "";
 
 		/*Calling function to check HTML with lang*/
-		findMissinAttr("html", "html", "lang");
+		findMissinAttr(part, "html", "lang");
 		htmllink = elementsIDs;
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
 
 		/*Calling function to check IMG with alt*/
-		findMissinAttr("html", "img", "alt", "src", "title");
+		findMissinAttr(part, "img", "alt", "src", "title");
 		imglink = elementsIDs;
 		imgcounter = itemsCounter;
 		imgTag = fullTag;
 		imgFound = attrFound;
-		findMissinAttr("html", "i", "alt", "src", "title");
+		findMissinAttr(part, "i", "alt", "src", "title");
 
 		if(imglink != "" && elementsIDs != ""){
 			imglink += ","+elementsIDs;
@@ -457,7 +457,7 @@ function application(jq, N, O, part){
 		}
 
 		/*Calling function to check TABLE with summary*/
-		findMissinAttr("html", "table", "summary");
+		findMissinAttr(part, "table", "summary");
 		tablelink = elementsIDs;
 		tablecounter = itemsCounter;
 		tableTag = fullTag;
