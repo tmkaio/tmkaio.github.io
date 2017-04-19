@@ -5,6 +5,10 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
 	script.type="text/javascript";
 	script.src = "https://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
 	document.getElementsByTagName("head")[0].appendChild(script);
+	var script2 = document.createElement("script");
+	script.type="text/javascript";
+	script.src = "//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+	document.getElementsByTagName("head")[0].appendChild(script2);
 }
 
 function writeHTML(){
