@@ -1,4 +1,4 @@
-javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
+javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 
 	if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){
 
@@ -17,7 +17,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
 
 
-						h((f=e.jQuery).noConflict(1), b=1, k = 1);
+						application((f=e.jQuery).noConflict(1), b=1, k = 1);
 						a.documentElement.childNodes[0].removeChild(c);
 						a.documentElement.childNodes[0].removeChild(p);
 						p.onload=p.onreadystatechange=null;
@@ -30,332 +30,330 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		};
 		a.documentElement.childNodes[0].appendChild(c);
 		}
-})
+})(window,document,"3.1.1");
 
-(window,document,"3.1.1",function($, N, O){
+/*Function to find the closes tag parent with ID*/
+function findFirstParentwithID(item){
+	var firsParent = "";
+	var numberOfParents = $(item).parents().length;
+	for (i=0; i<numberOfParents; i++){
 
-	/*Function to find the closes tag parent with ID*/
-	function findFirstParentwithID(item){
-		var firsParent = "";
-		var numberOfParents = $(item).parents().length;
-		for (i=0; i<numberOfParents; i++){
-
-			firsParent += ".parent()";
-			levelParent = "$( item )"+ firsParent +".attr('id')";
-			address = eval(levelParent);
-			if(address){
-				break;
-			}
-
+		firsParent += ".parent()";
+		levelParent = "$( item )"+ firsParent +".attr('id')";
+		address = eval(levelParent);
+		if(address){
+			break;
 		}
-		return address;
+
 	}
+	return address;
+}
 
-	function checkExistingID(checkID, checkTag, checkCounter){
+function checkExistingID(checkID, checkTag, checkCounter){
 
-		if(!$(checkID).attr("id")){
-			$(checkID).attr("id", "accCheck_"+checkTag+checkCounter);
+	if(!$(checkID).attr("id")){
+		$(checkID).attr("id", "accCheck_"+checkTag+checkCounter);
 
-			if(checkCounter == 0){
-				idList += $(checkID).attr("id");
-			}
-			else{
-				idList += "," + $(checkID).attr("id");
-			}
+		if(checkCounter == 0){
+			idList += $(checkID).attr("id");
 		}
 		else{
-			if(checkCounter == 0){
-				idList += $(checkID).attr("id");
-			}
-			else{
-				idList += "," + $(checkID).attr("id");
-			}
+			idList += "," + $(checkID).attr("id");
 		}
-		return idList;
+	}
+	else{
+		if(checkCounter == 0){
+			idList += $(checkID).attr("id");
+		}
+		else{
+			idList += "," + $(checkID).attr("id");
+		}
+	}
+	return idList;
+}
+
+/*Function to find missing attr on tags*/
+function findMissinAttr(place, tag, missingAttr, obligAttr, optAttr){
+
+	if(obligAttr == undefined) {
+	 obligAttr = false;
+	}
+	if(optAttr == undefined) {
+	 optAttr = false;
 	}
 
-	/*Function to find missing attr on tags*/
-	function findMissinAttr(place, tag, missingAttr, obligAttr, optAttr){
+	totalItemsCounter = 0;
+	elementsIDs = "";
+	idList = "";
+	itemsCounter = 0;
+	fullTag = "";
 
-		if(obligAttr == undefined) {
-		 obligAttr = false;
-		}
-		if(optAttr == undefined) {
-		 optAttr = false;
-		}
+	reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
 
-		totalItemsCounter = 0;
-		elementsIDs = "";
-		idList = "";
-		itemsCounter = 0;
-		fullTag = "";
+	$(place).find(tag).each(function (){
 
-		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
-
-		$(place).find(tag).each(function (){
-
-			if(!$(this).attr(missingAttr)){
+		if(!$(this).attr(missingAttr)){
 
 
-				if(tag != "html"){
-					fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-					var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-					reportBody += "<br>" + fullTagReport;
-					/*Calling function to get the first parent with id*/
-					findFirstParentwithID(this);
-					reportBody += "First parent with id found: " + address;
-				}
-
-				checkExistingID(this, tag, itemsCounter);
-				elementsIDs = idList;
-
-
-				/*Check if parameter optAttr was sent*/
-				if(optAttr != false || optAttr != ""){
-					if($(this).attr(optAttr)){
-						statusOptAttr = "<span class='text-success'>" + $(this).attr(optAttr) + "</span>";
-					}
-					else{
-						statusOptAttr = "<span class='text-danger'>No " + optAttr + "</span>";
-					}
-					reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
-				}
-
-				/*Check if parameter obligAttr was sent*/
-				if(obligAttr != false || obligAttr != ""){
-					reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
-				}
-
-				/*Check if current element has id*/
-				if($(this).attr("id")){
-					reportBody += "<br>ID: " + $(this).attr("id");
-				}
-				reportBody += "<br><br>";
-
-
-				attrFound = idList;
-				itemsCounter++;
-				counterAll++;
-			}
-			else{
-				if(tag != "html"){
-					elemRect = $(this).position();
-					$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
-				}
-				else{
-					$(this).prepend("<div class='successTag'>" + $(this).attr(missingAttr) + "</div>");
-				}
-
-				attrFound = idList;
-			}
-			totalItemsCounter++;
-		});
-
-		reportBody += "<b>Total of " + tag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
-		reportBody += "<br>Number of " + tag + " missing " + missingAttr + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
-
-		return reportBody;
-	}
-
-	function findPrevTag(firstTag, secondTag, obligAttr, optAttr){
-		if(obligAttr == undefined) {
-		 obligAttr = false;
-		}
-		if(optAttr == undefined) {
-		 optAttr = false;
-		}
-		totalItemsCounter = 0;
-		itemsCounter = 0;
-
-		reportBody += "<b><hr style='background:grey; height: 2px;'>" + firstTag + " missing " + secondTag + ":</b><hr style='background:grey; height: 2px;'><pre> ";
-
-		$(firstTag).each(function (){
-			if($(this).prev().prop("tagName") != secondTag){
-				reportBody += "ID: " + $(this).attr("id");
-
+			if(tag != "html"){
+				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+				var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+				reportBody += "<br>" + fullTagReport;
 				/*Calling function to get the first parent with id*/
 				findFirstParentwithID(this);
 				reportBody += "First parent with id found: " + address;
-
-				/*Check if parameter optAttr was sent*/
-				if(optAttr != false || optAttr != ""){
-					if($(this).attr(optAttr)){
-						statusOptAttr = "<span class='text-success'>" + $(this).attr(optAttr) + "</span>";
-					}
-					else{
-						statusOptAttr = "<span class='text-danger'>No " + optAttr + "</span>";
-					}
-					reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
-				}
-
-				/*Check if parameter obligAttr was sent*/
-				if(obligAttr != false || obligAttr != ""){
-					reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
-				}
-				reportBody += "<br><br>";
-				itemsCounter++;
 			}
-			totalItemsCounter++;
-		});
 
-		reportBody += "<b>Total of " + firstTag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
-		reportBody += "<br>Number of " + firstTag + " missing " + secondTag + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
+			checkExistingID(this, tag, itemsCounter);
+			elementsIDs = idList;
 
+
+			/*Check if parameter optAttr was sent*/
+			if(optAttr != false || optAttr != ""){
+				if($(this).attr(optAttr)){
+					statusOptAttr = "<span class='text-success'>" + $(this).attr(optAttr) + "</span>";
+				}
+				else{
+					statusOptAttr = "<span class='text-danger'>No " + optAttr + "</span>";
+				}
+				reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
+			}
+
+			/*Check if parameter obligAttr was sent*/
+			if(obligAttr != false || obligAttr != ""){
+				reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
+			}
+
+			/*Check if current element has id*/
+			if($(this).attr("id")){
+				reportBody += "<br>ID: " + $(this).attr("id");
+			}
+			reportBody += "<br><br>";
+
+
+			attrFound = idList;
+			itemsCounter++;
+			counterAll++;
+		}
+		else{
+			if(tag != "html"){
+				elemRect = $(this).position();
+				$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
+			}
+			else{
+				$(this).prepend("<div class='successTag'>" + $(this).attr(missingAttr) + "</div>");
+			}
+
+			attrFound = idList;
+		}
+		totalItemsCounter++;
+	});
+
+	reportBody += "<b>Total of " + tag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+	reportBody += "<br>Number of " + tag + " missing " + missingAttr + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
+
+	return reportBody;
+}
+
+function findPrevTag(firstTag, secondTag, obligAttr, optAttr){
+	if(obligAttr == undefined) {
+	 obligAttr = false;
 	}
-	function findLinkedTag(tag1, attr1, tag2, attr2){
+	if(optAttr == undefined) {
+	 optAttr = false;
+	}
+	totalItemsCounter = 0;
+	itemsCounter = 0;
 
-		totalItemsCounter = 0;
-		itemsCounter = 0;
-		elementsIDs = "";
-		idList = "";
+	reportBody += "<b><hr style='background:grey; height: 2px;'>" + firstTag + " missing " + secondTag + ":</b><hr style='background:grey; height: 2px;'><pre> ";
 
-		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag1 + " missing " + tag2 + ":</b><hr style='background:grey; height: 2px;'><pre> ";
+	$(firstTag).each(function (){
+		if($(this).prev().prop("tagName") != secondTag){
+			reportBody += "ID: " + $(this).attr("id");
 
-		$(tag1).each(function(){
+			/*Calling function to get the first parent with id*/
+			findFirstParentwithID(this);
+			reportBody += "First parent with id found: " + address;
 
+			/*Check if parameter optAttr was sent*/
+			if(optAttr != false || optAttr != ""){
+				if($(this).attr(optAttr)){
+					statusOptAttr = "<span class='text-success'>" + $(this).attr(optAttr) + "</span>";
+				}
+				else{
+					statusOptAttr = "<span class='text-danger'>No " + optAttr + "</span>";
+				}
+				reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
+			}
+
+			/*Check if parameter obligAttr was sent*/
+			if(obligAttr != false || obligAttr != ""){
+				reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
+			}
+			reportBody += "<br><br>";
+			itemsCounter++;
+		}
+		totalItemsCounter++;
+	});
+
+	reportBody += "<b>Total of " + firstTag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+	reportBody += "<br>Number of " + firstTag + " missing " + secondTag + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
+
+}
+function findLinkedTag(tag1, attr1, tag2, attr2){
+
+	totalItemsCounter = 0;
+	itemsCounter = 0;
+	elementsIDs = "";
+	idList = "";
+
+	reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag1 + " missing " + tag2 + ":</b><hr style='background:grey; height: 2px;'><pre> ";
+
+	$(tag1).each(function(){
+
+		labelString = "$('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
+		exlabelString = eval(labelString);
+
+		if(exlabelString.attr(attr2) != $(this).attr(attr1)){
+			checkExistingID(this,tag1,itemsCounter);
+			elementsIDs = idList;
+
+			fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+			fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+			reportBody += "<br>" + fullTagReport;
+
+			reportBody += "<br>ID: " + $(this).attr(attr1);
+
+			/*Calling function to get the first parent with id*/
+			findFirstParentwithID(this);
+			reportBody += "<br>First parent with id found: " + address;
+			reportBody += "<br><br>";
+			itemsCounter++;
+		}
+		else{
 			labelString = "$('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 			exlabelString = eval(labelString);
 
-			if(exlabelString.attr(attr2) != $(this).attr(attr1)){
-				checkExistingID(this,tag1,itemsCounter);
-				elementsIDs = idList;
-
-				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-				fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-				reportBody += "<br>" + fullTagReport;
-
-				reportBody += "<br>ID: " + $(this).attr(attr1);
-
-				/*Calling function to get the first parent with id*/
-				findFirstParentwithID(this);
-				reportBody += "<br>First parent with id found: " + address;
-				reportBody += "<br><br>";
-				itemsCounter++;
+			if(tag1 != "html"){
+				elemRect = $(this).position();
+				$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + exlabelString.text() + "</div>").insertBefore(this);
 			}
 			else{
-				labelString = "$('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
-				exlabelString = eval(labelString);
-
-				if(tag1 != "html"){
-					elemRect = $(this).position();
-					$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + exlabelString.text() + "</div>").insertBefore(this);
-				}
-				else{
-					$(this).prepend("<div class='successTag'>" + exlabelString.text() + "</div>");
-				}
+				$(this).prepend("<div class='successTag'>" + exlabelString.text() + "</div>");
 			}
-			totalItemsCounter++;
-		});
+		}
+		totalItemsCounter++;
+	});
 
-		reportBody += "<b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
-		reportBody += "<br>Number of " + tag1 + " missing " + tag2 + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
+	reportBody += "<b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+	reportBody += "<br>Number of " + tag1 + " missing " + tag2 + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 
-	}
+}
 
-	/*Function to find duplicated IDs*/
-	function findDuplicatedIDs(){
+/*Function to find duplicated IDs*/
+function findDuplicatedIDs(){
 
-		elementsIDs = "";
-		itemsCounter = 0;
-		reportBody += "<b><hr style='background:grey; height: 2px;'>Duplicated IDs:</b><hr style='background:grey; height: 2px;'><pre> ";
+	elementsIDs = "";
+	itemsCounter = 0;
+	reportBody += "<b><hr style='background:grey; height: 2px;'>Duplicated IDs:</b><hr style='background:grey; height: 2px;'><pre> ";
 
-		$('[id]').each(function(){
-			var ids = $('[id="'+this.id+'"]');
-			if(ids.length>1 && ids[0]==this){
+	$('[id]').each(function(){
+		var ids = $('[id="'+this.id+'"]');
+		if(ids.length>1 && ids[0]==this){
 
-				if(itemsCounter == 0){
-					elementsIDs += this.id;
-				}
-				else{
-					elementsIDs += "," + this.id;
-				}
-
-				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-				fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-				reportBody += "<br>" + fullTagReport;
-
-				reportBody += "ID: " + $(this).attr("id");
-				findFirstParentwithID(this);
-				reportBody += "<br>First parent with id found: " + address;
-				reportBody += "<br><br>";
-				itemsCounter++;
+			if(itemsCounter == 0){
+				elementsIDs += this.id;
 			}
-		});
-		reportBody += "<b>Total of DuplicatedIds found: <span class='text-danger'>" + itemsCounter + "</span></pre>";
-	}
+			else{
+				elementsIDs += "," + this.id;
+			}
+
+			fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+			fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+			reportBody += "<br>" + fullTagReport;
+
+			reportBody += "ID: " + $(this).attr("id");
+			findFirstParentwithID(this);
+			reportBody += "<br>First parent with id found: " + address;
+			reportBody += "<br><br>";
+			itemsCounter++;
+		}
+	});
+	reportBody += "<b>Total of DuplicatedIds found: <span class='text-danger'>" + itemsCounter + "</span></pre>";
+}
 
 /*Function to count the total number of tag*/
-	function countTag(tag){
-		itemsCounter = 0;
-		idList = "";
+function countTag(tag){
+	itemsCounter = 0;
+	idList = "";
 
-		$(tag).each(function(){
-			checkExistingID(this,tag,itemsCounter);
-			elementsIDs = idList;
-			itemsCounter++;
+	$(tag).each(function(){
+		checkExistingID(this,tag,itemsCounter);
+		elementsIDs = idList;
+		itemsCounter++;
+	});
+	counters += "<br>Number of " + tag + ": " + itemsCounter;
+	return counters;
+}
+
+function accCheck(){
+
+	if(!$("#accCheckDiv").length){
+
+		var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll</a> | <a href='javascript:selectIFrame();'>iframe</a> <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
+		$("html").append(accCheckAppend);
+		$("#accCheckDiv").css({bottom: "0px", right: "20px", position:'fixed', width:"350px", height:"360px", background: "#909090"});
+		$("#accCheckDiv").addClass("text-danger");
+		$("#accCheckDiv").resizable({minHeight: 360, minWidth: 300});
+		$("#accCheckDiv").draggable({ cancel: "#accNav", scroll: false});
+						$('#accCheckDiv').css('z-index', 9999);
+		$("#sair").click(function(){
+			$("#accCheckDiv").hide();
 		});
-		counters += "<br>Number of " + tag + ": " + itemsCounter;
-		return counters;
+		$("#refresh").click(function(){
+			unmarkElements(imglink);
+			unmarkElements(htmllink);
+			unmarkElements(tablelink);
+			unmarkElements(dupliatedlink);
+			unmarkElements(selectlink);
+			$('#accNav').html(sidenav);
+		});
+
+		sidenav = '<nav class="navbar navbar-inverse accCheckNav" style="height: 100%;">';
+		sidenav +=     '<ul class="nav sidebar-nav" style="background-color: #292929; margin-left: 0px;">';
+		sidenav +=         '<li>';
+		sidenav +=          	'<a href="javascript: changechkbox(\'imgtag\')"><span class="badge">' + imgcounter + '</span> Images/Icons without alt <input id="imgtag" type="radio" class="pull-right" name="imgtag" value="' + imglink + '"></a>';
+		sidenav +=         '</li>';
+		sidenav +=         '<li>';
+		sidenav +=             '<a href="javascript: changechkbox(\'htmllang\')"><span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang <input id="htmllang" type="radio" class="pull-right" name="htmllang" value="' + htmllink + '"></a>';
+		sidenav +=         '</li>';
+		sidenav +=         '<li>';
+		sidenav +=             '<a href="javascript: changechkbox(\'tablesum\')"><span class="badge">' + tablecounter + '</span> &lttable&gt without summary <input id="tablesum" type="radio" class="pull-right" name="tablesum" value="' + tablelink + '"></a>';
+		sidenav +=         '</li>';
+		sidenav +=         '<li>';
+		sidenav +=          	'<a href="javascript: changechkbox(\'dupid\')"><span class="badge">' + duplicatedcounter + '</span> Duplicated IDs <input id="dupid" type="radio" class="pull-right" name="dupid" value="' + duplicatedlink + '"></a>';
+		sidenav +=         '</li>';
+		sidenav +=         '<li>';
+		sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> Labels <input id="sellabel" type="radio" class="pull-right" name="sellabel" value="' + labellink + '"></a>';
+		sidenav +=         '</li>';
+		sidenav +=         '<li>';
+		sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
+		sidenav +=         '</li>';
+		sidenav +=         '<li>';
+		sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> General Report</a>';
+		sidenav +=         '</li>';
+		sidenav +=     '</ul>';
+		sidenav += '</nav></div>';
+
+		$('#accNav').append(sidenav);
 	}
-
-	function accCheck(){
-
-		if(!$("#accCheckDiv").length){
-
-			var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll</a> | <a href='javascript:selectIFrame();'>iframe</a> <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
-			$("html").append(accCheckAppend);
-			$("#accCheckDiv").css({bottom: "0px", right: "20px", position:'fixed', width:"350px", height:"360px", background: "#909090"});
-			$("#accCheckDiv").addClass("text-danger");
-			$("#accCheckDiv").resizable({minHeight: 360, minWidth: 300});
-			$("#accCheckDiv").draggable({ cancel: "#accNav", scroll: false});
-							$('#accCheckDiv').css('z-index', 9999);
-			$("#sair").click(function(){
-				$("#accCheckDiv").hide();
-			});
-			$("#refresh").click(function(){
-				unmarkElements(imglink);
-				unmarkElements(htmllink);
-				unmarkElements(tablelink);
-				unmarkElements(dupliatedlink);
-				unmarkElements(selectlink);
-				$('#accNav').html(sidenav);
-			});
-
-			sidenav = '<nav class="navbar navbar-inverse accCheckNav" style="height: 100%;">';
-			sidenav +=     '<ul class="nav sidebar-nav" style="background-color: #292929; margin-left: 0px;">';
-			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'imgtag\')"><span class="badge">' + imgcounter + '</span> Images/Icons without alt <input id="imgtag" type="radio" class="pull-right" name="imgtag" value="' + imglink + '"></a>';
-			sidenav +=         '</li>';
-			sidenav +=         '<li>';
-			sidenav +=             '<a href="javascript: changechkbox(\'htmllang\')"><span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang <input id="htmllang" type="radio" class="pull-right" name="htmllang" value="' + htmllink + '"></a>';
-			sidenav +=         '</li>';
-			sidenav +=         '<li>';
-			sidenav +=             '<a href="javascript: changechkbox(\'tablesum\')"><span class="badge">' + tablecounter + '</span> &lttable&gt without summary <input id="tablesum" type="radio" class="pull-right" name="tablesum" value="' + tablelink + '"></a>';
-			sidenav +=         '</li>';
-			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'dupid\')"><span class="badge">' + duplicatedcounter + '</span> Duplicated IDs <input id="dupid" type="radio" class="pull-right" name="dupid" value="' + duplicatedlink + '"></a>';
-			sidenav +=         '</li>';
-			sidenav +=         '<li>';
-			sidenav +=          	'<a href="javascript: changechkbox(\'sellabel\')"><span class="badge">' + labelcounter + '</span> Labels <input id="sellabel" type="radio" class="pull-right" name="sellabel" value="' + labellink + '"></a>';
-			sidenav +=         '</li>';
-			sidenav +=         '<li>';
-			sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
-			sidenav +=         '</li>';
-			sidenav +=         '<li>';
-			sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> General Report</a>';
-			sidenav +=         '</li>';
-			sidenav +=     '</ul>';
-			sidenav += '</nav></div>';
-
-			$('#accNav').append(sidenav);
-		}
-		else{
-			$('#accCheckDiv').css('z-index', 9999);
-			$("#accCheckDiv").show();
-		}
+	else{
+		$('#accCheckDiv').css('z-index', 9999);
+		$("#accCheckDiv").show();
 	}
+}
 
-
+function application($, N, O, part){
 
 	if(!$("#accCheckDiv").length){
 
@@ -499,7 +497,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 	//$("div:hidden").show();
 	accCheck();
 
-});
-function newFun(){
+}
+function newFun($){
 	alert("Hey! I am new");
 }
