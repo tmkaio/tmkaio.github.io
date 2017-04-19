@@ -116,12 +116,12 @@ function selectIFrame(){
 	$('iframe').contents().click(function(){
 		alert("Exiting accCheck");
 
-		alert($("#labelSelector").attr("value"));
-		unmarkElements($("#imgtag").attr("value"));
-		unmarkElements($("#htmllang").attr("value"));
-		unmarkElements($("#tablesum").attr("value"));
-		unmarkElements($("#dupid").attr("value"));
-		unmarkElements($("#sellabel").attr("value"));
+		alert($("#sellabel").attr("value"));
+		changechkbox($("#imgtag").attr("value"));
+		changechkbox($("#htmllang").attr("value"));
+		changechkbox($("#tablesum").attr("value"));
+		changechkbox($("#dupid").attr("value"));
+		changechkbox($("#sellabel").attr("value"));
 
 
 		$("#accCheckDiv").remove();
