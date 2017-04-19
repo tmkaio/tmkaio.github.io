@@ -613,12 +613,12 @@ function selectIFrame(){
 	});
 
 	$('iframe').contents().click(function(){
-
-		changechkbox($("#imgtag").attr("value"));
-		changechkbox($("#htmllang").attr("value"));
-		changechkbox($("#tablesum").attr("value"));
-		changechkbox($("#dupid").attr("value"));
-		changechkbox($("#sellabel").attr("value"));
+		alert($("#imgtag").val());
+		unmarkElements($("#imgtag").val());
+		unmarkElements($("#htmllang").val());
+		unmarkElements($("#tablesum").val());
+		unmarkElements($("#dupid").val());
+		unmarkElements($("#sellabel").val());
 
 		$("#accCheckDiv").remove();
 		application(this);
