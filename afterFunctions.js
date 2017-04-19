@@ -115,6 +115,7 @@ function selectIFrame(){
 
 	$('iframe').contents().click(function(){
 		alert("Exiting accCheck");
+
 		alert($("#labelSelector").attr("value"));
 		unmarkElements($("#imgSelector").attr("value"));
 		unmarkElements($("#htmlSelector").attr("value"));
