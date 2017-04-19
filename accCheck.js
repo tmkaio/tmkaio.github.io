@@ -358,7 +358,7 @@ function accCheck(){
 }
 
 function application(part){
-	$ = jq;
+	
 	if(!$("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
