@@ -594,10 +594,11 @@ function enableSrolling(){
 	}
 
 	function unmarkElements(variaveis){
+		alert(variaveis);
 		parsedimg = variaveis.split(',');
 
 		for(var i = 0; i < parsedimg.length; i++) {
-			$("#" + parsedimg[i]).each(function(){
+			if$("#" + parsedimg[i]).each(function(){
 				$("#"+parsedimg[i]+"_warning").hide();
 				$(this).css({border: "none"});
 			});
