@@ -58,12 +58,14 @@ function enableSrolling(){
 			$('#'+chkbox).prop('checked', true);
 			if($('#'+chkbox).val() != ""){
 				markElements($('#'+chkbox).val());
+				alert(labellinks);
 			}
 		}
 		else{
 			$('#'+chkbox).prop('checked', false);
 			if($('#'+chkbox).val() != ""){
 				unmarkElements($('#'+chkbox).val());
+				alert(labellinks);
 			}
 		}
 	}
@@ -73,7 +75,7 @@ function enableSrolling(){
 		parsedimg = variaveis.split(',');
 
 		for(var i = 0; i < parsedimg.length; i++) {
-
+			alert(labellinks);
 			$("#" + parsedimg[i]).each(function(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length){
@@ -96,7 +98,7 @@ function enableSrolling(){
 
 	function unmarkElements(variaveis){
 		parsedimg = variaveis.split(',');
-
+		alert(labellinks);
 		for(var i = 0; i < parsedimg.length; i++) {
 			$("#" + parsedimg[i]).each(function(){
 				$("#"+parsedimg[i]+"_warning").hide();
