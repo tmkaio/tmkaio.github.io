@@ -598,7 +598,7 @@ function enableSrolling(){
 		parsedimg = variaveis.split(',');
 
 		for(var i = 0; i < parsedimg.length; i++) {
-			if$("#" + parsedimg[i]).each(function(){
+			$("#" + parsedimg[i]).each(function(){
 				$("#"+parsedimg[i]+"_warning").hide();
 				$(this).css({border: "none"});
 			});
