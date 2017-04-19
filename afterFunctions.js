@@ -122,6 +122,7 @@ function selectIFrame(){
 		changechkbox("sellabel");
 
 		$("#accCheckDiv").remove();
-		$(this).append(accCheckAppend);
+		newFun();
+		//$(this).append(accCheckAppend);
 	});
 }
