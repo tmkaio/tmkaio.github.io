@@ -16,7 +16,7 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 
 					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
 
-						application((f=e.jQuery).noConflict(1), "html");
+						jq((f=e.jQuery).noConflict(1));
 						b=1;
 						k = 1;
 						a.documentElement.childNodes[0].removeChild(c);
@@ -32,7 +32,10 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 		a.documentElement.childNodes[0].appendChild(c);
 		}
 })(window,document,"3.1.1");
-
+function jq(jq){
+	$ = jq;
+	application("html");
+}
 /*Function to find the closes tag parent with ID*/
 function findFirstParentwithID(item){
 	var firsParent = "";
@@ -354,7 +357,7 @@ function accCheck(){
 	}
 }
 
-function application(jq, part){
+function application(part){
 	$ = jq;
 	if(!$("#accCheckDiv").length){
 
@@ -618,7 +621,7 @@ function selectIFrame(){
 		changechkbox("sellabel");
 
 		$("#accCheckDiv").remove();
-		application(window.jQuery,this);
+		application(this);
 		//$(this).append(accCheckAppend);
 	});
 }
