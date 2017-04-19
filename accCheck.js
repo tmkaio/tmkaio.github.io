@@ -570,7 +570,7 @@ function enableSrolling(){
 	function markElements(variaveis){
 
 		parsedimg = variaveis.split(',');
-
+		alert(variaveis);
 		for(var i = 0; i < parsedimg.length; i++) {
 			alert(parsedimg[i]);
 			$("#" + parsedimg[i]).each(function(){
