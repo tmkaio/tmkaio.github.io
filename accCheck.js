@@ -572,9 +572,9 @@ function enableSrolling(){
 		parsedimg = variaveis.split(',');
 
 		for(var i = 0; i < parsedimg.length; i++) {
-
+			alert(parsedimg[i]);
 			$("#" + parsedimg[i]).each(function(){
-				alert(parsedimg[i]);
+
 				if(!$("#"+parsedimg[i]+"_warning").length){
 					elemRect = $(this).position();
 					if($(this).prop("tagName") != "HTML"){
