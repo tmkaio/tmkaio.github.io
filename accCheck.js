@@ -91,9 +91,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		fullTag = "";
 
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
-		alert(place);
-		alert($(place).children(tag).length);
-		$(place).children(tag).each(function (){
+
+		$(tag).each(function (){
 
 			if(!$(this).attr(missingAttr)){
 
