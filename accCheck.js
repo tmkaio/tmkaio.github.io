@@ -353,8 +353,8 @@ function accCheck(){
 	}
 }
 
-function application($, N, O, part){
-
+function application(jq, N, O, part){
+	$ = jq;
 	if(!$("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
