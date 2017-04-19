@@ -570,10 +570,10 @@ function enableSrolling(){
 	function markElements(variaveis){
 
 		parsedimg = variaveis.split(',');
-		alert(variaveis);
+
 		for(var i = 0; i < parsedimg.length; i++) {
-			alert(parsedimg[i]);
-			$("#" + parsedimg[i]).each(function(){
+
+			$(place).find("#" + parsedimg[i]).each(function(){
 
 				if(!$("#"+parsedimg[i]+"_warning").length){
 					elemRect = $(this).position();
@@ -598,7 +598,7 @@ function enableSrolling(){
 			parsedimg = variaveis.split(',');
 
 			for(var i = 0; i < parsedimg.length; i++) {
-				$("#" + parsedimg[i]).each(function(){
+				$(place).find("#" + parsedimg[i]).each(function(){
 					$("#"+parsedimg[i]+"_warning").hide();
 					$(this).css({border: "none"});
 				});
