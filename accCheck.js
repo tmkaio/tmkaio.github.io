@@ -498,7 +498,7 @@ function application(part){
 		finalDuplicatedIDs = duplicatedcounter;
 
 	}
-	//$("div:hidden").show();
+	$("div:hidden").show();
 	accCheck();
 
 }
@@ -624,6 +624,9 @@ function selectIFrame(){
 		unmarkElements($("#sellabel").val());
 
 		$("#accCheckDiv").remove();
+		finalReportBody = "";
+		finalCounters = "";
+		finalDuplicatedIDs = "";
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
