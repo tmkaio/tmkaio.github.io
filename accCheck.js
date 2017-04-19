@@ -16,7 +16,9 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 
 					if(!k&&(!(l=this.readyState)||l=="loaded"||l=="complete")){
 
-						application((f=e.jQuery).noConflict(1), b=1, k = 1, "html");
+						application((f=e.jQuery).noConflict(1), "html");
+						b=1;
+						k = 1;
 						a.documentElement.childNodes[0].removeChild(c);
 						a.documentElement.childNodes[0].removeChild(p);
 						p.onload=p.onreadystatechange=null;
@@ -352,7 +354,7 @@ function accCheck(){
 	}
 }
 
-function application(jq, N, O, part){
+function application(jq, part){
 	$ = jq;
 	if(!$("#accCheckDiv").length){
 
