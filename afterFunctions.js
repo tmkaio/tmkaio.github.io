@@ -117,11 +117,11 @@ function selectIFrame(){
 		alert("Exiting accCheck");
 
 		alert($("#sellabel").attr("value"));
-		changechkbox($("#imgtag").attr("value"));
-		changechkbox($("#htmllang").attr("value"));
-		changechkbox($("#tablesum").attr("value"));
-		changechkbox($("#dupid").attr("value"));
-		changechkbox($("#sellabel").attr("value"));
+		changechkbox("imgtag");
+		changechkbox("htmllang");
+		changechkbox("tablesum");
+		changechkbox("dupid");
+		changechkbox("sellabel");
 
 
 		$("#accCheckDiv").remove();
