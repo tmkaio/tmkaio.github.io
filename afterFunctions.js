@@ -117,11 +117,11 @@ function selectIFrame(){
 		alert("Exiting accCheck");
 
 		alert($("#labelSelector").attr("value"));
-		unmarkElements($("#imgSelector").attr("value"));
-		unmarkElements($("#htmlSelector").attr("value"));
-		unmarkElements($("#tableSelector").attr("value"));
-		unmarkElements($("#dupSelector").attr("value"));
-		unmarkElements($("#labelSelector").attr("value"));
+		unmarkElements($("#imgtag").attr("value"));
+		unmarkElements($("#htmllang").attr("value"));
+		unmarkElements($("#tablesum").attr("value"));
+		unmarkElements($("#dupid").attr("value"));
+		unmarkElements($("#sellabel").attr("value"));
 
 
 		$("#accCheckDiv").remove();
