@@ -75,7 +75,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 	}
 
 	/*Function to find missing attr on tags*/
-	function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
+	function findMissinAttr(place, tag, missingAttr, obligAttr, optAttr){
 
 		if(obligAttr == undefined) {
 		 obligAttr = false;
@@ -92,7 +92,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
 
-		$(tag).each(function (){
+		$(place+'>'+tag).each(function (){
 
 			if(!$(this).attr(missingAttr)){
 
@@ -437,19 +437,19 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		var labellink = "";
 
 		/*Calling function to check HTML with lang*/
-		findMissinAttr("html", "lang");
+		findMissinAttr("html", "html", "lang");
 		htmllink = elementsIDs;
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
 
 		/*Calling function to check IMG with alt*/
-		findMissinAttr("img", "alt", "src", "title");
+		findMissinAttr("html", "img", "alt", "src", "title");
 		imglink = elementsIDs;
 		imgcounter = itemsCounter;
 		imgTag = fullTag;
 		imgFound = attrFound;
-		findMissinAttr("i", "alt", "src", "title");
+		findMissinAttr("html", "i", "alt", "src", "title");
 
 		if(imglink != "" && elementsIDs != ""){
 			imglink += ","+elementsIDs;
@@ -459,7 +459,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		}
 
 		/*Calling function to check TABLE with summary*/
-		findMissinAttr("table", "summary");
+		findMissinAttr("html", "table", "summary");
 		tablelink = elementsIDs;
 		tablecounter = itemsCounter;
 		tableTag = fullTag;
