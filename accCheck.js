@@ -91,8 +91,7 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		fullTag = "";
 
 		reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
-		alert(place);
-		alert($(place).find(tag).length);
+		
 		$(place).find(tag).each(function (){
 
 			if(!$(this).attr(missingAttr)){
@@ -497,6 +496,6 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		finalDuplicatedIDs = duplicatedcounter;
 
 	}
-	$("div:hidden").show();
+	//$("div:hidden").show();
 	accCheck();
 });
