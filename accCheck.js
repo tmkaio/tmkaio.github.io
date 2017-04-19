@@ -411,28 +411,28 @@ function application($, N, O, part){
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
 		$("head").append(UITheme);     // Append new elements
 
-		var totalItemsCounter= "";
-		var itemsCounter = "";
-		var testt = "";
-		var address = "";
-		var totalCounter = "";
-		var counter = "";
-		var counterAll = 0;
-		var reportBody = "";
-		var counters = "";
-		var duplicatedIDs = "";
-		var elementsIDs = "";
-		var fullTag = "";
-		var elementsIDs = "";
-		var htmlcounter = 0;
-		var imgcounter = 0;
-		var tablecounter = 0;
-		var tablecountcounter = 0;
-		var labelcounter = 0;
-		var duplicatedcounter = 0
-		var attrFound = "";
-		var idList = "";
-		var labellink = "";
+		totalItemsCounter= "";
+		itemsCounter = "";
+		testt = "";
+		address = "";
+		totalCounter = "";
+		counter = "";
+		counterAll = 0;
+		reportBody = "";
+		counters = "";
+		duplicatedIDs = "";
+		elementsIDs = "";
+		fullTag = "";
+		elementsIDs = "";
+		htmlcounter = 0;
+		imgcounter = 0;
+		tablecounter = 0;
+		tablecountcounter = 0;
+		labelcounter = 0;
+		duplicatedcounter = 0
+		attrFound = "";
+		idList = "";
+		labellink = "";
 
 		/*Calling function to check HTML with lang*/
 		findMissinAttr("html", "html", "lang");
