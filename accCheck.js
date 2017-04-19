@@ -498,7 +498,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 	}
 	//$("div:hidden").show();
 	accCheck();
-	function newFun(){
-		alert("Hey! I am new");
-	}
+
 });
+function newFun(){
+	alert("Hey! I am new");
+}
