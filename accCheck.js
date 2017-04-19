@@ -594,15 +594,17 @@ function enableSrolling(){
 	}
 
 	function unmarkElements(variaveis){
-		alert(variaveis);
-		parsedimg = variaveis.split(',');
+		if(variaveis != ""){
+			parsedimg = variaveis.split(',');
 
-		for(var i = 0; i < parsedimg.length; i++) {
-			$("#" + parsedimg[i]).each(function(){
-				$("#"+parsedimg[i]+"_warning").hide();
-				$(this).css({border: "none"});
-			});
+			for(var i = 0; i < parsedimg.length; i++) {
+				$("#" + parsedimg[i]).each(function(){
+					$("#"+parsedimg[i]+"_warning").hide();
+					$(this).css({border: "none"});
+				});
+			}
 		}
+
 	}
 
 function selectIFrame(){
