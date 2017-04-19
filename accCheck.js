@@ -204,7 +204,7 @@ function findPrevTag(firstTag, secondTag, obligAttr, optAttr){
 	reportBody += "<br>Number of " + firstTag + " missing " + secondTag + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 
 }
-function findLinkedTag(tag1, attr1, tag2, attr2){
+function findLinkedTag(place, tag1, attr1, tag2, attr2){
 
 	totalItemsCounter = 0;
 	itemsCounter = 0;
@@ -213,7 +213,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 	reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag1 + " missing " + tag2 + ":</b><hr style='background:grey; height: 2px;'><pre> ";
 
-	$(tag1).each(function(){
+	$(place).find(tag1).each(function(){
 
 		labelString = "$('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 		exlabelString = eval(labelString);
@@ -255,13 +255,13 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 }
 
 /*Function to find duplicated IDs*/
-function findDuplicatedIDs(){
+function findDuplicatedIDs(place){
 
 	elementsIDs = "";
 	itemsCounter = 0;
 	reportBody += "<b><hr style='background:grey; height: 2px;'>Duplicated IDs:</b><hr style='background:grey; height: 2px;'><pre> ";
 
-	$('[id]').each(function(){
+	$(place).find('[id]').each(function(){
 		var ids = $('[id="'+this.id+'"]');
 		if(ids.length>1 && ids[0]==this){
 
@@ -287,11 +287,11 @@ function findDuplicatedIDs(){
 }
 
 /*Function to count the total number of tag*/
-function countTag(tag){
+function countTag(place, tag){
 	itemsCounter = 0;
 	idList = "";
 
-	$(tag).each(function(){
+	$(place).find(tag).each(function(){
 		checkExistingID(this,tag,itemsCounter);
 		elementsIDs = idList;
 		itemsCounter++;
@@ -468,16 +468,16 @@ function application(part){
 		tableFound = attrFound;
 
 		/*Calling function to count number TABLE on page*/
-		countTag("table");
+		countTag(part, "table");
 		tablecountlink = elementsIDs;
 		tablecountcounter = itemsCounter;
 
 		/*Calling function to check for select without label*/
-		findLinkedTag("select", "id", "label", "for");
+		findLinkedTag(part, "select", "id", "label", "for");
 		labellink = elementsIDs;
 		labelcounter = itemsCounter;
 
-		findLinkedTag("input", "id", "label", "for");
+		findLinkedTag(part, "input", "id", "label", "for");
 
 		if(labellink != "" && elementsIDs != ""){
 			labellink += ","+elementsIDs;
@@ -488,7 +488,7 @@ function application(part){
 		labelcounter = labelcounter+itemsCounter;
 
 			/*Calling function to check for duplicated IDs*/
-		findDuplicatedIDs();
+		findDuplicatedIDs(part);
 		duplicatedcounter = itemsCounter;
 		duplicatedlink = elementsIDs;
 
