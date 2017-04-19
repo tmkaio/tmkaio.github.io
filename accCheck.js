@@ -616,7 +616,7 @@ function selectIFrame(){
 	});
 
 	$('iframe').contents().click(function(){
-		alert($("#htmllang").val());
+
 		unmarkElements($("#imgtag").val());
 		unmarkElements($("#htmllang").val());
 		unmarkElements($("#tablesum").val());
@@ -624,7 +624,7 @@ function selectIFrame(){
 		unmarkElements($("#sellabel").val());
 
 		$("#accCheckDiv").remove();
-		//application(this);
+		application(this);
 		//$(this).append(accCheckAppend);
 	});
 }
