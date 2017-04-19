@@ -406,16 +406,16 @@ function application(part){
 
 		//var afterFunctions = $("<script src='//tmkaio.github.io/afterFunctions.js' type='text/javascript'></script>'>");
 		//$("head").append(afterFunctions);
-		$(place).prop("tagName");
+		alert($(place).prop("tagName"));
 		var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
-		$(place).append(bordas);
+		alert($(place).prop("tagName"));
 		$(place).prop("tagName");
 		var font_aw = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
 		$(place).append(font_aw);     // Append new elements
-		$(place).prop("tagName");
+		alert($(place).prop("tagName"));
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
 		$(place).append(UITheme);     // Append new elements
-		$(place).prop("tagName");
+		alert($(place).prop("tagName"));
 		totalItemsCounter= "";
 		itemsCounter = "";
 		testt = "";
