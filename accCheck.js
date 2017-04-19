@@ -358,7 +358,7 @@ function accCheck(){
 }
 
 function application(part){
-	
+
 	if(!$("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
@@ -614,11 +614,11 @@ function selectIFrame(){
 
 	$('iframe').contents().click(function(){
 
-		changechkbox("imgtag");
-		changechkbox("htmllang");
-		changechkbox("tablesum");
-		changechkbox("dupid");
-		changechkbox("sellabel");
+		changechkbox($("#imgtag").attr("value"));
+		changechkbox($("#htmllang").attr("value"));
+		changechkbox($("#tablesum").attr("value"));
+		changechkbox($("#dupid").attr("value"));
+		changechkbox($("#sellabel").attr("value"));
 
 		$("#accCheckDiv").remove();
 		application(this);
