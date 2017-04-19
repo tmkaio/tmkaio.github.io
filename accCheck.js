@@ -613,7 +613,7 @@ function selectIFrame(){
 	});
 
 	$('iframe').contents().click(function(){
-		alert($("#imgtag").val());
+		alert($("#htmllang").val());
 		unmarkElements($("#imgtag").val());
 		unmarkElements($("#htmllang").val());
 		unmarkElements($("#tablesum").val());
