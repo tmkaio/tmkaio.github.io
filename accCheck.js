@@ -77,7 +77,7 @@ function checkExistingID(checkID, checkTag, checkCounter){
 }
 
 /*Function to find missing attr on tags*/
-function findMissinAttr(place, tag, missingAttr, obligAttr, optAttr){
+function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
 
 	if(obligAttr == undefined) {
 	 obligAttr = false;
@@ -204,7 +204,7 @@ function findPrevTag(firstTag, secondTag, obligAttr, optAttr){
 	reportBody += "<br>Number of " + firstTag + " missing " + secondTag + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 
 }
-function findLinkedTag(place, tag1, attr1, tag2, attr2){
+function findLinkedTag(tag1, attr1, tag2, attr2){
 
 	totalItemsCounter = 0;
 	itemsCounter = 0;
@@ -255,7 +255,7 @@ function findLinkedTag(place, tag1, attr1, tag2, attr2){
 }
 
 /*Function to find duplicated IDs*/
-function findDuplicatedIDs(place){
+function findDuplicatedIDs(){
 
 	elementsIDs = "";
 	itemsCounter = 0;
@@ -287,7 +287,7 @@ function findDuplicatedIDs(place){
 }
 
 /*Function to count the total number of tag*/
-function countTag(place, tag){
+function countTag(tag){
 	itemsCounter = 0;
 	idList = "";
 
@@ -358,7 +358,7 @@ function accCheck(){
 }
 
 function application(part){
-
+	place = part;
 	if(!$("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
@@ -439,19 +439,19 @@ function application(part){
 		labellink = "";
 
 		/*Calling function to check HTML with lang*/
-		findMissinAttr(part, "html", "lang");
+		findMissinAttr("html", "lang");
 		htmllink = elementsIDs;
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
 
 		/*Calling function to check IMG with alt*/
-		findMissinAttr(part, "img", "alt", "src", "title");
+		findMissinAttr("img", "alt", "src", "title");
 		imglink = elementsIDs;
 		imgcounter = itemsCounter;
 		imgTag = fullTag;
 		imgFound = attrFound;
-		findMissinAttr(part, "i", "alt", "src", "title");
+		findMissinAttr("i", "alt", "src", "title");
 
 		if(imglink != "" && elementsIDs != ""){
 			imglink += ","+elementsIDs;
@@ -461,23 +461,23 @@ function application(part){
 		}
 
 		/*Calling function to check TABLE with summary*/
-		findMissinAttr(part, "table", "summary");
+		findMissinAttr("table", "summary");
 		tablelink = elementsIDs;
 		tablecounter = itemsCounter;
 		tableTag = fullTag;
 		tableFound = attrFound;
 
 		/*Calling function to count number TABLE on page*/
-		countTag(part, "table");
+		countTag("table");
 		tablecountlink = elementsIDs;
 		tablecountcounter = itemsCounter;
 
 		/*Calling function to check for select without label*/
-		findLinkedTag(part, "select", "id", "label", "for");
+		findLinkedTag("select", "id", "label", "for");
 		labellink = elementsIDs;
 		labelcounter = itemsCounter;
 
-		findLinkedTag(part, "input", "id", "label", "for");
+		findLinkedTag("input", "id", "label", "for");
 
 		if(labellink != "" && elementsIDs != ""){
 			labellink += ","+elementsIDs;
@@ -488,7 +488,7 @@ function application(part){
 		labelcounter = labelcounter+itemsCounter;
 
 			/*Calling function to check for duplicated IDs*/
-		findDuplicatedIDs(part);
+		findDuplicatedIDs();
 		duplicatedcounter = itemsCounter;
 		duplicatedlink = elementsIDs;
 
