@@ -621,7 +621,7 @@ function selectIFrame(){
 		unmarkElements($("#sellabel").val());
 
 		$("#accCheckDiv").remove();
-		application(this);
+		//application(this);
 		//$(this).append(accCheckAppend);
 	});
 }
