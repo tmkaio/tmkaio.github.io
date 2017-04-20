@@ -393,7 +393,7 @@ function application(part){
 			return this;
 		}
 
-		if(!$("link[href*='bootstrap']").length){
+		if(!$(place).find("link[href*='bootstrap']").length){
 
 			var bootlink = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
 			$("head").append(bootlink);     // Append new elements
@@ -627,6 +627,7 @@ function selectIFrame(){
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
+		alert("Starting accCheck");
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
