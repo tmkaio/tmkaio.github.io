@@ -392,7 +392,7 @@ function accCheck(){
 function application(part){
 
 	place = part;
-  
+
   $(part).css({border: "5px solid red"});
 	if(!$(place).find("#accCheckDiv").length){
 
@@ -650,14 +650,14 @@ function enableSrolling(){
 function selectIFrame(){
 	$('iframe').hover(function(){
 		$(this).css({border: "5px solid red"});
-
 	},function(){
 			$(this).css({border: "none"});
 	});
-  iframe = this;
-	$('iframe').contents().click(function(){
+
+  
+	$('iframe').click(function(){
     alert($(iframe).prop("tagName"));
-    alert($(this).prop("tagName"));
+
 		unmarkElements($("#imgtag").val());
 		unmarkElements($("#htmllang").val());
 		unmarkElements($("#tablesum").val());
