@@ -390,6 +390,7 @@ function accCheck(){
 }
 
 function application(part){
+  alert();
 	place = part;
   alert(part);
   $(part).css({border: "5px solid red"});
