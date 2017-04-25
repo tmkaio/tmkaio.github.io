@@ -654,7 +654,8 @@ function selectIFrame(){
 			$(this).css({border: "none"});
 	});
 
-  $('iframe').each(function(){
+  
+	$('iframe').parent().click(function(){
     alert($(this).prop("tagName"));
 
 		unmarkElements($("#imgtag").val());
@@ -668,25 +669,7 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
 
-		application(iframe);
-
-  });
-
-	$('iframe').contents().click(function(){
-    alert($(this).parent().prop("tagName"));
-
-		unmarkElements($("#imgtag").val());
-		unmarkElements($("#htmllang").val());
-		unmarkElements($("#tablesum").val());
-		unmarkElements($("#dupid").val());
-		unmarkElements($("#sellabel").val());
-
-		$("#accCheckDiv").remove();
-		finalReportBody = "";
-		finalCounters = "";
-		finalDuplicatedIDs = "";
-
-		application(iframe);
+		application(this);
 		//$(this).append(accCheckAppend);
 	});
 }
