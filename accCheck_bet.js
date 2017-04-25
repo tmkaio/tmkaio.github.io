@@ -38,6 +38,7 @@ function jq(jq){
 	$ = jq;
 	application("html");
 }
+
 /*Function to find the closes tag parent with ID*/
 function findFirstParentwithID(item){
 	var firsParent = "";
@@ -96,64 +97,88 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
 	fullTag = "";
 
 	reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
+  if(tag == "html"){
+    $(tag).each(function(){
+      if(!$(this).attr(missingAttr)){
+        checkExistingID(this, tag, itemsCounter);
+  			elementsIDs = idList;
 
-	$(place).find(tag).each(function (){
+        /*Check if current element has id*/
+  			if($(this).attr("id")){
+  				reportBody += "<br>ID: " + $(this).attr("id");
+  			}
+  			reportBody += "<br><br>";
 
-		if(!$(this).attr(missingAttr)){
-
-			if(tag != "html"){
-				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-				var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-				reportBody += "<br>" + fullTagReport;
-				/*Calling function to get the first parent with id*/
-				findFirstParentwithID(this);
-				reportBody += "First parent with id found: " + address;
-			}
-
-			checkExistingID(this, tag, itemsCounter);
-			elementsIDs = idList;
-
-
-			/*Check if parameter optAttr was sent*/
-			if(optAttr != false || optAttr != ""){
-				if($(this).attr(optAttr)){
-					statusOptAttr = "<span class='text-success'>" + $(this).attr(optAttr) + "</span>";
-				}
-				else{
-					statusOptAttr = "<span class='text-danger'>No " + optAttr + "</span>";
-				}
-				reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
-			}
-
-			/*Check if parameter obligAttr was sent*/
-			if(obligAttr != false || obligAttr != ""){
-				reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
-			}
-
-			/*Check if current element has id*/
-			if($(this).attr("id")){
-				reportBody += "<br>ID: " + $(this).attr("id");
-			}
-			reportBody += "<br><br>";
-
-
-			attrFound = idList;
-			itemsCounter++;
-			counterAll++;
-		}
-		else{
-			if(tag != "html"){
-				elemRect = $(this).position();
-				$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
-			}
-			else{
+  			attrFound = idList;
+  			itemsCounter++;
+  			counterAll++;
+      }
+      else{
 				$(this).prepend("<div class='successTag'>" + $(this).attr(missingAttr) + "</div>");
+        attrFound = idList;
 			}
+      totalItemsCounter++;
+    });
+  }
+  else{
+  	$(place).find(tag).each(function (){
 
-			attrFound = idList;
-		}
-		totalItemsCounter++;
-	});
+  		if(!$(this).attr(missingAttr)){
+
+  			if(tag != "html"){
+  				fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+  				var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+  				reportBody += "<br>" + fullTagReport;
+  				/*Calling function to get the first parent with id*/
+  				findFirstParentwithID(this);
+  				reportBody += "First parent with id found: " + address;
+  			}
+
+  			checkExistingID(this, tag, itemsCounter);
+  			elementsIDs = idList;
+
+
+  			/*Check if parameter optAttr was sent*/
+  			if(optAttr != false || optAttr != ""){
+  				if($(this).attr(optAttr)){
+  					statusOptAttr = "<span class='text-success'>" + $(this).attr(optAttr) + "</span>";
+  				}
+  				else{
+  					statusOptAttr = "<span class='text-danger'>No " + optAttr + "</span>";
+  				}
+  				reportBody += "<br>" + optAttr + ": " + statusOptAttr + "";
+  			}
+
+  			/*Check if parameter obligAttr was sent*/
+  			if(obligAttr != false || obligAttr != ""){
+  				reportBody += "<br>" + obligAttr + ": " + $(this).attr(obligAttr);
+  			}
+
+  			/*Check if current element has id*/
+  			if($(this).attr("id")){
+  				reportBody += "<br>ID: " + $(this).attr("id");
+  			}
+  			reportBody += "<br><br>";
+
+
+  			attrFound = idList;
+  			itemsCounter++;
+  			counterAll++;
+  		}
+  		else{
+  			if(tag != "html"){
+  				elemRect = $(this).position();
+  				$("<div class='successTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>" + $(this).attr(missingAttr) + "</div>").insertBefore(this);
+  			}
+  			else{
+  				$(this).prepend("<div class='successTag'>" + $(this).attr(missingAttr) + "</div>");
+  			}
+
+  			attrFound = idList;
+  		}
+  		totalItemsCounter++;
+  	});
+  }
 
 	reportBody += "<b>Total of " + tag + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 	reportBody += "<br>Number of " + tag + " missing " + missingAttr + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
@@ -311,7 +336,7 @@ function accCheck(){
 
 	if(!$("#accCheckDiv").length){
 
-		var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll</a>  | <a href='javascript:expandAll();'>iframe</a> | <a href='javascript:selectIFrame();'>iframe</a> <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
+		var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll</a>  | <a href='javascript:expandAll();'>Expand</a> | <a href='javascript:selectIFrame();'>iframe</a> <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
 		$("html").append(accCheckAppend);
 		$("#accCheckDiv").css({bottom: "0px", right: "20px", position:'fixed', width:"350px", height:"360px", background: "#909090"});
 		$("#accCheckDiv").addClass("text-danger");
