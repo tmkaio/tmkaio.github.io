@@ -336,7 +336,7 @@ function accCheck(){
 
 	if(!$("#accCheckDiv").length){
 
-		var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll</a>  | <a href='javascript:expandAll();'>Expand</a> | <a href='javascript:selectIFrame();'>iframe</a> <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
+		var accCheckAppend = $("<div id='accCheckDiv' class='well'><a class='pull-left' href='javascript:enableSrolling();'>Scroll </a>  | <a href='javascript:expandAll();'>Expand</a> | <a href='javascript:selectIFrame();'>iframe</a> <a class='pull-right' href='#' id='sair' style='color: white'><i class='fa fa-power-off fa-lg'></i></a><br><br><div id='accNav' style='height: 90%'></div></div>");
 		$("html").append(accCheckAppend);
 		$("#accCheckDiv").css({bottom: "0px", right: "20px", position:'fixed', width:"350px", height:"360px", background: "#909090"});
 		$("#accCheckDiv").addClass("text-danger");
@@ -651,7 +651,7 @@ function selectIFrame(){
 	},function(){
 			$(this).css({border: "none"});
 	});
-
+  iframe = this;
 	$('iframe').contents().click(function(){
 
 		unmarkElements($("#imgtag").val());
@@ -665,7 +665,7 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
 		alert("Starting accCheck");
-		application(this);
+		application(iframe);
 		//$(this).append(accCheckAppend);
 	});
 }
