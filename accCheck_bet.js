@@ -391,7 +391,8 @@ function accCheck(){
 
 function application(part){
 	place = part;
-  $(place).css({border: "5px solid red"});
+  alert(part);
+  $(part).css({border: "5px solid red"});
 	if(!$(place).find("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
