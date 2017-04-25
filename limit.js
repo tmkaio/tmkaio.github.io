@@ -25,7 +25,9 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 })(window,document,"3.1.1",function($, N, O){
 	alert("");
 	alert($('#start_iframe').prop("tagName"));
-	$('#start_iframe').find('i').each(function(){
+	var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
+	$("#start_iframe").append(bordas);
+	$('#start_iframe').contents().find('i').each(function(){
 		alert($(this).prop("tagName"));
 	});
 });
