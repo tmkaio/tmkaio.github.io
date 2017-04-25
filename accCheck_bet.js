@@ -669,8 +669,6 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
 
-    var doc = document.getElementById("#start_iframe").contentWindow.document;
-
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
