@@ -442,13 +442,13 @@ function application(part){
 		//$("head").append(afterFunctions);
 
 		var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
-		$("html").append(bordas);
+		$(place).find("body").append(bordas);
 
 		var font_aw = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
-		$("html").append(font_aw);     // Append new elements
+		$(place).find("body").append(font_aw);     // Append new elements
 
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
-		$("html").append(UITheme);     // Append new elements
+		$(place).find("body").append(UITheme);     // Append new elements
 
 		totalItemsCounter= "";
 		itemsCounter = "";
@@ -670,11 +670,6 @@ function selectIFrame(){
 		finalDuplicatedIDs = "";
 
     var doc = document.getElementById("#start_iframe").contentWindow.document;
-    doc.open();
-    doc.write('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
-    doc.write("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
-    doc.write("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
-    doc.close();
 
 		application(this);
 		//$(this).append(accCheckAppend);
