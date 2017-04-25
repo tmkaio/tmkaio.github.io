@@ -390,9 +390,9 @@ function accCheck(){
 }
 
 function application(part){
-  alert();
+
 	place = part;
-  alert(part);
+  alert($(part).prop("tagName"));
   $(part).css({border: "5px solid red"});
 	if(!$(place).find("#accCheckDiv").length){
 
