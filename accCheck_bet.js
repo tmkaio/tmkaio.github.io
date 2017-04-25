@@ -615,7 +615,7 @@ function enableSrolling(){
 
 			$(place).find("#" + parsedimg[i]).each(function(){
 
-				if(!$("#"+parsedimg[i]+"_warning").length){
+				if(!$(place).find("#"+parsedimg[i]+"_warning").length){
 					elemRect = $(this).position();
 					if($(this).prop("tagName") != "HTML"){
 						$("<div id='"+parsedimg[i]+"_warning' class='warningTag' style='top:"+elemRect.top+"px; left:"+elemRect.left+"px;'>"+$(this).prop("tagName")+"</div>").insertBefore(this);
@@ -639,7 +639,7 @@ function enableSrolling(){
 
 			for(var i = 0; i < parsedimg.length; i++) {
 				$(place).find("#" + parsedimg[i]).each(function(){
-					$("#"+parsedimg[i]+"_warning").hide();
+					$(place).find("#"+parsedimg[i]+"_warning").hide();
 					$(this).css({border: "none"});
 				});
 			}
