@@ -656,9 +656,10 @@ function selectIFrame(){
 
   $('iframe').each(function(){
     var i = 0;
+    alert("'iframeDiv"+i+"'");
     $(this).wrapInner("<div id='iframeDiv"+i+"'></div>");
     i++;
-    alert("'iframeDiv"+i+"'");
+
   });
 
 	$('iframe').contents().click(function(){
