@@ -391,6 +391,7 @@ function accCheck(){
 
 function application(part){
 	place = part;
+  $(place).css({border: "5px solid red"});
 	if(!$(place).find("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
@@ -664,7 +665,7 @@ function selectIFrame(){
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
-		alert("Starting accCheck");
+
 		application(iframe);
 		//$(this).append(accCheckAppend);
 	});
