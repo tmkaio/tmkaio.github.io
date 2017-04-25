@@ -392,8 +392,8 @@ function accCheck(){
 function application(part){
 
 	place = part;
+  alert($(place).prop("tagName"));
 
-  $(part).css({border: "5px solid red"});
 	if(!$(place).find("#accCheckDiv").length){
 
 		$.fn.outerHTML = function (arg) {
@@ -654,7 +654,7 @@ function selectIFrame(){
 			$(this).css({border: "none"});
 	});
 
-  
+
 	$('iframe').parent().click(function(){
     alert($(this).prop("tagName"));
 
@@ -669,7 +669,7 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
 
-		application(this);
+		application($(this).children());
 		//$(this).append(accCheckAppend);
 	});
 }
