@@ -34,7 +34,7 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 })(window,document,"3.1.1");
 function jq(jq){
 	$ = jq;
-	application("html");
+	application("body");
 }
 /*Function to find the closes tag parent with ID*/
 function findFirstParentwithID(item){
@@ -498,7 +498,7 @@ function application(part){
 		finalDuplicatedIDs = duplicatedcounter;
 
 	}
-	$(place).find("div:hidden").show();
+	$(place).find("div: be").show();
 	accCheck();
 
 }
