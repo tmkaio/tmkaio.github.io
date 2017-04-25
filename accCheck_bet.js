@@ -668,7 +668,7 @@ function selectIFrame(){
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
-
+    alert("first");
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
