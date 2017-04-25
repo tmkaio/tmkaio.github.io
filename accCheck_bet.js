@@ -392,7 +392,7 @@ function accCheck(){
 function application(part){
 
 	place = part;
-  alert($(part).prop("tagName"));
+  
   $(part).css({border: "5px solid red"});
 	if(!$(place).find("#accCheckDiv").length){
 
@@ -656,7 +656,8 @@ function selectIFrame(){
 	});
   iframe = this;
 	$('iframe').contents().click(function(){
-
+    alert($(iframe).prop("tagName"));
+    alert($(this).prop("tagName"));
 		unmarkElements($("#imgtag").val());
 		unmarkElements($("#htmllang").val());
 		unmarkElements($("#tablesum").val());
