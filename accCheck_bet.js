@@ -442,13 +442,13 @@ function application(part){
 		//$("head").append(afterFunctions);
 
 		var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
-		$("head").append(bordas);
+		$(place).append(bordas);
 
 		var font_aw = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
-		$("head").append(font_aw);     // Append new elements
+		$(place).append(font_aw);     // Append new elements
 
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
-		$("head").append(UITheme);     // Append new elements
+		$(place).append(UITheme);     // Append new elements
 
 		totalItemsCounter= "";
 		itemsCounter = "";
@@ -625,7 +625,7 @@ function enableSrolling(){
 					}
 				}
 				else{
-					$("#"+parsedimg[i]+"_warning").show();
+					$(place).find("#"+parsedimg[i]+"_warning").show();
 				}
 				$(this).css({border: "5px solid red"});
 				$(this).show();
