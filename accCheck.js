@@ -498,7 +498,7 @@ function application(part){
 		finalDuplicatedIDs = duplicatedcounter;
 
 	}
-	$(place).find("div: be").show();
+	$(place).find("div:hidden").show();
 	accCheck();
 
 }
