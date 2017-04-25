@@ -655,7 +655,7 @@ function selectIFrame(){
 	});
 
   $('iframe').each(function(){
-    alert($(this).parent().prop("tagName"));
+    alert($(this).prop("tagName"));
 
 		unmarkElements($("#imgtag").val());
 		unmarkElements($("#htmllang").val());
