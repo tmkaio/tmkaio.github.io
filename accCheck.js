@@ -34,7 +34,7 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 })(window,document,"3.1.1");
 function jq(jq){
 	$ = jq;
-	application("body");
+	application("head");
 }
 /*Function to find the closes tag parent with ID*/
 function findFirstParentwithID(item){
