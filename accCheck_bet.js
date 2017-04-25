@@ -654,6 +654,13 @@ function selectIFrame(){
 			$(this).css({border: "none"});
 	});
 
+  $('iframe').each(function(){
+    var i = 0;
+    $(this).wrapInner("<div id='iframeDiv"+i+"'></div>");
+    i++;
+    alert("'iframeDiv"+i+"'");
+  });
+
 	$('iframe').contents().click(function(){
     alert($(this).parent().prop("tagName"));
 
