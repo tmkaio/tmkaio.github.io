@@ -654,9 +654,8 @@ function selectIFrame(){
 			$(this).css({border: "none"});
 	});
 
-  
-	$('iframe').click(function(){
-    alert($(iframe).prop("tagName"));
+	$('iframe').contents().click(function(){
+    alert($(this).parent().prop("tagName"));
 
 		unmarkElements($("#imgtag").val());
 		unmarkElements($("#htmllang").val());
