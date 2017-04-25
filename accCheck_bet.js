@@ -663,12 +663,12 @@ function selectIFrame(){
 		unmarkElements($("#tablesum").val());
 		unmarkElements($("#dupid").val());
 		unmarkElements($("#sellabel").val());
-
+alert("first");
 		$("#accCheckDiv").remove();
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
-    alert("first");
+    alert("secont");
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
