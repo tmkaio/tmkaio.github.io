@@ -392,7 +392,7 @@ function accCheck(){
 function application(part){
 
 	place = part;
-  alert($(place).prop("tagName"));
+
 
 	if(!$(place).find("#accCheckDiv").length){
 
@@ -655,8 +655,8 @@ function selectIFrame(){
 	});
 
 
-	$('iframe').parent().click(function(){
-    alert($(this).prop("tagName"));
+	$('iframe').contents().click(function(){
+
 
 		unmarkElements($("#imgtag").val());
 		unmarkElements($("#htmllang").val());
@@ -669,7 +669,7 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
 
-		application($(this).children());
+		application(this);
 		//$(this).append(accCheckAppend);
 	});
 }
