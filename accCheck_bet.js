@@ -669,13 +669,13 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
     var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
-		$("#start_iframe").append(bordas);
+		$("iframe").append(bordas);
 
 		var font_aw = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>");
-		$("#start_iframe").append(font_aw);     // Append new elements
+		$("iframe").append(font_aw);     // Append new elements
 
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
-		$("#start_iframe").append(UITheme);     // Append new elements
+		$("iframe").append(UITheme);     // Append new elements
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
