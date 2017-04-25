@@ -655,10 +655,20 @@ function selectIFrame(){
 	});
 
   $('iframe').each(function(){
-    var i = 0;
-    alert("'iframeDiv"+i+"'");
-    $(this).wrapInner("<div id='iframeDiv"+i+"'></div>");
-    i++;
+    alert($(this).parent().prop("tagName"));
+
+		unmarkElements($("#imgtag").val());
+		unmarkElements($("#htmllang").val());
+		unmarkElements($("#tablesum").val());
+		unmarkElements($("#dupid").val());
+		unmarkElements($("#sellabel").val());
+
+		$("#accCheckDiv").remove();
+		finalReportBody = "";
+		finalCounters = "";
+		finalDuplicatedIDs = "";
+
+		application(iframe);
 
   });
 
