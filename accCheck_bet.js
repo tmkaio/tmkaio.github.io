@@ -673,6 +673,7 @@ alert("first");
 		finalCounters = "";
 		finalDuplicatedIDs = "";
     alert("secont");
+    $(this).css({border: "5px solid green"});
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
