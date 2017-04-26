@@ -607,10 +607,10 @@ function application(part){
 		}
 		labelcounter = labelcounter+itemsCounter;
 
-    /*checkContrast();
+    checkContrast("li");
     alert(elementsIDs + "_" + itemsCounter);
-    labellink = elementsIDs;
-		labelcounter = itemsCounter;*/
+    contrastlink = elementsIDs;
+		contrastcounter = itemsCounter;
 
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
