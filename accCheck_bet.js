@@ -59,22 +59,22 @@ function findFirstParentwithID(item){
 //This function adds an ID for tags with no IDs
 function checkExistingID(checkID, checkTag, checkCounter){
 
-	if(!$(checkID).attr("id")){
-		$(checkID).attr("id", "accCheck_"+checkTag+checkCounter);
+	if(!$(place).find(checkID).attr("id")){
+		$(place).find(checkID).attr("id", "accCheck_"+checkTag+checkCounter);
 
 		if(checkCounter == 0){
-			idList += $(checkID).attr("id");
+			idList += $(place).find(checkID).attr("id");
 		}
 		else{
-			idList += "," + $(checkID).attr("id");
+			idList += "," + $(place).find(checkID).attr("id");
 		}
 	}
 	else{
 		if(checkCounter == 0){
-			idList += $(checkID).attr("id");
+			idList += $(place).find(checkID).attr("id");
 		}
 		else{
-			idList += "," + $(checkID).attr("id");
+			idList += "," + $(place).find(checkID).attr("id");
 		}
 	}
 	return idList;
@@ -251,7 +251,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 		if(!exlabelString.attr($(this).attr(attr1))){
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
-      alert(totalItemsCounter + "_" + tag1 + "A");
+      
 			fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			reportBody += "<br>" + fullTagReport;
