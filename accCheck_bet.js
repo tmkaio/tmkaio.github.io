@@ -53,7 +53,7 @@ function jq(jq){
 
 //Get element relative Luminance
 function relativeLuminance(luminanceElement){
-  getColor = $(lumanceElement).css(colorPart);
+  getColor = $(luminanceElement).css(colorPart);
   var colorRGB = getColor.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
   var postColorRGB = new Array();
 
