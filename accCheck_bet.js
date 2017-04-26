@@ -37,6 +37,18 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 function jq(jq){
 	$ = jq;
 	application("html");
+  $("td").each(function(){
+      colorofBackground = relativeLumance(this, "background-color");
+      colorOffont = relativeLumance(this, "color");
+
+      if(colorofBackground > colorOffont){
+        contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
+      }
+      else{
+        contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
+      }
+
+    });
 }
 
 //Get element relative Luminance
@@ -148,7 +160,7 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
         lang = "N/A";
       }
       else{
-				lang = (this).attr(missingAttr);
+				lang = $(this).attr(missingAttr);
         attrFound = idList;
 			}
       totalItemsCounter++;
