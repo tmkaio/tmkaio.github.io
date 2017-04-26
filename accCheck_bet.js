@@ -36,7 +36,7 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 //Adding jQuery to this file and calling application
 function jq(jq){
 	$ = jq;
-	application("html");
+	application("body");
   $("td").each(function(){
       colorofBackground = relativeLuminance(this, "background-color");
       colorOffont = relativeLuminance(this, "color");
@@ -157,7 +157,7 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
   			attrFound = idList;
   			itemsCounter++;
   			counterAll++;
-        lang = "N/A";
+        lang = "0";
       }
       else{
 				lang = $(this).attr(missingAttr);
