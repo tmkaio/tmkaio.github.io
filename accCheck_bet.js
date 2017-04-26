@@ -251,7 +251,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 		if(!exlabelString.attr($(this).attr(attr1))){
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
-      alert(totalItemsCounter + "_" + tag + "A");
+      alert(totalItemsCounter + "_" + tag1 + "A");
 			fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			reportBody += "<br>" + fullTagReport;
@@ -262,7 +262,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 			findFirstParentwithID(this);
 			reportBody += "<br>First parent with id found: " + address;
 			reportBody += "<br><br>";
-      alert(totalItemsCounter + "_" + tag + "B");
+      alert(totalItemsCounter + "_" + tag1 + "B");
 			itemsCounter++;
 		}
 		else{
@@ -276,7 +276,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 			else{
 				$(this).prepend("<div class='successTag'>" + exlabelString.text() + "</div>");
 			}
-      alert(totalItemsCounter + "_" + tag + "C");
+      alert(totalItemsCounter + "_" + tag1 + "C");
 		}
 		totalItemsCounter++;
 	});
