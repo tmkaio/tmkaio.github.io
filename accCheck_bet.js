@@ -244,7 +244,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 	reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag1 + " missing " + tag2 + ":</b><hr style='background:grey; height: 2px;'><pre> ";
 
 	$(place).find(tag1).each(function(){
-
+    alert(totalItemsCounter);
 		labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 		exlabelString = eval(labelString);
 
@@ -284,7 +284,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 alert(totalItemsCounter + "_" + tag1 + "Fianl_e");
 	reportBody += "<b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 	reportBody += "<br>Number of " + tag1 + " missing " + tag2 + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
-  alert(totalItemsCounter + "_" + tag1 + "Final_F");
+  alert(totalItemsCounter + "_" + tag1 + "Final_ F");
 }
 
 /*Function to find duplicated IDs*/
