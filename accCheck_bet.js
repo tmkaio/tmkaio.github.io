@@ -510,7 +510,7 @@ function application(part){
 		findLinkedTag("select", "id", "label", "for");
 		labellink = elementsIDs;
 		labelcounter = itemsCounter;
-
+    alert("updated");
 		findLinkedTag("input", "id", "label", "for");
 
 		if(labellink != "" && elementsIDs != ""){
@@ -520,7 +520,7 @@ function application(part){
 			labellink = elementsIDs;
 		}
 		labelcounter = labelcounter+itemsCounter;
-
+    alert('1');
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
 		duplicatedcounter = itemsCounter;
