@@ -37,7 +37,7 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 function jq(jq){
 	$ = jq;
 	application("html");
-  $("input").click(function(){
+  $("li").click(function(){
       colorofBackground = relativeLuminance(this, "background-color");
       colorOffont = relativeLuminance(this, "color");
 
