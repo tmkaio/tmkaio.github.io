@@ -47,7 +47,7 @@ function jq(jq){
       else{
         contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
       }
-
+      alert(contrast);
     });
 }
 
