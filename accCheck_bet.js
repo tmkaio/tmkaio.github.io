@@ -247,8 +247,9 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 		labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 		exlabelString = eval(labelString);
-
+    alert($(this).attr("type")+totalItemsCounter+"A");
 		if(!$(place).find(tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]").length){
+      alert($(this).attr("type")+totalItemsCounter+"B");
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
 
@@ -266,6 +267,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 			itemsCounter++;
 		}
 		else{
+      alert($(this).attr("type")+totalItemsCounter+"C");
 			labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 			exlabelString = eval(labelString);
 
