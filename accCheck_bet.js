@@ -38,8 +38,8 @@ function jq(jq){
 	$ = jq;
 	application("html");
   $("td").each(function(){
-      colorofBackground = relativeLumance(this, "background-color");
-      colorOffont = relativeLumance(this, "color");
+      colorofBackground = relativeLuminance(this, "background-color");
+      colorOffont = relativeLuminance(this, "color");
 
       if(colorofBackground > colorOffont){
         contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
@@ -529,7 +529,7 @@ function application(part){
 		attrFound = "";
 		idList = "";
 		labellink = "";
-    var lang;
+    lang = "";
 
 		/*Calling function to check HTML with lang*/
 		findMissinAttr("html", "lang");
