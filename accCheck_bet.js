@@ -245,7 +245,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 	$(place).find(tag1).each(function(){
 
-		labelString = "$('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
+		labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 		exlabelString = eval(labelString);
 
 		if(exlabelString.attr(attr2) != $(this).attr(attr1)){
@@ -392,7 +392,6 @@ function accCheck(){
 function application(part){
 
 	place = part;
-alert("1");
 
 	if(!$(place).find("#accCheckDiv").length){
 
@@ -427,7 +426,7 @@ alert("1");
 			});
 			return this;
 		}
-alert("2");
+
 		if(!$(place).find("link[href*='bootstrap']").length){
 
 			var bootlink = $("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
@@ -437,7 +436,7 @@ alert("2");
 			$(place).find("body").append(bootscript);     // Append new elements
 
 		}
-alert("3");
+
 		//var afterFunctions = $("<script src='//tmkaio.github.io/afterFunctions.js' type='text/javascript'></script>'>");
 		//$("head").append(afterFunctions);
 
@@ -449,7 +448,7 @@ alert("3");
 
 		var UITheme = $("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
 		$(place).find("body").append(UITheme);     // Append new elements
-alert("4");
+
 		totalItemsCounter= "";
 		itemsCounter = "";
 		testt = "";
@@ -472,14 +471,14 @@ alert("4");
 		attrFound = "";
 		idList = "";
 		labellink = "";
-alert("5");
+
 		/*Calling function to check HTML with lang*/
 		findMissinAttr("html", "lang");
 		htmllink = elementsIDs;
 		htmlcounter = itemsCounter;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
-alert("6");
+
 		/*Calling function to check IMG with alt*/
 		findMissinAttr("img", "alt", "src", "title");
 		imglink = elementsIDs;
@@ -487,33 +486,33 @@ alert("6");
 		imgTag = fullTag;
 		imgFound = attrFound;
 		findMissinAttr("i", "alt", "src", "title");
-alert("7");
+
 		if(imglink != "" && elementsIDs != ""){
 			imglink += ","+elementsIDs;
 		}
 		else if(elementsIDs != ""){
 			imglink = elementsIDs;
 		}
-alert("8");
+
 		/*Calling function to check TABLE with summary*/
 		findMissinAttr("table", "summary");
 		tablelink = elementsIDs;
 		tablecounter = itemsCounter;
 		tableTag = fullTag;
 		tableFound = attrFound;
-alert("9");
+
 		/*Calling function to count number TABLE on page*/
 		countTag("table");
 		tablecountlink = elementsIDs;
 		tablecountcounter = itemsCounter;
-alert("10");
+
 		/*Calling function to check for select without label*/
 		findLinkedTag("select", "id", "label", "for");
 		labellink = elementsIDs;
 		labelcounter = itemsCounter;
-alert("11");
+
 		findLinkedTag("input", "id", "label", "for");
-alert("12");
+
 		if(labellink != "" && elementsIDs != ""){
 			labellink += ","+elementsIDs;
 		}
@@ -521,19 +520,19 @@ alert("12");
 			labellink = elementsIDs;
 		}
 		labelcounter = labelcounter+itemsCounter;
-alert("13");
+
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
 		duplicatedcounter = itemsCounter;
 		duplicatedlink = elementsIDs;
-alert("14");
+
 		/*Calling function to write HTML*/
 		finalReportBody = reportBody;
 		finalCounters = counters;
 		finalDuplicatedIDs = duplicatedcounter;
-alert("15");
+
 	}
-alert("16");
+
 	accCheck();
 
 }
