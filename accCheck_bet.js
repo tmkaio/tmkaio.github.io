@@ -245,9 +245,17 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 	$(place).find(tag1).each(function(){
 
-    labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
-    exlabelString = eval(labelString);
-    alert($(this).attr(attr1));
+
+
+    if($(this).attr(attr1).lenght){
+      labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1).replace( /(:|\.|\[|\]|,|=|@)/g, "\\$1" ) + "]')";
+      exlabelString = eval(labelString);
+    }
+    else{
+      labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
+      exlabelString = eval(labelString);
+    }
+
 		if(!exlabelString.length){
 
 			checkExistingID(this,tag1,itemsCounter);
