@@ -249,11 +249,9 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
     if($(this).attr(attr1)){
       labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1).replace( /(:|\.|\[|\]|,|=|@)/g, "\\\\$1" ) + "]')";
-      alert(labelString+totalItemsCounter);
       exlabelString = eval(labelString);
     }
     else{
-      alert(totalItemsCounter+"B");
       labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
       exlabelString = eval(labelString);
     }
@@ -684,7 +682,7 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
 
-    $(this).parent().css({border: "5px solid green"});
+    alert($(this).parent().prop("tagname"));
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
