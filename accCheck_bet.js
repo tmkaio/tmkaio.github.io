@@ -78,7 +78,7 @@ function checkContrast(checkItem){
   totalItemsCounter = 0;
 
   reportBody += "<b><hr style='background:grey; height: 2px;'>" + checkItem + " missing contrast:</b><hr style='background:grey; height: 2px;'><pre> ";
-  $(checkItem).each(function(){
+  $(place).find(checkItem).each(function(){
       colorofBackground = relativeLuminance(this, "background-color");
       colorOffont = relativeLuminance(this, "color");
 
@@ -607,7 +607,7 @@ function application(part){
 		}
 		labelcounter = labelcounter+itemsCounter;
 
-    checkContrast("li");
+    checkContrast("select");
     alert(elementsIDs + "_" + itemsCounter);
     contrastlink = elementsIDs;
 		contrastcounter = itemsCounter;
