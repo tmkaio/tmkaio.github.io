@@ -540,6 +540,8 @@ alert("16");
 
 function expandAll(){
     $(place).find("div:hidden").show();
+    $(place).find("input:hidden").show();
+    $(place).find("select:hidden").show();
 }
 
 function newFun($){
