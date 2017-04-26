@@ -608,7 +608,7 @@ function application(part){
 		labelcounter = labelcounter+itemsCounter;
 
     checkContrast("select");
-    alert(elementsIDs + "_" + itemsCounter);
+    alert(elementsIDs + " _ " + itemsCounter);
     contrastlink = elementsIDs;
 		contrastcounter = itemsCounter;
 
