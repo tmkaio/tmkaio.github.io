@@ -1,6 +1,6 @@
 javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 
-	if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){
+	if(!(f=e.jQuery)||g>f.fn.jquery){
 
 		c=a.createElement("script");
 		c.type="text/javascript";
