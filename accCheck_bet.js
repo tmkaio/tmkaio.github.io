@@ -247,8 +247,8 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 		labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 		exlabelString = eval(labelString);
-    alert(exlabelString);
-		if(!exlabelString){
+    alert(labelString);
+		if(!$(place).find(tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]").length){
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
 
@@ -276,10 +276,10 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 			else{
 				$(this).prepend("<div class='successTag'>" + exlabelString.text() + "</div>");
 			}
-      alert(totalItemsCounter + "_" + tag1 + "C");
+
 		}
 		totalItemsCounter++;
-    alert(totalItemsCounter + "_" + tag1 + "D");
+
 	});
 alert(totalItemsCounter + "_" + tag1 + "Fianl_e");
 	reportBody += "<b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
