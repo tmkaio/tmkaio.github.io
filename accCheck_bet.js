@@ -37,18 +37,7 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 function jq(jq){
 	$ = jq;
 	application("html");
-  $("li").click(function(){
-      colorofBackground = relativeLuminance(this, "background-color");
-      colorOffont = relativeLuminance(this, "color");
 
-      if(colorofBackground > colorOffont){
-        contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
-      }
-      else{
-        contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
-      }
-      alert(contrast);
-    });
 }
 
 //Get element relative Luminance
@@ -82,6 +71,44 @@ function relativeLuminance(luminanceElement, colorPart){
       return bodyL;
     }
   }
+}
+
+function checkContrast(checkItem){
+  itemsCounter = 0;
+  totalItemsCounter = 0;
+
+  reportBody += "<b><hr style='background:grey; height: 2px;'>" + checkItem + " missing contrast:</b><hr style='background:grey; height: 2px;'><pre> ";
+  $(checkItem).each(function(){
+      colorofBackground = relativeLuminance(this, "background-color");
+      colorOffont = relativeLuminance(this, "color");
+
+      if(colorofBackground > colorOffont){
+        contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
+      }
+      else{
+        contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
+      }
+
+      if(contrast < 15){
+        fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+        var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+        reportBody += "<br>" + fullTagReport;
+
+        checkExistingID(this,"contrast",itemsCounter);
+    		elementsIDs = idList;
+
+        if($(this).attr("id")){
+  				reportBody += "<br>ID: " + $(this).attr("id");
+  			}
+  			reportBody += "<br><br>";
+        alert(contrast + "_" + $(this).attr("id"));
+        itemsCounter++;
+      }
+      totalItemsCounter++;
+    });
+
+    reportBody += "<b>Total of " + checkItem + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+  	reportBody += "<br>Number of " + checkItem + " missing contrast <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 }
 
 /*Function to find the closes tag parent with ID*/
@@ -580,6 +607,10 @@ function application(part){
 		}
 		labelcounter = labelcounter+itemsCounter;
 
+    checkContrast("select");
+    labellink = elementsIDs;
+		labelcounter = itemsCounter;
+
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
 		duplicatedcounter = itemsCounter;
@@ -589,6 +620,8 @@ function application(part){
 		finalReportBody = reportBody;
 		finalCounters = counters;
 		finalDuplicatedIDs = duplicatedcounter;
+
+
 
 	}
 
