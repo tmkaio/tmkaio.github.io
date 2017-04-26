@@ -88,7 +88,7 @@ function checkContrast(checkItem){
       else{
         contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
       }
-      alert(contrast);
+
       if(contrast < 20){
         fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
         var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
