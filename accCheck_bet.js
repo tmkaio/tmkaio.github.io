@@ -247,7 +247,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 		labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 		exlabelString = eval(labelString);
-    alert(labelString);
+
 		if(!$(place).find(tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]").length){
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
@@ -262,7 +262,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 			findFirstParentwithID(this);
 			reportBody += "<br>First parent with id found: " + address;
 			reportBody += "<br><br>";
-      alert(totalItemsCounter + "_" + tag1 + "B");
+
 			itemsCounter++;
 		}
 		else{
@@ -281,10 +281,10 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 		totalItemsCounter++;
 
 	});
-alert(totalItemsCounter + "_" + tag1 + "Fianl_e");
+
 	reportBody += "<b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 	reportBody += "<br>Number of " + tag1 + " missing " + tag2 + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
-  alert(totalItemsCounter + "_" + tag1 + "Final_ F");
+
 }
 
 /*Function to find duplicated IDs*/
@@ -513,7 +513,7 @@ function application(part){
 		findLinkedTag("select", "id", "label", "for");
 		labellink = elementsIDs;
 		labelcounter = itemsCounter;
-    alert("updated");
+
 		findLinkedTag("input", "id", "label", "for");
 
 		if(labellink != "" && elementsIDs != ""){
@@ -523,7 +523,7 @@ function application(part){
 			labellink = elementsIDs;
 		}
 		labelcounter = labelcounter+itemsCounter;
-    alert('1');
+
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
 		duplicatedcounter = itemsCounter;
@@ -667,12 +667,12 @@ function selectIFrame(){
 		unmarkElements($("#tablesum").val());
 		unmarkElements($("#dupid").val());
 		unmarkElements($("#sellabel").val());
-alert("first");
+
 		$("#accCheckDiv").remove();
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
-    alert("secont");
+
     $(this).css({border: "5px solid green"});
 		application(this);
 		//$(this).append(accCheckAppend);
