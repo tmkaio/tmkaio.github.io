@@ -36,7 +36,7 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 //Adding jQuery to this file and calling application
 function jq(jq){
 	$ = jq;
-	application("body");
+	application("html");
   $("td").each(function(){
       colorofBackground = relativeLuminance(this, "background-color");
       colorOffont = relativeLuminance(this, "color");
@@ -52,7 +52,7 @@ function jq(jq){
 }
 
 //Get element relative Luminance
-function relativeLuminance(luminanceElement){
+function relativeLuminance(luminanceElement, colorPart){
   getColor = $(luminanceElement).css(colorPart);
   var colorRGB = getColor.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
   var postColorRGB = new Array();
