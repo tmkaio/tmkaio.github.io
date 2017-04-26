@@ -23,11 +23,8 @@ javascript:(function(e,a,g,h,f,c,b,d,p,k,l,m){
 		a.documentElement.childNodes[0].appendChild(c);
 	}
 })(window,document,"3.1.1",function($, N, O){
-	alert("");
-	alert($('#start_iframe').prop("tagName"));
-	var bordas = $('<link rel="stylesheet" type="text/css" href="//tmkaio.github.io/css/style.css">');
-	$("#start_iframe").append(bordas);
-	$('#start_iframe').contents().find('i').each(function(){
-		alert($(this).prop("tagName"));
+	$('li').click(function(){
+		color = $( this ).css( "background-color" );
+		alert(color);
 	});
 });
