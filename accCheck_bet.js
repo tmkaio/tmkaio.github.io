@@ -608,6 +608,7 @@ function application(part){
 		labelcounter = labelcounter+itemsCounter;
 
     checkContrast("select");
+    alert(elementsIDs + "_" + itemsCounter);
     labellink = elementsIDs;
 		labelcounter = itemsCounter;
 
