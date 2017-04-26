@@ -5,40 +5,49 @@
   <script>
   $(document).ready(function(){
 
-      function relativeLumance(item){
-        bodyColor = $(item).css("background-color");
-        var bodyRGB = bodyColor.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
-        var postBodyRGB = new Array();
+      function relativeLumance(lumanceElement, colorPart){
+        getColor = $(lumanceElement).css(colorPart);
+        var colorRGB = getColor.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
+        var postColorRGB = new Array();
 
         for(i=0;i<3;i++) {
-          var dvidedBody = bodyRGB[i]/255;
+          var dvidedColor = colorRGB[i]/255;
 
-          if(dvidedBody == 0){
-              postBodyRGB[i] = dvidedBody;
+          if(dvidedColor == 0){
+              postColorRGB[i] = dvidedColor;
           }
-          else if(dvidedBody <= 0.03928){
-            postBodyRGB[i] = dvidedBody/12.92;
+          else if(dvidedColor <= 0.03928){
+            postColorRGB[i] = dvidedColor/12.92;
           }
           else{
-            postBodyRGB[i] = Math.pow(((dvidedBody + 0.055)/1.055), 2.4);
+            postColorRGB[i] = Math.pow(((dvidedColor + 0.055)/1.055), 2.4);
 
           }
 
           if(i == 0){
-            bodyL = postBodyRGB[i]*0.2126;
+            bodyL = postColorRGB[i]*0.2126;
           }
           else if(i == 1){
-            bodyL += postBodyRGB[i]*0.7152;
+            bodyL += postColorRGB[i]*0.7152;
           }
           else{
-            bodyL += postBodyRGB[i]*0.0722;
-            alert(bodyL);
+            bodyL += postColorRGB[i]*0.0722;
+            return bodyL;
           }
         }
       }
 
-      $("select").click(function(){
-        relativeLumance(this);
+      $("td").each(function(){
+        colorofBackground = relativeLumance(this, "background-color");
+        colorOffont = relativeLumance(this, "color");
+
+        if(colorofBackground > colorOffont){
+          contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
+        }
+        else{
+          contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
+        }
+        alert(contrast);
       });
 
 
@@ -46,7 +55,7 @@
 
   </script>
   <br><br>
-  <select id="test" style="background-color: rgb(255,102,204)"><option value="1">1</option></select>
+  <select id="test" style="background-color: grey"><option value="1">1</option></select>
   <label for="test2">123</label><select id="test2"><option value="1">1</option></select>
   <input type="text" id="text">
   <label for="text2">234</label><input type="text" id="text2">

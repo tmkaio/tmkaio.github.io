@@ -39,6 +39,39 @@ function jq(jq){
 	application("html");
 }
 
+//Get element relative Luminance
+function relativeLumiance(luminanceElement){
+  getColor = $(lumanceElement).css(colorPart);
+  var colorRGB = getColor.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
+  var postColorRGB = new Array();
+
+  for(i=0;i<3;i++) {
+    var dvidedColor = colorRGB[i]/255;
+
+    if(dvidedColor == 0){
+        postColorRGB[i] = dvidedColor;
+    }
+    else if(dvidedColor <= 0.03928){
+      postColorRGB[i] = dvidedColor/12.92;
+    }
+    else{
+      postColorRGB[i] = Math.pow(((dvidedColor + 0.055)/1.055), 2.4);
+
+    }
+
+    if(i == 0){
+      bodyL = postColorRGB[i]*0.2126;
+    }
+    else if(i == 1){
+      bodyL += postColorRGB[i]*0.7152;
+    }
+    else{
+      bodyL += postColorRGB[i]*0.0722;
+      return bodyL;
+    }
+  }
+}
+
 /*Function to find the closes tag parent with ID*/
 function findFirstParentwithID(item){
 	var firsParent = "";
@@ -97,7 +130,7 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
 	fullTag = "";
 
 	reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
-  if(tag == "bobo"){
+  if(tag == "html"){
     $(tag).each(function(){
       if(!$(this).attr(missingAttr)){
         checkExistingID(this, tag, itemsCounter);
@@ -112,9 +145,10 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
   			attrFound = idList;
   			itemsCounter++;
   			counterAll++;
+        lang = "N/A";
       }
       else{
-				$(this).prepend("<div class='successTag'>" + $(this).attr(missingAttr) + "</div>");
+				lang = (this).attr(missingAttr);
         attrFound = idList;
 			}
       totalItemsCounter++;
@@ -483,11 +517,12 @@ function application(part){
 		attrFound = "";
 		idList = "";
 		labellink = "";
+    var lang;
 
 		/*Calling function to check HTML with lang*/
 		findMissinAttr("html", "lang");
 		htmllink = elementsIDs;
-		htmlcounter = itemsCounter;
+		htmlcounter = lang;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
 
