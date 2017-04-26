@@ -247,12 +247,12 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 		labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 		exlabelString = eval(labelString);
-    alert($(this).attr("type")+totalItemsCounter+"A");
+
 		if(!$(place).find(tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]").length){
       alert($(this).attr("type")+totalItemsCounter+"B");
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
-
+      alert($(this).attr("type")+totalItemsCounter+"C");
 			fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			reportBody += "<br>" + fullTagReport;
@@ -263,11 +263,11 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 			findFirstParentwithID(this);
 			reportBody += "<br>First parent with id found: " + address;
 			reportBody += "<br><br>";
-
+      alert($(this).attr("type")+totalItemsCounter+"D");
 			itemsCounter++;
 		}
 		else{
-      alert($(this).attr("type")+totalItemsCounter+"C");
+      alert($(this).attr("type")+totalItemsCounter+"E");
 			labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
 			exlabelString = eval(labelString);
 
