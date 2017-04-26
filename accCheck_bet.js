@@ -252,7 +252,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
       alert($(this).attr("type")+totalItemsCounter+"B");
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
-
+      alert($(this).attr("id")+totalItemsCounter+"B");
 			fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			reportBody += "<br>" + fullTagReport;
