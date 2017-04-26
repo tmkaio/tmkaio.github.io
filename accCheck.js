@@ -37,6 +37,19 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 function jq(jq){
 	$ = jq;
 	application("html");
+
+	$("li").click(function(){
+			colorofBackground = relativeLumance(this, "background-color");
+			colorOffont = relativeLumance(this, "color");
+
+			if(colorofBackground > colorOffont){
+				contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
+			}
+			else{
+				contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
+			}
+
+		});
 }
 
 /*Function to find the closes tag parent with ID*/
