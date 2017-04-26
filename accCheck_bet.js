@@ -251,7 +251,7 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 		if(!exlabelString.attr($(this).attr(attr1))){
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
-      
+
 			fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
 			reportBody += "<br>" + fullTagReport;
@@ -279,11 +279,12 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
       alert(totalItemsCounter + "_" + tag1 + "C");
 		}
 		totalItemsCounter++;
+    alert(totalItemsCounter + "_" + tag1 + "D");
 	});
-
+alert(totalItemsCounter + "_" + tag1 + "Fianl_e");
 	reportBody += "<b>Total of " + tag1 + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
 	reportBody += "<br>Number of " + tag1 + " missing " + tag2 + " <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
-
+  alert(totalItemsCounter + "_" + tag1 + "Final_F");
 }
 
 /*Function to find duplicated IDs*/
