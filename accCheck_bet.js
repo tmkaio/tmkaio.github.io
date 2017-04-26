@@ -681,8 +681,8 @@ function selectIFrame(){
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
-
-    alert($(this).parent().prop("tagname"));
+    alert("1");
+    $(this).find("html").css({border: "5px solid green"});
 		application(this);
 		//$(this).append(accCheckAppend);
 	});
