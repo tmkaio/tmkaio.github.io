@@ -245,7 +245,10 @@ function findLinkedTag(tag1, attr1, tag2, attr2){
 
 	$(place).find(tag1).each(function(){
 
-		if(!$(place).find(tag2 + "[" + attr2 + "=" + $(this).attr(attr1).replace( /(:|\.|\[|\]|,|=|@)/g, "\\$1" ) + "]").length){
+    labelString = "$(place).find('" + tag2 + "[" + attr2 + "=" + $(this).attr(attr1) + "]')";
+    exlabelString = eval(labelString);
+    alert($(this).attr(attr1));
+		if(!exlabelString.length){
 
 			checkExistingID(this,tag1,itemsCounter);
 			elementsIDs = idList;
