@@ -80,7 +80,9 @@ function checkContrast(checkItem){
   reportBody += "<b><hr style='background:grey; height: 2px;'>" + checkItem + " missing contrast:</b><hr style='background:grey; height: 2px;'><pre> ";
   $(place).find(checkItem).each(function(){
       colorofBackground = relativeLuminance(this, "background-color");
+      reportBody += "<br>Background color" + getColor;
       colorOffont = relativeLuminance(this, "color");
+      reportBody += "<br>Font color" + getColor;
 
       if(colorofBackground > colorOffont){
         contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
@@ -90,9 +92,7 @@ function checkContrast(checkItem){
       }
 
       if(contrast <= 21){
-        fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-        var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
-        reportBody += "<br>" + fullTagReport;
+
 
         checkExistingID(this,"contrast",itemsCounter);
     		elementsIDs = idList;
@@ -100,8 +100,12 @@ function checkContrast(checkItem){
         if($(this).attr("id")){
   				reportBody += "<br>ID: " + $(this).attr("id");
   			}
+        reportBody += "<br>Contrast: " + contrast;
+        fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+        var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+        reportBody += "<br>" + fullTagReport;
+
   			reportBody += "<br><br>";
-        alert(contrast + "_" + $(this).attr("id"));
         itemsCounter++;
       }
       totalItemsCounter++;
