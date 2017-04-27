@@ -608,7 +608,7 @@ function application(part){
 		labelcounter = labelcounter+itemsCounter;
 
     checkContrast("select");
-    alert(elementsIDs + " _ " + itemsCounter);
+    
     contrastlink = elementsIDs;
 		contrastcounter = itemsCounter;
 
@@ -762,7 +762,7 @@ function selectIFrame(){
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
-    alert("1");
+
     $(this).find("html").css({border: "5px solid green"});
 		application(this);
 		//$(this).append(accCheckAppend);
