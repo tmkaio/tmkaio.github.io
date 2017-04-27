@@ -1,6 +1,6 @@
 javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 
-	if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){
+	if(!(f=e.jQuery)||g>f.fn.jquery){
 
 		c=a.createElement("script");
 		c.type="text/javascript";
@@ -37,6 +37,83 @@ javascript:(function(e,a,g,f,c,b,d,p,k,l,m){
 function jq(jq){
 	$ = jq;
 	application("html");
+
+}
+
+//Get element relative Luminance
+function relativeLuminance(luminanceElement, colorPart){
+  getColor = $(luminanceElement).css(colorPart);
+  var colorRGB = getColor.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
+  var postColorRGB = new Array();
+
+  for(i=0;i<3;i++) {
+    var dvidedColor = colorRGB[i]/255;
+
+    if(dvidedColor == 0){
+        postColorRGB[i] = dvidedColor;
+    }
+    else if(dvidedColor <= 0.03928){
+      postColorRGB[i] = dvidedColor/12.92;
+    }
+    else{
+      postColorRGB[i] = Math.pow(((dvidedColor + 0.055)/1.055), 2.4);
+
+    }
+
+    if(i == 0){
+      bodyL = postColorRGB[i]*0.2126;
+    }
+    else if(i == 1){
+      bodyL += postColorRGB[i]*0.7152;
+    }
+    else{
+      bodyL += postColorRGB[i]*0.0722;
+      return bodyL;
+    }
+  }
+}
+
+function checkContrast(checkItem){
+  itemsCounter = 0;
+  totalItemsCounter = 0;
+
+  reportBody += "<b><hr style='background:grey; height: 2px;'>" + checkItem + " missing contrast:</b><hr style='background:grey; height: 2px;'><pre> ";
+  $(place).find(checkItem).each(function(){
+      colorofBackground = relativeLuminance(this, "background-color");
+      reportBody += "<br>Background color: " + getColor;
+      colorOffont = relativeLuminance(this, "color");
+      reportBody += "<br>Font color: " + getColor;
+
+      if(colorofBackground > colorOffont){
+        contrast = (colorofBackground + 0.05)/(colorOffont + 0.05);
+      }
+      else{
+        contrast = (colorOffont + 0.05)/(colorofBackground + 0.05);
+      }
+
+      if(contrast <= 21){
+
+
+        checkExistingID(this,"contrast",itemsCounter);
+    		elementsIDs = idList;
+
+        if($(this).attr("id")){
+  				reportBody += "<br>ID: " + $(this).attr("id");
+  			}
+        reportBody += "<br>Contrast: " + contrast;
+        reportBody += "<br>";
+        fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+        var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+        reportBody += "<br>" + fullTagReport;
+
+
+        itemsCounter++;
+      }
+      totalItemsCounter++;
+    });
+
+    reportBody += "<b>Total of " + checkItem + " found: <span class='text-success'>" + totalItemsCounter + "</span>";
+  	reportBody += "<br>Number of " + checkItem + " missing contrast <span class='text-danger'>" + itemsCounter + "</span></b></pre>";
 }
 
 /*Function to find the closes tag parent with ID*/
@@ -112,9 +189,10 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
   			attrFound = idList;
   			itemsCounter++;
   			counterAll++;
+        lang = "0";
       }
       else{
-				$(this).prepend("<div class='successTag'>" + $(this).attr(missingAttr) + "</div>");
+				lang = $(this).attr(missingAttr);
         attrFound = idList;
 			}
       totalItemsCounter++;
@@ -373,9 +451,6 @@ function accCheck(){
 		sidenav +=          	'<a href="javascript: changechkbox(\'imgtag\')"><span class="badge">' + imgcounter + '</span> Images/Icons without alt <input id="imgtag" type="radio" class="pull-right" name="imgtag" value="' + imglink + '"></a>';
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
-		sidenav +=             '<a href="javascript: changechkbox(\'htmllang\')"><span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang <input id="htmllang" type="radio" class="pull-right" name="htmllang" value="' + htmllink + '"></a>';
-		sidenav +=         '</li>';
-		sidenav +=         '<li>';
 		sidenav +=             '<a href="javascript: changechkbox(\'tablesum\')"><span class="badge">' + tablecounter + '</span> &lttable&gt without summary <input id="tablesum" type="radio" class="pull-right" name="tablesum" value="' + tablelink + '"></a>';
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
@@ -386,6 +461,9 @@ function accCheck(){
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
 		sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
+		sidenav +=         '</li>';
+    sidenav +=         '<li>';
+		sidenav +=             '<a href="#"><span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang </a>';
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
 		sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> General Report</a>';
@@ -483,11 +561,12 @@ function application(part){
 		attrFound = "";
 		idList = "";
 		labellink = "";
+    lang = "";
 
 		/*Calling function to check HTML with lang*/
 		findMissinAttr("html", "lang");
 		htmllink = elementsIDs;
-		htmlcounter = itemsCounter;
+		htmlcounter = lang;
 		htmlTag = fullTag;
 		htmlFound = attrFound;
 
@@ -533,6 +612,11 @@ function application(part){
 		}
 		labelcounter = labelcounter+itemsCounter;
 
+    checkContrast("select");
+
+    contrastlink = elementsIDs;
+		contrastcounter = itemsCounter;
+
 			/*Calling function to check for duplicated IDs*/
 		findDuplicatedIDs();
 		duplicatedcounter = itemsCounter;
@@ -542,6 +626,8 @@ function application(part){
 		finalReportBody = reportBody;
 		finalCounters = counters;
 		finalDuplicatedIDs = duplicatedcounter;
+
+
 
 	}
 
@@ -672,7 +758,6 @@ function selectIFrame(){
 
 
 		unmarkElements($("#imgtag").val());
-		unmarkElements($("#htmllang").val());
 		unmarkElements($("#tablesum").val());
 		unmarkElements($("#dupid").val());
 		unmarkElements($("#sellabel").val());
@@ -681,8 +766,10 @@ function selectIFrame(){
 		finalReportBody = "";
 		finalCounters = "";
 		finalDuplicatedIDs = "";
-
-
+    $(this).off("click");
+    $("iframe").off('mouseenter mouseleave');
+    $("iframe").css({border: "none"});
+    $(this).find("html").css({border: "5px solid green"});
 		application(this);
 		//$(this).append(accCheckAppend);
 	});

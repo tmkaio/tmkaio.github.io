@@ -101,7 +101,7 @@ function checkContrast(checkItem){
   				reportBody += "<br>ID: " + $(this).attr("id");
   			}
         reportBody += "<br>Contrast: " + contrast;
-        reportBody += "<br><br>";
+        reportBody += "<br>";
         fullTag += '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
         var fullTagReport = '<pre>' + this.outerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
         reportBody += "<br>" + fullTagReport;
