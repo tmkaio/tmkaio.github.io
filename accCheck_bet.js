@@ -446,9 +446,6 @@ function accCheck(){
 		sidenav +=          	'<a href="javascript: changechkbox(\'imgtag\')"><span class="badge">' + imgcounter + '</span> Images/Icons without alt <input id="imgtag" type="radio" class="pull-right" name="imgtag" value="' + imglink + '"></a>';
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
-		sidenav +=             '<a href="javascript: changechkbox(\'htmllang\')"><span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang <input id="htmllang" type="radio" class="pull-right" name="htmllang" value="' + htmllink + '"></a>';
-		sidenav +=         '</li>';
-		sidenav +=         '<li>';
 		sidenav +=             '<a href="javascript: changechkbox(\'tablesum\')"><span class="badge">' + tablecounter + '</span> &lttable&gt without summary <input id="tablesum" type="radio" class="pull-right" name="tablesum" value="' + tablelink + '"></a>';
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
@@ -459,6 +456,9 @@ function accCheck(){
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
 		sidenav +=             '<a href="#"><span class="badge">' + tablecountcounter + '</span> Number of tables</a>';
+		sidenav +=         '</li>';
+    sidenav +=         '<li>';
+		sidenav +=             '<a href="#"><span class="badge">' + htmlcounter + '</span> &lthtml&gt without lang </a>';
 		sidenav +=         '</li>';
 		sidenav +=         '<li>';
 		sidenav +=             '<a href="javascript: writeHTML()"><i class="fa fa-bar-chart-o fa-lg"></i> General Report</a>';
