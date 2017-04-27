@@ -753,7 +753,6 @@ function selectIFrame(){
 
 
 		unmarkElements($("#imgtag").val());
-		unmarkElements($("#htmllang").val());
 		unmarkElements($("#tablesum").val());
 		unmarkElements($("#dupid").val());
 		unmarkElements($("#sellabel").val());
