@@ -763,6 +763,7 @@ function selectIFrame(){
 		finalCounters = "";
 		finalDuplicatedIDs = "";
     $(this).off("click");
+    $("iframe").off('mouseenter mouseleave');
     $(this).find("html").css({border: "5px solid green"});
 		application(this);
 		//$(this).append(accCheckAppend);
