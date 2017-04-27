@@ -52,8 +52,16 @@
 */
 
 /*  });*/
+  $(document).ready(function(){
+    $("#testedebotao").click(function(){
+      alert("haha");
+      $("#testedebotao").off("click");
+    });
+  });
+
 
   </script>
+  <button id="testedebotao">asfd</button>
   <br><br>
   <select id="test" style="background-color: grey"><option value="1">1</option></select>
   <label for="test2">123</label><select id="test2"><option value="1">1</option></select>
