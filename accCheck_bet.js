@@ -648,6 +648,7 @@ function newFun($){
 function writeHTML(){
 	/*Creating HTML*/
 	newPage = "<html lang='en'>";
+	newPage = "<title>accCheck General Report</title>";
 	newPage += "<head>";
 	newPage += "<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>";
 	newPage += "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
