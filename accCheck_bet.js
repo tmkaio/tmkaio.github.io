@@ -175,7 +175,7 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
 
 	reportBody += "<b><hr style='background:grey; height: 2px;'>" + tag + " missing " + missingAttr + ":</b><hr style='background:grey; height: 2px;'><pre> ";
   if(tag == "html"){
-    $(tag).each(function(){
+    $(place).find(tag).each(function(){
       if(!$(this).attr(missingAttr)){
         checkExistingID(this, tag, itemsCounter);
   			elementsIDs = idList;
