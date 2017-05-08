@@ -189,7 +189,7 @@ function findMissinAttr(tag, missingAttr, obligAttr, optAttr){
   			attrFound = idList;
   			itemsCounter++;
   			counterAll++;
-        lang = "0";
+        lang = "1";
       }
       else{
 				lang = $(this).attr(missingAttr);
