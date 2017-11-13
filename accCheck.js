@@ -674,7 +674,7 @@ function writeHTML(){
 }
 
 function enableSrolling(){
-		$("body").css({"height":$(window).height()+"px", "overflow":"auto"});
+		$(place).css({"height":$(window).height()+"px", "overflow":"auto"});
 }
 
 
